@@ -1,0 +1,397 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Content Strategy & Design" description="Professional content strategy, information architecture, UX writing and documentation quality services. Docifice delivers structure that scales.">
+
+<style>
+.td-hero{background:#021430;padding:72px 0 64px;position:relative;overflow:hidden;}
+.td-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 20%,rgba(0,120,212,.28) 0%,transparent 60%);pointer-events:none;}
+.td-hero-inner{max-width:1400px;margin:0 auto;padding:0 32px;position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center;}
+.td-eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7dd3fc;margin-bottom:14px;}
+.td-hero h1{font-size:52px;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1.04;margin-bottom:18px;}
+.td-hero h1 em{font-style:normal;color:#7dd3fc;}
+.td-hero p{font-size:16px;color:rgba(255,255,255,.58);line-height:1.76;max-width:480px;margin-bottom:32px;}
+.td-hero-btns{display:flex;gap:12px;align-items:center;}
+.trust-bar{background:#f8f9fa;border-bottom:1px solid #f0f0f0;padding:20px 0;}
+.trust-bar-inner{max-width:1400px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+.trust-label{font-size:13px;font-weight:700;color:#0a0a0a;white-space:nowrap;}
+.trust-items{display:flex;flex:1;justify-content:space-between;flex-wrap:wrap;align-items:center;margin-left:32px;}
+.trust-item{font-size:13px;font-weight:600;color:#555;display:flex;align-items:center;gap:6px;}
+.section{padding:88px 0;}
+.section-alt{background:#f8f9fa;}
+.wrap{max-width:1400px;margin:0 auto;padding:0 32px;}
+.section-ey{font-size:11px;font-weight:700;letter-spacing:.04em;color:#0078D4;margin-bottom:12px;}
+.section-h2{font-size:36px;font-weight:800;letter-spacing:-.04em;color:#0a0a0a;line-height:1.1;margin-bottom:14px;}
+.section-sub{font-size:15px;color:#666;line-height:1.6;}
+.del-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:40px;}
+.del-cat:nth-child(1){grid-column:span 2;}
+.del-cat:nth-child(2){grid-column:span 2;}
+.del-cat:nth-child(3){grid-column:span 2;}
+.del-cat:nth-child(4){grid-column:2/span 2;}
+.del-cat:nth-child(5){grid-column:span 2;}
+.del-cat{border-radius:12px;padding:24px 26px;border:1px solid #eaecf0;border-top:3px solid #0078D4;background:#fff;transition:border-color .2s,box-shadow .2s,transform .22s cubic-bezier(.34,1.1,.64,1);}
+.del-cat:hover{border-color:#c8ddf5;box-shadow:0 6px 20px rgba(0,120,212,.08);transform:translateY(-3px);}
+.del-cat-icon{font-size:10px;font-weight:700;letter-spacing:.05em;color:#0078D4;margin-bottom:6px;display:block;}
+.del-cat-title{font-size:15px;font-weight:800;color:#0a0a0a;letter-spacing:-.02em;margin-bottom:12px;}
+.del-cat-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.del-cat-list li{font-size:12px;color:#444;padding-left:14px;position:relative;line-height:1.5;}
+.del-cat-list li::before{content:'';position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:#0078D4;}
+.aud-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:40px;}
+.aud-card{background:#fff;border:1px solid #eaecf0;border-radius:10px;padding:18px 20px;display:flex;align-items:center;gap:12px;transition:border-color .2s,box-shadow .2s,transform .22s cubic-bezier(.34,1.1,.64,1);}
+.aud-card:hover{border-color:#0078D4;box-shadow:0 4px 16px rgba(0,120,212,.08);transform:translateY(-2px);}
+.aud-icon{width:32px;height:32px;border-radius:8px;background:#f0f5ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.aud-name{font-size:13px;font-weight:600;color:#0a0a0a;}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px;}
+.process-step{background:#fff;border:1px solid #e4edf8;border-radius:12px;padding:28px 24px;}
+.process-num{font-size:11px;font-weight:700;color:#0078D4;letter-spacing:.04em;margin-bottom:12px;}
+.process-title{font-size:16px;font-weight:800;color:#0a0a0a;margin-bottom:8px;letter-spacing:-.02em;}
+.process-desc{font-size:13px;color:#666;line-height:1.65;}
+.tools-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;}
+.tool-tag{font-size:12px;font-weight:600;padding:7px 14px;border-radius:8px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.1);transition:background .2s,color .2s,border-color .2s;}
+.tool-tag:hover{background:rgba(0,120,212,.2);border-color:rgba(0,120,212,.4);color:#fff;}
+.faq-list{display:flex;flex-direction:column;gap:2px;margin-top:48px;}
+.faq-item{border:1px solid #eaecf0;border-radius:10px;overflow:hidden;}
+.faq-q{padding:20px 24px;font-size:15px;font-weight:600;color:#0a0a0a;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;}
+.faq-q:hover{background:#f8f9fa;}
+.faq-a{padding:0 24px 0;font-size:14px;color:#555;line-height:1.74;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;}
+.faq-item.open .faq-a{max-height:200px;padding:0 24px 20px;}
+.faq-item.open .faq-chevron{transform:rotate(180deg);}
+.faq-chevron{transition:transform .2s;flex-shrink:0;color:#0078D4;}
+.btn-primary{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background:#0078D4;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s,opacity .2s;text-decoration:none;}
+.btn-primary:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,120,212,.3);}
+.btn-ghost{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.3);padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;transition:background .2s,transform .22s cubic-bezier(.34,1.1,.64,1);text-decoration:none;}
+.btn-ghost:hover{background:rgba(255,255,255,.2);transform:translateY(-2px);}
+</style>
+
+<!-- HERO -->
+<div class="td-hero">
+  <div class="td-hero-inner">
+    <div>
+      <div class="td-eyebrow">Content Strategy & Design</div>
+      <h1>Structure that <em>scales.</em></h1>
+      <p>We design the content systems, information architecture, and UX writing frameworks that make your documentation and product content clear, consistent, and scalable.</p>
+      <div class="td-hero-btns">
+        <a href="/contact" class="btn-primary">Get in touch <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="/work/case-studies" class="btn-ghost">View case studies <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Hero visual: IA / content structure map -->
+    <div style="background:#0a0a0a;border-radius:16px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.08);">
+      <div style="background:#111;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06);">
+        <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:rgba(255,255,255,.35);font-family:'JetBrains Mono',monospace;">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Content Architecture &middot; v1.3
+        </div>
+        <span style="font-size:9px;font-weight:700;padding:3px 8px;border-radius:4px;background:rgba(52,211,153,.12);color:#34d399;letter-spacing:.04em;">APPROVED</span>
+      </div>
+      <div style="padding:20px 22px;background:#0a0a0a;">
+        <!-- Style guide row -->
+        <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:12px;letter-spacing:.04em;text-transform:uppercase;font-size:9px;">Information Architecture</div>
+        <!-- Tree structure -->
+        <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:16px;">
+          <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:rgba(0,120,212,.15);border:1px solid rgba(0,120,212,.3);border-radius:7px;">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#60b0f4" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            <span style="font-size:11px;font-weight:700;color:#60b0f4;">Documentation Hub</span>
+            <span style="margin-left:auto;font-size:9px;color:rgba(255,255,255,.3);font-family:'JetBrains Mono',monospace;">root</span>
+          </div>
+          <div style="margin-left:20px;display:flex;flex-direction:column;gap:5px;">
+            <div style="display:flex;align-items:center;gap:8px;padding:6px 10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:6px;">
+              <span style="color:rgba(255,255,255,.3);font-size:10px;">&#9492;</span>
+              <span style="font-size:11px;color:rgba(255,255,255,.7);">Getting Started</span>
+              <span style="margin-left:auto;font-size:9px;padding:2px 6px;background:rgba(52,211,153,.1);color:#34d399;border-radius:3px;">4 topics</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;padding:6px 10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:6px;">
+              <span style="color:rgba(255,255,255,.3);font-size:10px;">&#9492;</span>
+              <span style="font-size:11px;color:rgba(255,255,255,.7);">User Guide</span>
+              <span style="margin-left:auto;font-size:9px;padding:2px 6px;background:rgba(52,211,153,.1);color:#34d399;border-radius:3px;">12 topics</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;padding:6px 10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:6px;">
+              <span style="color:rgba(255,255,255,.3);font-size:10px;">&#9492;</span>
+              <span style="font-size:11px;color:rgba(255,255,255,.7);">API Reference</span>
+              <span style="margin-left:auto;font-size:9px;padding:2px 6px;background:rgba(96,176,244,.1);color:#60b0f4;border-radius:3px;">8 topics</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;padding:6px 10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:6px;">
+              <span style="color:rgba(255,255,255,.3);font-size:10px;">&#9492;</span>
+              <span style="font-size:11px;color:rgba(255,255,255,.7);">Troubleshooting</span>
+              <span style="margin-left:auto;font-size:9px;padding:2px 6px;background:rgba(251,191,36,.1);color:#fbbf24;border-radius:3px;">6 topics</span>
+            </div>
+          </div>
+        </div>
+        <!-- Style guide badge row -->
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <span style="font-size:10px;padding:3px 9px;border-radius:20px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.08);">Style guide</span>
+          <span style="font-size:10px;padding:3px 9px;border-radius:20px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.08);">Taxonomy</span>
+          <span style="font-size:10px;padding:3px 9px;border-radius:20px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.08);">Metadata</span>
+          <span style="font-size:10px;padding:3px 9px;border-radius:20px;background:rgba(0,120,212,.15);color:#60b0f4;border:1px solid rgba(0,120,212,.25);">DITA XML</span>
+        </div>
+      </div>
+      <div style="padding:10px 18px;border-top:1px solid rgba(255,255,255,.06);background:#0a0a0a;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:10px;color:rgba(255,255,255,.3);font-family:'JetBrains Mono',monospace;">Content Architecture &middot; Enterprise SaaS</span>
+        <span style="font-size:10px;font-weight:600;color:#34d399;">&#10003; Approved</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <span class="trust-label">Trusted By</span>
+    <div class="trust-items">
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Product teams</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>UX & design teams</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Enterprise documentation teams</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Customer success teams</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Global enterprise teams</span>
+    </div>
+  </div>
+</div>
+
+<!-- DELIVERABLES -->
+<div class="section">
+  <div class="wrap">
+    <div class="section-ey">What We Deliver</div>
+    <div class="section-h2">Content systems that work at scale.</div>
+    <div class="section-sub">From content strategy and information architecture to UX writing and quality assurance, we cover the full spectrum of content design.</div>
+    <div class="del-grid">
+      <div class="del-cat">
+        <span class="del-cat-icon">Content Strategy</span>
+        <div class="del-cat-title">Plan before you write</div>
+        <ul class="del-cat-list">
+          <li>Content Strategy</li>
+          <li>Content Audits</li>
+          <li>Content Planning</li>
+          <li>Content Governance</li>
+          <li>Content Lifecycle Management</li>
+          <li>Documentation Strategy</li>
+          <li>Content Roadmaps</li>
+          <li>Content Gap Analysis</li>
+          <li>Editorial Planning</li>
+        </ul>
+      </div>
+      <div class="del-cat">
+        <span class="del-cat-icon">Information Architecture</span>
+        <div class="del-cat-title">Structure that users can navigate</div>
+        <ul class="del-cat-list">
+          <li>Information Architecture</li>
+          <li>Content Modeling</li>
+          <li>Content Taxonomy</li>
+          <li>Navigation Design</li>
+          <li>Documentation Structure</li>
+          <li>Metadata Strategy</li>
+          <li>Labeling Systems</li>
+          <li>Content Reuse Strategy</li>
+          <li>Cross-Referencing Strategy</li>
+        </ul>
+      </div>
+      <div class="del-cat">
+        <span class="del-cat-icon">UX Writing & Product Content</span>
+        <div class="del-cat-title">Words that guide users forward</div>
+        <ul class="del-cat-list">
+          <li>UX Writing</li>
+          <li>UI Text &amp; Microcopy</li>
+          <li>Button &amp; Navigation Labels</li>
+          <li>Form Content</li>
+          <li>Error &amp; Success Messages</li>
+          <li>Empty States</li>
+          <li>Onboarding Content</li>
+          <li>In-App Guidance</li>
+          <li>Tooltips &amp; Notifications</li>
+        </ul>
+      </div>
+      <div class="del-cat">
+        <span class="del-cat-icon">Documentation Quality</span>
+        <div class="del-cat-title">Consistency across every deliverable</div>
+        <ul class="del-cat-list">
+          <li>Documentation Audits</li>
+          <li>Style Guide Development</li>
+          <li>Editorial Guidelines</li>
+          <li>Terminology Management</li>
+          <li>Plain Language Review</li>
+          <li>Consistency Reviews</li>
+          <li>Readability Improvements</li>
+          <li>Quality Assurance Reviews</li>
+        </ul>
+      </div>
+      <div class="del-cat">
+        <span class="del-cat-icon">Content Operations</span>
+        <div class="del-cat-title">Processes that keep content healthy</div>
+        <ul class="del-cat-list">
+          <li>Documentation Workflows</li>
+          <li>Review &amp; Approval Processes</li>
+          <li>Documentation Governance</li>
+          <li>Content Maintenance Plans</li>
+          <li>Documentation Versioning</li>
+          <li>Documentation Templates</li>
+          <li>Content Migration Planning</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AUDIENCE -->
+<div class="section section-alt">
+  <div class="wrap">
+    <div class="section-ey">Who We Work With</div>
+    <div class="section-h2">Built for every team that touches content.</div>
+    <div class="section-sub">Content strategy and design touches every part of a product organisation. We collaborate across teams to build systems everyone can use.</div>
+    <div class="aud-grid">
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><span class="aud-name">Product Managers</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div><span class="aud-name">UX Designers</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><span class="aud-name">UI Designers</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></div><span class="aud-name">Technical Writers</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><span class="aud-name">Engineering Teams</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><span class="aud-name">Customer Success Teams</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><span class="aud-name">Support Teams</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><span class="aud-name">Marketing Teams</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><span class="aud-name">Content Designers</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><span class="aud-name">Product Owners</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div class="section" style="background:#f0f5ff;">
+  <div class="wrap">
+    <div class="section-ey">How We Work</div>
+    <div class="section-h2">Audit first. Design second. Build third.</div>
+    <div class="section-sub">We never start designing content systems without first understanding what exists, what is broken, and what users actually need.</div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="process-num">01 / Audit</div>
+        <div class="process-title">Understand what exists</div>
+        <div class="process-desc">We audit your existing content, structure, and governance. We identify gaps, inconsistencies, and opportunities before recommending anything.</div>
+      </div>
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <div class="process-num">02 / Design</div>
+        <div class="process-title">Design the system</div>
+        <div class="process-desc">We design the information architecture, content model, taxonomy, and governance framework that will support your content long-term.</div>
+      </div>
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <div class="process-num">03 / Implement</div>
+        <div class="process-title">Write and structure</div>
+        <div class="process-desc">We apply the strategy, write the content, restructure existing material, and establish the style guides and templates your team will follow.</div>
+      </div>
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div class="process-num">04 / Sustain</div>
+        <div class="process-title">Hand over and enable</div>
+        <div class="process-desc">We hand over governance documentation, style guides, and workflows so your team can maintain the system independently after we deliver.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOOLS -->
+<div class="section" style="background:#0f172a;">
+  <div class="wrap">
+    <div class="section-ey" style="color:#7dd3fc;">Tools & Platforms</div>
+    <div class="section-h2" style="color:#fff;">We work in your environment.</div>
+    <div class="section-sub" style="color:rgba(255,255,255,.55);">From enterprise CCMS platforms to lightweight Markdown workflows, we adapt to your stack.</div>
+    <div class="tools-grid">
+      <span class="tool-tag">Confluence</span><span class="tool-tag">Notion</span><span class="tool-tag">SharePoint</span><span class="tool-tag">Document360</span><span class="tool-tag">Zendesk Guide</span><span class="tool-tag">GitBook</span><span class="tool-tag">Help Scout Docs</span><span class="tool-tag">Microsoft Word</span><span class="tool-tag">Markdown</span><span class="tool-tag">AsciiDoc</span><span class="tool-tag">DITA XML</span><span class="tool-tag">Adobe FrameMaker</span><span class="tool-tag">MadCap Flare</span><span class="tool-tag">Adobe RoboHelp</span><span class="tool-tag">Oxygen XML Author</span><span class="tool-tag">Sphinx</span><span class="tool-tag">Figma</span><span class="tool-tag">FigJam</span><span class="tool-tag">Miro</span><span class="tool-tag">Lucidchart</span><span class="tool-tag">Microsoft Visio</span><span class="tool-tag">draw.io</span><span class="tool-tag">Git</span><span class="tool-tag">GitHub</span><span class="tool-tag">GitLab</span><span class="tool-tag">Azure DevOps</span><span class="tool-tag">Bitbucket</span><span class="tool-tag">Jira</span><span class="tool-tag">Microsoft Teams</span><span class="tool-tag">Slack</span><span class="tool-tag">Grammarly</span><span class="tool-tag">Acrolinx</span><span class="tool-tag">Vale</span>
+    </div>
+  </div>
+</div>
+
+<!-- FAQs -->
+<div class="section">
+  <div class="wrap">
+    <div class="section-ey">FAQs</div>
+    <div class="section-h2">Common questions.</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">What is content strategy? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Content strategy defines how content is planned, structured, governed, and maintained to support both business goals and user needs. It covers everything from what content exists to how it is organised, maintained, and retired.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you improve our existing documentation? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We audit your documentation, identify gaps and inconsistencies, improve organisation and structure, and create a content strategy that prevents the same problems recurring.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you create style guides? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We develop documentation and content style guides, editorial standards, terminology guides, and writing conventions tailored to your organisation, product, and audience.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you improve our information architecture? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Absolutely. We reorganise documentation, knowledge bases, and help centres to make content easier to find and navigate. We design taxonomy, labeling systems, navigation structures, and metadata strategies.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you write UX content? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We write clear, concise interface content including buttons, forms, error messages, onboarding experiences, empty states, tooltips, and in-product guidance aligned with your product voice.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you standardise documentation across teams? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We establish governance frameworks, templates, review workflows, and style standards to ensure consistency across products and teams, regardless of who is writing the content.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA + WAVES -->
+<div class="bottom">
+  <div class="wrap">
+    <div class="cta">
+      <div class="cta-eyebrow">Ready when you are</div>
+      <h2 class="cta-h2">Content systems built to <em>last.</em></h2>
+      <p class="cta-sub">Tell us what you need. We audit, design, and deliver content strategies your team can maintain long after we hand over.</p>
+      <div class="cta-btns">
+        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s;display:inline-flex;align-items:center;gap:8px;background-color:#0a0a0a;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;">Get in touch <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s;display:inline-flex;align-items:center;gap:8px;background-color:#fff;color:#0a0a0a;border:1.5px solid #d0d0d0;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;">View success stories <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <canvas id="waveCanvas"></canvas>
+</div>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+const wc=document.getElementById('waveCanvas');
+const wx=wc&&wc.getContext('2d');
+function resize(){if(!wc)return;wc.width=wc.offsetWidth;wc.height=200;}
+resize();window.addEventListener('resize',resize);
+const layers=[
+  {a:20,s:.0009,c1:'#b8d0e8',c2:'#88b0d0',y:0.44,o:.5,p:0},
+  {a:18,s:.0007,c1:'#4888c0',c2:'#0078D4',y:0.54,o:.62,p:1.8},
+  {a:18,s:.0011,c1:'#0060a8',c2:'#004880',y:0.65,o:.72,p:3.2},
+  {a:16,s:.0006,c1:'#003060',c2:'#002040',y:0.75,o:.82,p:0.9},
+  {a:14,s:.0013,c1:'#011828',c2:'#021430',y:0.85,o:.93,p:2.1},
+  {a:10,s:.0005,c1:'#010e20',c2:'#010e20',y:0.93,o:1,p:1.2},
+];
+function draw(t){
+  if(!wx||!wc)return;
+  const W=wc.width,H=wc.height;
+  wx.clearRect(0,0,W,H);
+  wx.fillStyle='#f8f9fa';wx.fillRect(0,0,W,H);
+  layers.forEach(l=>{
+    wx.beginPath();
+    const by=H*l.y;wx.moveTo(0,H);
+    for(let x=0;x<=W;x+=2){
+      const n=x/W;
+      const raw=by+Math.sin(n*Math.PI*3.5+t*l.s+l.p)*l.a+Math.sin(n*Math.PI*6+t*l.s*.65+l.p*1.4)*l.a*.35;
+      wx.lineTo(x,Math.max(by-l.a*1.45,raw));
+    }
+    wx.lineTo(W,H);wx.closePath();
+    const g=wx.createLinearGradient(0,0,W,0);
+    g.addColorStop(0,l.c1);g.addColorStop(1,l.c2);
+    wx.fillStyle=g;wx.globalAlpha=l.o;wx.fill();
+  });
+  wx.globalAlpha=1;requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);
+</script>
+
+</BaseLayout>

@@ -1,0 +1,410 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="API & Developer Documentation" description="Professional API and developer documentation services — REST, GraphQL, OpenAPI specs, SDK docs, developer portals and more. Docifice delivers docs developers actually use.">
+
+<style>
+/* ── Page-level styles ── */
+.td-hero{background:#021430;padding:72px 0 64px;position:relative;overflow:hidden;}
+.td-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 20%,rgba(0,120,212,.28) 0%,transparent 60%);pointer-events:none;}
+.td-hero-inner{max-width:1400px;margin:0 auto;padding:0 32px;position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center;}
+.td-eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7dd3fc;margin-bottom:14px;}
+.td-hero h1{font-size:52px;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1.04;margin-bottom:18px;}
+.td-hero h1 em{font-style:normal;color:#7dd3fc;}
+.td-hero p{font-size:16px;color:rgba(255,255,255,.58);line-height:1.76;max-width:480px;margin-bottom:32px;}
+.td-hero-btns{display:flex;gap:12px;align-items:center;}
+
+/* Trust bar */
+.trust-bar{background:#f8f9fa;border-bottom:1px solid #f0f0f0;padding:20px 0;}
+.trust-bar-inner{max-width:1400px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+.trust-label{font-size:13px;font-weight:700;color:#0a0a0a;white-space:nowrap;}
+.trust-items{display:flex;flex:1;justify-content:space-between;flex-wrap:wrap;align-items:center;margin-left:32px;}
+.trust-item{font-size:13px;font-weight:600;color:#555;display:flex;align-items:center;gap:6px;}
+
+/* Section base */
+.section{padding:88px 0;}
+.section-alt{background:#f8f9fa;}
+.wrap{max-width:1400px;margin:0 auto;padding:0 32px;}
+.section-ey{font-size:11px;font-weight:700;letter-spacing:.04em;color:#0078D4;margin-bottom:12px;}
+.section-h2{font-size:36px;font-weight:800;letter-spacing:-.04em;color:#0a0a0a;line-height:1.1;margin-bottom:14px;}
+.section-sub{font-size:15px;color:#666;line-height:1.6;}
+
+/* Deliverables grid */
+.del-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:40px;}
+.del-cat:nth-child(1){grid-column:span 2;}
+.del-cat:nth-child(2){grid-column:span 2;}
+.del-cat:nth-child(3){grid-column:span 2;}
+.del-cat:nth-child(4){grid-column:2/span 2;}
+.del-cat:nth-child(5){grid-column:span 2;}
+.del-cat{border-radius:12px;padding:24px 26px;border:1px solid #eaecf0;border-top:3px solid #0078D4;background:#fff;transition:border-color .2s,box-shadow .2s,transform .22s cubic-bezier(.34,1.1,.64,1);}
+.del-cat:hover{border-color:#c8ddf5;box-shadow:0 6px 20px rgba(0,120,212,.08);transform:translateY(-3px);}
+.del-cat-icon{font-size:10px;font-weight:700;letter-spacing:.05em;color:#0078D4;margin-bottom:6px;display:block;}
+.del-cat-title{font-size:15px;font-weight:800;color:#0a0a0a;letter-spacing:-.02em;margin-bottom:12px;}
+.del-cat-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.del-cat-list li{font-size:12px;color:#444;padding-left:14px;position:relative;line-height:1.5;}
+.del-cat-list li::before{content:'';position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:#0078D4;}
+
+/* Audience */
+.aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px;}
+.aud-card{background:#fff;border:1px solid #eaecf0;border-radius:10px;padding:18px 20px;display:flex;align-items:center;gap:12px;transition:border-color .2s,box-shadow .2s,transform .22s cubic-bezier(.34,1.1,.64,1);}
+.aud-card:hover{border-color:#0078D4;box-shadow:0 4px 16px rgba(0,120,212,.08);transform:translateY(-2px);}
+.aud-icon{width:32px;height:32px;border-radius:8px;background:#f0f5ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.aud-name{font-size:13px;font-weight:600;color:#0a0a0a;}
+
+/* Process */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px;}
+.process-step{background:#fff;border:1px solid #e4edf8;border-radius:12px;padding:28px 24px;}
+.process-num{font-size:11px;font-weight:700;color:#0078D4;letter-spacing:.04em;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.process-title{font-size:16px;font-weight:800;color:#0a0a0a;margin-bottom:8px;letter-spacing:-.02em;}
+.process-desc{font-size:13px;color:#666;line-height:1.65;}
+
+/* Tools */
+.tools-section{background:#0f172a;padding:72px 0;}
+.tools-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;}
+.tool-tag{font-size:12px;font-weight:600;padding:7px 14px;border-radius:8px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.1);}
+.tool-tag:hover{background:rgba(0,120,212,.2);border-color:rgba(0,120,212,.4);color:#fff;}
+
+/* FAQs */
+.faq-list{display:flex;flex-direction:column;gap:2px;margin-top:48px;}
+.faq-item{border:1px solid #eaecf0;border-radius:10px;overflow:hidden;}
+.faq-q{padding:20px 24px;font-size:15px;font-weight:600;color:#0a0a0a;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;}
+.faq-q:hover{background:#f8f9fa;}
+.faq-a{padding:0 24px 0;font-size:14px;color:#555;line-height:1.74;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;}
+.faq-item.open .faq-a{max-height:200px;padding:0 24px 20px;}
+.faq-item.open .faq-chevron{transform:rotate(180deg);}
+.faq-chevron{transition:transform .2s;flex-shrink:0;color:#0078D4;}
+
+/* Buttons */
+.btn-primary{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background:#0078D4;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s,opacity .2s;text-decoration:none;}
+.btn-primary:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,120,212,.3);}
+.btn-ghost{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.3);padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;transition:background .2s,transform .22s cubic-bezier(.34,1.1,.64,1);text-decoration:none;}
+.btn-ghost:hover{background:rgba(255,255,255,.2);transform:translateY(-2px);}
+</style>
+
+<!-- HERO -->
+<div class="td-hero">
+  <div class="td-hero-inner">
+    <div>
+      <div class="td-eyebrow">API & Developer Documentation</div>
+      <h1>Docs developers <em>actually use.</em></h1>
+      <p>We write API and developer documentation that reduces integration time, cuts support tickets, and gives developers everything they need to ship faster.</p>
+      <div class="td-hero-btns">
+        <a href="/contact" class="btn-primary">Get in touch <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="/work/case-studies" class="btn-ghost">View case studies <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Hero visual: API reference snippet -->
+    <div style="position:relative;">
+      <div style="background:#0a0a0a;border-radius:16px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.08);">
+        <!-- Bar -->
+        <div style="background:#111;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06);">
+          <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:rgba(255,255,255,.35);font-family:'JetBrains Mono',monospace;">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            API Reference &middot; v2.4
+          </div>
+          <span style="font-size:9px;font-weight:700;padding:3px 8px;border-radius:4px;background:rgba(52,211,153,.12);color:#34d399;letter-spacing:.04em;">STYLE GUIDE APPLIED</span>
+        </div>
+        <!-- Content -->
+        <div style="padding:20px 22px;background:#0a0a0a;">
+          <!-- Endpoint -->
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+            <span style="font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;background:rgba(52,211,153,.15);color:#34d399;font-family:'JetBrains Mono',monospace;">GET</span>
+            <code style="font-size:11px;color:#60b0f4;font-family:'JetBrains Mono',monospace;">/api/v2/users/&#123;id&#125;</code>
+          </div>
+          <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:6px;">Retrieve a user</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:14px;">Returns the user object for the specified ID. Requires a valid Bearer token.</div>
+          <!-- Parameters table -->
+          <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px;overflow:hidden;margin-bottom:12px;">
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;padding:7px 12px;border-bottom:1px solid rgba(255,255,255,.06);">
+              <span style="font-size:9px;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:.06em;text-transform:uppercase;">Parameter</span>
+              <span style="font-size:9px;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:.06em;text-transform:uppercase;">Type</span>
+              <span style="font-size:9px;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:.06em;text-transform:uppercase;">Required</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;padding:7px 12px;border-bottom:1px solid rgba(255,255,255,.04);">
+              <code style="font-size:10px;color:#60b0f4;font-family:'JetBrains Mono',monospace;">id</code>
+              <span style="font-size:10px;color:rgba(255,255,255,.5);">string</span>
+              <span style="font-size:10px;color:#34d399;">Yes</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;padding:7px 12px;">
+              <code style="font-size:10px;color:#60b0f4;font-family:'JetBrains Mono',monospace;">expand</code>
+              <span style="font-size:10px;color:rgba(255,255,255,.5);">string[]</span>
+              <span style="font-size:10px;color:rgba(255,255,255,.35);">No</span>
+            </div>
+          </div>
+          <!-- Response -->
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span style="font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;background:rgba(52,211,153,.15);color:#34d399;font-family:'JetBrains Mono',monospace;">200 OK</span>
+            <span style="font-size:10px;color:rgba(255,255,255,.35);">Returns user object</span>
+          </div>
+        </div>
+        <!-- Footer -->
+        <div style="padding:10px 18px;border-top:1px solid rgba(255,255,255,.06);background:#0a0a0a;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:10px;color:rgba(255,255,255,.3);font-family:'JetBrains Mono',monospace;">REST &middot; Authentication required</span>
+          <span style="font-size:10px;font-weight:600;color:#34d399;">&#10003; OpenAPI validated</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <span class="trust-label">Trusted By</span>
+    <div class="trust-items">
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>SaaS & platform companies</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Developer tool teams</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Enterprise API programs</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>FinTech & payments</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Global enterprise teams</span>
+    </div>
+  </div>
+</div>
+
+<!-- DELIVERABLES -->
+<div class="section">
+  <div class="wrap">
+    <div class="section-ey">What We Deliver</div>
+    <div class="section-h2">Every type of API and developer document, done right.</div>
+    <div class="section-sub">From REST API references to full developer portals and CI/CD pipeline docs, we cover the complete developer documentation spectrum.</div>
+
+    <div class="del-grid">
+      <div class="del-cat">
+        <span class="del-cat-icon">API Documentation</span>
+        <div class="del-cat-title">Every API type covered</div>
+        <ul class="del-cat-list">
+          <li>REST API Documentation</li>
+          <li>GraphQL API Documentation</li>
+          <li>SOAP API Documentation</li>
+          <li>gRPC Documentation</li>
+          <li>WebSocket API Documentation</li>
+          <li>Internal API Documentation</li>
+          <li>Public API Documentation</li>
+          <li>Partner API Documentation</li>
+        </ul>
+      </div>
+      <div class="del-cat">
+        <span class="del-cat-icon">API Reference</span>
+        <div class="del-cat-title">Complete reference coverage</div>
+        <ul class="del-cat-list">
+          <li>Endpoint Documentation</li>
+          <li>Authentication &amp; Authorization Guides</li>
+          <li>Request &amp; Response Documentation</li>
+          <li>Parameters &amp; Data Models</li>
+          <li>Error Code Documentation</li>
+          <li>HTTP Status Codes</li>
+          <li>Rate Limits &amp; Pagination</li>
+          <li>API Versioning</li>
+        </ul>
+      </div>
+      <div class="del-cat">
+        <span class="del-cat-icon">Developer Documentation</span>
+        <div class="del-cat-title">Built for developers to ship faster</div>
+        <ul class="del-cat-list">
+          <li>Getting Started Guides</li>
+          <li>Quick Start Guides</li>
+          <li>Integration Guides</li>
+          <li>SDK &amp; CLI Documentation</li>
+          <li>Webhook Documentation</li>
+          <li>Code Samples &amp; Tutorials</li>
+          <li>Migration Guides</li>
+          <li>Troubleshooting Guides</li>
+        </ul>
+      </div>
+      <div class="del-cat">
+        <span class="del-cat-icon">API Design & Developer Experience</span>
+        <div class="del-cat-title">Docs that scale with your platform</div>
+        <ul class="del-cat-list">
+          <li>OpenAPI (Swagger) Specifications</li>
+          <li>API Style Guides</li>
+          <li>Postman Collections</li>
+          <li>Developer Portals</li>
+          <li>Interactive API Documentation</li>
+          <li>Searchable Documentation</li>
+          <li>Documentation IA</li>
+        </ul>
+      </div>
+      <div class="del-cat">
+        <span class="del-cat-icon">DevOps & CI/CD Documentation</span>
+        <div class="del-cat-title">From code to production, documented</div>
+        <ul class="del-cat-list">
+          <li>CI/CD Pipeline Documentation</li>
+          <li>Deployment Documentation</li>
+          <li>Git Workflow Documentation</li>
+          <li>Infrastructure Documentation</li>
+          <li>Docker &amp; Kubernetes Documentation</li>
+          <li>GitHub Actions Documentation</li>
+          <li>Azure DevOps Pipeline Documentation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TARGET AUDIENCE -->
+<div class="section section-alt">
+  <div class="wrap">
+    <div class="section-ey">Who We Write For</div>
+    <div class="section-h2">We write for the people who build with your API.</div>
+    <div class="section-sub">Good developer documentation starts with knowing your audience. We tailor every deliverable to the engineers, architects, and teams consuming your API.</div>
+    <div class="aud-grid">
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><span class="aud-name">Software Developers</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg></div><span class="aud-name">Backend Engineers</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg></div><span class="aud-name">Frontend Engineers</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div><span class="aud-name">Full-Stack Engineers</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div><span class="aud-name">Integration Engineers</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><span class="aud-name">DevOps Engineers</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><span class="aud-name">Solution Architects</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><span class="aud-name">Product Managers</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><span class="aud-name">Technical Support Teams</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div class="section" style="background:#f0f5ff;">
+  <div class="wrap">
+    <div class="section-ey">How We Work</div>
+    <div class="section-h2">We test the API before we document it.</div>
+    <div class="section-sub">We don't just read specs. We make real API calls, test authentication flows, and validate every endpoint before writing a word.</div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="process-num">01 / Discover</div>
+        <div class="process-title">Understand the API &amp; audience</div>
+        <div class="process-desc">We review your OpenAPI specs, Postman collections, existing docs, and talk to your engineering team to understand the API deeply.</div>
+      </div>
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <div class="process-num">02 / Test</div>
+        <div class="process-title">Make real API calls</div>
+        <div class="process-desc">We test every endpoint, authentication flow, error state, and edge case using Postman or cURL before documenting anything.</div>
+      </div>
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <div class="process-num">03 / Draft</div>
+        <div class="process-title">Write for developers</div>
+        <div class="process-desc">Every endpoint, parameter, and code sample is written from a developer's perspective. Clear, accurate, and consistent throughout.</div>
+      </div>
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div class="process-num">04 / Deliver</div>
+        <div class="process-title">Review &amp; hand over</div>
+        <div class="process-desc">We review with your engineering and product teams, incorporate feedback, and deliver on time with OpenAPI specs validated.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOOLS -->
+<div class="tools-section">
+  <div class="wrap">
+    <div class="section-ey" style="color:#7dd3fc;">Tools & Platforms</div>
+    <div class="section-h2" style="color:#fff;">We work in your stack.</div>
+    <div class="section-sub" style="color:rgba(255,255,255,.55);">No tool switching required. We adapt to whatever your engineering team uses.</div>
+    <div class="tools-grid">
+      <span class="tool-tag">OpenAPI (Swagger)</span><span class="tool-tag">Swagger Editor</span><span class="tool-tag">Swagger UI</span><span class="tool-tag">Redoc</span><span class="tool-tag">Redocly</span><span class="tool-tag">Stoplight</span><span class="tool-tag">ReadMe</span><span class="tool-tag">Postman</span><span class="tool-tag">Insomnia</span><span class="tool-tag">Bruno</span><span class="tool-tag">AsyncAPI</span><span class="tool-tag">Docusaurus</span><span class="tool-tag">MkDocs</span><span class="tool-tag">GitBook</span><span class="tool-tag">Mintlify</span><span class="tool-tag">Scalar</span><span class="tool-tag">Fern</span><span class="tool-tag">Slate</span><span class="tool-tag">Markdown</span><span class="tool-tag">MDX</span><span class="tool-tag">AsciiDoc</span><span class="tool-tag">Sphinx</span><span class="tool-tag">Hugo</span><span class="tool-tag">Jekyll</span><span class="tool-tag">Astro</span><span class="tool-tag">Git</span><span class="tool-tag">GitHub</span><span class="tool-tag">GitLab</span><span class="tool-tag">Azure Repos</span><span class="tool-tag">Bitbucket</span><span class="tool-tag">GitHub Actions</span><span class="tool-tag">Azure DevOps Pipelines</span><span class="tool-tag">GitLab CI/CD</span><span class="tool-tag">Jenkins</span><span class="tool-tag">CircleCI</span><span class="tool-tag">Bamboo</span><span class="tool-tag">Docker</span><span class="tool-tag">Kubernetes</span><span class="tool-tag">AWS</span><span class="tool-tag">Microsoft Azure</span><span class="tool-tag">Google Cloud Platform</span><span class="tool-tag">Jira</span><span class="tool-tag">Confluence</span><span class="tool-tag">Notion</span><span class="tool-tag">SharePoint</span><span class="tool-tag">Figma</span><span class="tool-tag">Lucidchart</span><span class="tool-tag">Visual Studio Code</span><span class="tool-tag">IntelliJ IDEA</span>
+    </div>
+  </div>
+</div>
+
+<!-- FAQs -->
+<div class="section">
+  <div class="wrap">
+    <div class="section-ey">FAQs</div>
+    <div class="section-h2">Common questions.</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Can you document an existing API? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We can create or improve API documentation using source code, OpenAPI specifications, Postman collections, or direct collaboration with your engineering team. We don't need a finished product to get started.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you create OpenAPI (Swagger) specifications? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We create, validate, and maintain OpenAPI specifications for new and existing APIs. We work with your engineering team to ensure specifications accurately reflect the API behaviour.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you provide code examples? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We include practical request and response examples, authentication workflows, and integration samples in multiple languages where applicable. All code examples are tested before inclusion.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you improve our existing API documentation? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Absolutely. We audit and restructure existing documentation to improve accuracy, consistency, and the overall developer experience. We identify gaps, outdated content, and structural issues before rewriting.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you document CI/CD pipelines and deployment processes? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We document build pipelines, deployment workflows, release processes, Git workflows, Docker environments, Kubernetes deployments, GitHub Actions, and Azure DevOps pipelines.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you build a developer portal? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We help structure and organise developer portals with API references, tutorials, onboarding content, and integration guides using tools like Docusaurus, MkDocs, Mintlify, Scalar, and ReadMe.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA + WAVES (same as homepage) -->
+<div class="bottom">
+  <div class="wrap">
+    <div class="cta">
+      <div class="cta-eyebrow">Ready when you are</div>
+      <h2 class="cta-h2">Developer docs that get out of the <em>way.</em></h2>
+      <p class="cta-sub">Tell us about your API. We'll scope it, plan it, and deliver documentation developers actually use.</p>
+      <div class="cta-btns">
+        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s cubic-bezier(.34,1.1,.64,1);display:inline-flex;align-items:center;gap:8px;background-color:#0a0a0a;color:#ffffff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;">Get in touch <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s cubic-bezier(.34,1.1,.64,1);display:inline-flex;align-items:center;gap:8px;background-color:#fff;color:#0a0a0a;border:1.5px solid #d0d0d0;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;">View success stories <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <canvas id="waveCanvas"></canvas>
+</div>
+
+<script>
+// FAQ accordion - smooth
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// Wave animation (same as homepage)
+const wc=document.getElementById('waveCanvas');
+const wx=wc&&wc.getContext('2d');
+function resize(){if(!wc)return;wc.width=wc.offsetWidth;wc.height=200;}
+resize();window.addEventListener('resize',resize);
+const layers=[
+  {a:20,s:.0009,c1:'#b8d0e8',c2:'#88b0d0',y:0.44,o:.5,p:0},
+  {a:18,s:.0007,c1:'#4888c0',c2:'#0078D4',y:0.54,o:.62,p:1.8},
+  {a:18,s:.0011,c1:'#0060a8',c2:'#004880',y:0.65,o:.72,p:3.2},
+  {a:16,s:.0006,c1:'#003060',c2:'#002040',y:0.75,o:.82,p:0.9},
+  {a:14,s:.0013,c1:'#011828',c2:'#021430',y:0.85,o:.93,p:2.1},
+  {a:10,s:.0005,c1:'#010e20',c2:'#010e20',y:0.93,o:1,p:1.2},
+];
+function draw(t){
+  if(!wx||!wc)return;
+  const W=wc.width,H=wc.height;
+  wx.clearRect(0,0,W,H);
+  wx.fillStyle='#f8f9fa';wx.fillRect(0,0,W,H);
+  layers.forEach(l=>{
+    wx.beginPath();
+    const by=H*l.y;wx.moveTo(0,H);
+    for(let x=0;x<=W;x+=2){
+      const n=x/W;
+      const raw=by+Math.sin(n*Math.PI*3.5+t*l.s+l.p)*l.a+Math.sin(n*Math.PI*6+t*l.s*.65+l.p*1.4)*l.a*.35;
+      wx.lineTo(x,Math.max(by-l.a*1.45,raw));
+    }
+    wx.lineTo(W,H);wx.closePath();
+    const g=wx.createLinearGradient(0,0,W,0);
+    g.addColorStop(0,l.c1);g.addColorStop(1,l.c2);
+    wx.fillStyle=g;wx.globalAlpha=l.o;wx.fill();
+  });
+  wx.globalAlpha=1;requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);
+</script>
+
+</BaseLayout>
