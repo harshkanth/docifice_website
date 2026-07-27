@@ -64,6 +64,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <h2>Send us a message</h2>
         <p>Prefer to write first? Fill in your details and we will be in touch.</p>
         <form name="contact" method="POST" data-netlify="true" action="/contact-success">
+          <input type="hidden" name="form-name" value="contact" />
           <div class="form-group">
             <label for="name">Your name</label>
             <input type="text" id="name" name="name" placeholder="Your full name" required />
