@@ -328,3 +328,112 @@ h1 em{font-style:normal;color:#7dd3fc;}
 
 /* Logo as link */
 a.logo { text-decoration: none; }
+
+/* ── GLOBAL MOBILE (max 768px) ─────────────────────────────────── */
+@media(max-width:768px){
+
+  /* Typography */
+  h1{font-size:36px!important;letter-spacing:-.03em!important;}
+  h2{font-size:28px!important;}
+
+  /* Wrap padding */
+  .wrap{padding:0 16px!important;}
+
+  /* Service page heroes — all two-col grids become one col */
+  .td-hero-inner{grid-template-columns:1fr!important;gap:32px!important;padding:0 16px!important;}
+  .td-hero{padding:48px 0 40px!important;}
+  .td-hero h1{font-size:36px!important;}
+
+  /* Hide hero visual on mobile for service pages */
+  .td-hero-inner > div:last-child{display:none!important;}
+
+  /* Trust bar */
+  .trust-bar-inner{flex-direction:column;gap:16px;padding:16px!important;}
+  .trust-items{flex-direction:column;gap:10px;margin-left:0!important;}
+
+  /* Deliverable grid */
+  .del-grid{grid-template-columns:1fr!important;}
+
+  /* Audience grid */
+  .aud-grid{grid-template-columns:1fr 1fr!important;}
+
+  /* Process grid */
+  .process-grid{grid-template-columns:1fr!important;}
+
+  /* Tools */
+  .tools-grid{gap:8px!important;}
+
+  /* FAQ */
+  .faq-list{margin-top:32px!important;}
+
+  /* Section padding */
+  .section{padding:56px 0!important;}
+
+  /* CTA */
+  .cta-h2{font-size:28px!important;}
+  .cta-btns{flex-direction:column;align-items:center!important;}
+
+  /* Case studies / success stories */
+  .cs-hero-inner{grid-template-columns:1fr!important;gap:32px!important;padding:0 16px!important;}
+  .cs-hero-inner > div:last-child{display:none!important;}
+  .cs-hero h1{font-size:36px!important;}
+  .cs-featured{grid-template-columns:1fr!important;}
+  .cs-featured-visual{display:none!important;}
+  .cs-grid{grid-template-columns:1fr!important;}
+  .ss-featured{grid-template-columns:1fr!important;}
+  .ss-featured-visual{display:none!important;}
+  .ss-grid{grid-template-columns:1fr!important;}
+
+  /* Blog */
+  .blog-featured{grid-template-columns:1fr!important;}
+  .blog-featured-visual{display:none!important;}
+  .blog-grid{grid-template-columns:1fr!important;}
+
+  /* About */
+  .au-two-col{grid-template-columns:1fr!important;gap:32px!important;}
+  .au-hero h1{font-size:40px!important;}
+  .au-hero-inner{padding:0 16px!important;}
+  .au-inner{padding:0 16px!important;}
+  .au-how{grid-template-columns:1fr!important;}
+
+  /* Contact */
+  .contact-inner{grid-template-columns:1fr!important;gap:32px!important;padding:0 16px!important;}
+
+  /* Our Process */
+  .proc-hero-inner{grid-template-columns:1fr!important;padding:0 16px!important;}
+  .timeline-step{grid-template-columns:1fr!important;gap:0!important;}
+  .timeline-step.left .timeline-empty,
+  .timeline-step.right .timeline-empty,
+  .timeline-spacer{display:none!important;}
+  .timeline-card{grid-column:1!important;}
+  .expect-grid{grid-template-columns:1fr 1fr!important;}
+
+  /* Filter bars */
+  .filter-inner{justify-content:flex-start!important;gap:6px!important;flex-wrap:wrap!important;}
+  .filter-btn{flex:unset!important;}
+
+  /* Stats */
+  .stats-inner{grid-template-columns:1fr 1fr!important;}
+  .expect-inner{padding:0 16px!important;}
+
+  /* What to Expect */
+  .expect-grid{grid-template-columns:1fr!important;}
+
+  /* Gear canvas */
+  #gearCanvas{width:100%!important;height:auto!important;}
+
+  /* Footer */
+  .footer-inner{grid-template-columns:1fr!important;gap:32px!important;}
+}
+
+/* ── TABLET (769px – 1024px) ────────────────────────────────────── */
+@media(min-width:769px) and (max-width:1024px){
+  .del-grid{grid-template-columns:1fr 1fr!important;}
+  .aud-grid{grid-template-columns:1fr 1fr!important;}
+  .cs-grid{grid-template-columns:1fr 1fr!important;}
+  .ss-grid{grid-template-columns:1fr 1fr!important;}
+  .blog-grid{grid-template-columns:1fr 1fr!important;}
+  .au-two-col{gap:40px!important;}
+  .td-hero h1{font-size:40px!important;}
+  .expect-grid{grid-template-columns:1fr 1fr!important;}
+}
