@@ -4,8 +4,9 @@
       <svg width="22" height="22" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="12" fill="#0078D4"/><path d="M18 16h16c9 0 14 6.5 14 16s-5 16-14 16H18V16z" fill="none" stroke="white" stroke-width="4" stroke-linejoin="round"/><line x1="18" y1="32" x2="32" y2="32" stroke="white" stroke-width="3.5"/></svg>
       <span class="logo-text">Docifice</span>
     </a>
-    <div class="nav-links">
 
+    <!-- Desktop nav -->
+    <div class="nav-links">
       <div class="nav-item wide">
         <div class="nav-item-label">What We Do <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
         <div class="nav-dropdown">
@@ -21,7 +22,7 @@
             <div class="nav-dd-divider"></div>
             <div class="nav-dd-col">
               <span class="nav-dd-heading">Enablement</span>
-              <a href="/services/training-enablement" class="nav-dd-item">Training & Enablement</a>
+              <a href="/services/training-enablement" class="nav-dd-item">Training &amp; Enablement</a>
               <a href="/services/documentation-engineering" class="nav-dd-item">Documentation Engineering</a>
               <a href="/services/ai-search-optimization" class="nav-dd-item">AI Search Optimization</a>
             </div>
@@ -45,13 +46,158 @@
           <a href="/blog" class="nav-dd-item">Blog</a>
         </div>
       </div>
-
     </div>
+
     <div class="nav-right">
       <span class="nav-any">Any questions?</span>
       <a href="/contact" class="btn-lift btn-nav">Get in touch
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
     </div>
+
+    <!-- Hamburger button (mobile only) -->
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </div>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-inner">
+    <div class="mobile-section">
+      <div class="mobile-section-label">What We Do</div>
+      <a href="/services/technical-documentation">Technical Documentation</a>
+      <a href="/services/api-documentation">API &amp; Developer Docs</a>
+      <a href="/services/content-strategy">Content Strategy &amp; Design</a>
+      <a href="/services/knowledge-management">Knowledge Management</a>
+      <a href="/services/ai-ready-documentation">AI-Ready Documentation</a>
+      <a href="/services/training-enablement">Training &amp; Enablement</a>
+      <a href="/services/documentation-engineering">Documentation Engineering</a>
+      <a href="/services/ai-search-optimization">AI Search Optimization</a>
+    </div>
+    <div class="mobile-section">
+      <div class="mobile-section-label">Our Work</div>
+      <a href="/process">Our Process</a>
+      <a href="/work/case-studies">Case Studies</a>
+      <a href="/work/success-stories">Success Stories</a>
+    </div>
+    <div class="mobile-section">
+      <div class="mobile-section-label">Resources</div>
+      <a href="/about">About Us</a>
+      <a href="/blog">Blog</a>
+    </div>
+    <a href="/contact" class="mobile-cta">Get in touch →</a>
+  </div>
+</div>
+
+<style>
+/* Hamburger — hidden on desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 1001;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #0a0a0a;
+  border-radius: 2px;
+  transition: all .25s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 56px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  z-index: 999;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform .3s ease;
+}
+.mobile-menu.open {
+  transform: translateX(0);
+}
+.mobile-menu-inner {
+  padding: 24px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.mobile-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.mobile-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #0078D4;
+  margin-bottom: 8px;
+}
+.mobile-menu a {
+  font-size: 16px;
+  font-weight: 500;
+  color: #0a0a0a;
+  text-decoration: none;
+  padding: 10px 0;
+  border-bottom: 1px solid #f5f5f5;
+  display: block;
+}
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-cta {
+  background: #0078D4 !important;
+  color: #fff !important;
+  text-align: center;
+  padding: 14px !important;
+  border-radius: 8px;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  border-bottom: none !important;
+  margin-top: 8px;
+}
+
+@media(max-width: 768px) {
+  .nav-links { display: none !important; }
+  .nav-any { display: none !important; }
+  .nav-right .btn-nav { display: none !important; }
+  .hamburger { display: flex !important; }
+  .mobile-menu { display: block; }
+}
+</style>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger?.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu?.classList.toggle('open');
+  document.body.style.overflow = mobileMenu?.classList.contains('open') ? 'hidden' : '';
+});
+
+// Close on link click
+mobileMenu?.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    hamburger?.classList.remove('open');
+    mobileMenu?.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+</script>

@@ -469,3 +469,9 @@ a.logo { text-decoration: none; }
   /* Hide right side decorative elements that cause overflow */
   .au-how{grid-template-columns:1fr!important;}
 }
+
+/* Why Docifice buttons mobile fix */
+@media(max-width:768px){
+  .why-btns{display:flex!important;flex-direction:column!important;gap:10px!important;align-items:stretch!important;}
+  .why-btns a, .why-btns button{width:100%!important;justify-content:center!important;text-align:center!important;}
+}
