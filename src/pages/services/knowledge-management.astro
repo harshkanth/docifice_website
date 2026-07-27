@@ -1,0 +1,388 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Knowledge Management" description="Professional knowledge management services: knowledge bases, help centres, internal wikis, SOPs and more. Docifice builds one source of truth.">
+
+<style>
+.td-hero{background:#021430;padding:72px 0 64px;position:relative;overflow:hidden;}
+.td-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 20%,rgba(0,120,212,.28) 0%,transparent 60%);pointer-events:none;}
+.td-hero-inner{max-width:1400px;margin:0 auto;padding:0 32px;position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:start;}
+.td-eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;color:#7dd3fc;margin-bottom:14px;}
+.td-hero h1{font-size:52px;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1.04;margin-bottom:18px;}
+.td-hero h1 em{font-style:normal;color:#7dd3fc;}
+.td-hero p{font-size:16px;color:rgba(255,255,255,.58);line-height:1.76;max-width:480px;margin-bottom:32px;}
+.td-hero-btns{display:flex;gap:12px;align-items:center;}
+.trust-bar{background:#f8f9fa;border-bottom:1px solid #f0f0f0;padding:20px 0;}
+.trust-bar-inner{max-width:1400px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+.trust-label{font-size:13px;font-weight:700;color:#0a0a0a;white-space:nowrap;}
+.trust-items{display:flex;flex:1;justify-content:space-between;flex-wrap:wrap;align-items:center;margin-left:32px;}
+.trust-item{font-size:13px;font-weight:600;color:#555;display:flex;align-items:center;gap:6px;}
+.section{padding:88px 0;}
+.section-alt{background:#f8f9fa;}
+.wrap{max-width:1400px;margin:0 auto;padding:0 32px;}
+.section-ey{font-size:11px;font-weight:700;letter-spacing:.04em;color:#0078D4;margin-bottom:12px;}
+.section-h2{font-size:36px;font-weight:800;letter-spacing:-.04em;color:#0a0a0a;line-height:1.1;margin-bottom:14px;}
+.section-sub{font-size:15px;color:#666;line-height:1.6;}
+.del-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px;}
+.del-cat{border-radius:12px;padding:24px 26px;border:1.5px solid #d8e2f0;border-top:3px solid #d8e2f0;background:#fff;transition:border-color .2s,box-shadow .2s,transform .22s cubic-bezier(.34,1.1,.64,1);}
+.del-cat:hover{border-color:#c8ddf5;border-top-color:#0078D4;box-shadow:0 6px 20px rgba(0,120,212,.08);transform:translateY(-3px);}
+.del-cat-icon{font-size:10px;font-weight:700;letter-spacing:.05em;color:#0078D4;margin-bottom:6px;display:block;}
+.del-cat-title{font-size:15px;font-weight:800;color:#0a0a0a;letter-spacing:-.02em;margin-bottom:12px;}
+.del-cat-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.del-cat-list li{font-size:12px;color:#444;padding-left:14px;position:relative;line-height:1.5;}
+.del-cat-list li::before{content:'';position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:#0078D4;}
+.ind-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px;}
+.ind-card{background:#fff;border:1px solid #eaecf0;border-radius:10px;padding:18px 20px;display:flex;align-items:center;gap:12px;transition:border-color .2s,box-shadow .2s,transform .22s cubic-bezier(.34,1.1,.64,1);}
+.ind-card:hover{border-color:#0078D4;box-shadow:0 4px 16px rgba(0,120,212,.08);transform:translateY(-2px);}
+.ind-icon{width:32px;height:32px;border-radius:8px;background:#f0f5ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ind-name{font-size:13px;font-weight:600;color:#0a0a0a;}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px;}
+.process-step{background:#fff;border:1px solid #e4edf8;border-radius:12px;padding:28px 24px;}
+.process-num{font-size:11px;font-weight:700;color:#0078D4;letter-spacing:.04em;margin-bottom:12px;}
+.process-title{font-size:14px;font-weight:800;color:#0a0a0a;margin-bottom:8px;letter-spacing:-.02em;}
+.process-desc{font-size:13px;color:#666;line-height:1.65;}
+.tools-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;}
+.tool-tag{font-size:12px;font-weight:600;padding:7px 14px;border-radius:8px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.1);transition:background .2s,color .2s,border-color .2s;}
+.tool-tag:hover{background:rgba(0,120,212,.2);border-color:rgba(0,120,212,.4);color:#fff;}
+.faq-list{display:flex;flex-direction:column;gap:2px;margin-top:48px;}
+.faq-item{border:1px solid #eaecf0;border-radius:10px;overflow:hidden;}
+.faq-q{padding:20px 24px;font-size:15px;font-weight:600;color:#0a0a0a;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;}
+.faq-q:hover{background:#f8f9fa;}
+.faq-a{padding:0 24px 0;font-size:14px;color:#555;line-height:1.74;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;}
+.faq-item.open .faq-a{max-height:200px;padding:0 24px 20px;}
+.faq-item.open .faq-chevron{transform:rotate(180deg);}
+.faq-chevron{transition:transform .2s;flex-shrink:0;color:#0078D4;}
+.btn-primary{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background:#0078D4;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s,opacity .2s;text-decoration:none;}
+.btn-primary:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,120,212,.3);}
+.btn-ghost{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.3);padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;transition:background .2s,transform .22s cubic-bezier(.34,1.1,.64,1);text-decoration:none;}
+.btn-ghost:hover{background:rgba(255,255,255,.2);transform:translateY(-2px);}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+</style>
+
+<!-- HERO -->
+<div class="td-hero">
+  <div class="td-hero-inner">
+    <div>
+      <div class="td-eyebrow">Knowledge Management</div>
+      <h1>Turn organizational knowledge into a <em>strategic asset.</em></h1>
+      <p>We build knowledge systems that give your teams, customers, and users instant access to the right information: structured, searchable, and maintained.</p>
+      <div class="td-hero-btns">
+        <a href="/contact" class="btn-primary" onclick="location.href='/contact'">Get in touch <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="/work/case-studies" class="btn-ghost" onclick="location.href='/work/case-studies'">View case studies <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Hero visual: Internal wiki editor -->
+    <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.15);">
+      <!-- Top bar -->
+      <div style="background:#f7f8fa;padding:9px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ebebeb;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:#888;">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Internal Wiki &middot; Engineering
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;">
+          <span style="font-size:9px;padding:2px 8px;border-radius:3px;background:#fef9c3;color:#a16207;font-weight:600;">Editing</span>
+          <span style="font-size:9px;padding:2px 8px;border-radius:3px;background:#e8f2ff;color:#0078D4;font-weight:600;">Save</span>
+        </div>
+      </div>
+      <!-- Sidebar + editor -->
+      <div style="display:grid;grid-template-columns:140px 1fr;">
+        <!-- Sidebar -->
+        <div style="background:#f9fafb;border-right:1px solid #ebebeb;padding:14px 10px;">
+          <div style="font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#bbb;margin-bottom:8px;">Engineering</div>
+          <div style="display:flex;flex-direction:column;gap:2px;">
+            <div style="font-size:10px;color:#888;padding:4px 7px;border-radius:4px;">Onboarding</div>
+            <div style="font-size:10px;color:#888;padding:4px 7px;border-radius:4px;">Architecture</div>
+            <div style="font-size:10px;font-weight:600;color:#0078D4;padding:4px 7px;border-radius:4px;background:#e8f2ff;">Deployment</div>
+            <div style="font-size:10px;color:#bbb;padding:4px 7px;padding-left:16px;">Staging</div>
+            <div style="font-size:10px;color:#bbb;padding:4px 7px;padding-left:16px;font-weight:600;color:#0078D4;">Production</div>
+            <div style="font-size:10px;color:#888;padding:4px 7px;border-radius:4px;">Runbooks</div>
+            <div style="font-size:10px;color:#888;padding:4px 7px;border-radius:4px;">Incidents</div>
+          </div>
+        </div>
+        <!-- Editor -->
+        <div style="padding:14px 16px;background:#fff;">
+          <div style="font-size:14px;font-weight:800;color:#0a0a0a;margin-bottom:4px;letter-spacing:-.02em;">Production Deployment Guide</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:12px;">
+            <span style="font-size:9px;color:#aaa;">Last edited by</span>
+            <div style="width:14px;height:14px;border-radius:50%;background:#0078D4;display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:700;color:#fff;">HK</div>
+            <span style="font-size:9px;color:#aaa;">just now</span>
+          </div>
+          <!-- Content lines -->
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <div style="font-size:10px;font-weight:700;color:#0a0a0a;">Prerequisites</div>
+            <div style="font-size:10px;color:#555;line-height:1.55;">Ensure all staging tests have passed and the release is approved in Jira before proceeding.</div>
+            <div style="font-size:10px;font-weight:700;color:#0a0a0a;margin-top:2px;">Steps</div>
+            <div style="display:flex;flex-direction:column;gap:4px;">
+              <div style="display:flex;gap:7px;align-items:flex-start;">
+                <span style="width:15px;height:15px;border-radius:3px;background:#0078D4;color:#fff;font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">1</span>
+                <span style="font-size:10px;color:#333;line-height:1.5;">Merge the release branch into <code style="background:#f0f4ff;padding:1px 4px;border-radius:2px;font-family:'JetBrains Mono',monospace;font-size:9px;color:#0078D4;">main</code>.</span>
+              </div>
+              <div style="display:flex;gap:7px;align-items:flex-start;">
+                <span style="width:15px;height:15px;border-radius:3px;background:#0078D4;color:#fff;font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">2</span>
+                <span style="font-size:10px;color:#333;line-height:1.5;">Trigger the GitHub Actions deployment workflow.</span>
+              </div>
+              <div style="display:flex;gap:7px;align-items:flex-start;">
+                <span style="width:15px;height:15px;border-radius:3px;background:#0078D4;color:#fff;font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">3</span>
+                <span style="font-size:10px;color:#333;line-height:1.5;">Monitor deployment logs in the Actions tab.</span>
+              </div>
+              <div style="display:flex;gap:7px;align-items:flex-start;">
+                <span style="width:15px;height:15px;border-radius:3px;background:#0078D4;color:#fff;font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">4</span>
+                <span style="font-size:10px;color:#333;line-height:1.5;">Run smoke tests on production endpoints.</span>
+              </div>
+              <div style="display:flex;gap:7px;align-items:flex-start;">
+                <span style="width:15px;height:15px;border-radius:3px;background:#e8f2ff;color:#0078D4;font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">5</span>
+                <span style="font-size:10px;color:#aaa;line-height:1.5;">Update the release notes in Confluence<span style="display:inline-block;width:1px;height:10px;background:#0078D4;margin-left:2px;vertical-align:middle;animation:blink 1s step-end infinite;"></span></span>
+              </div>
+            </div>
+            <!-- Note -->
+            <div style="background:#f0f5ff;border-left:2px solid #0078D4;border-radius:0 4px 4px 0;padding:6px 10px;margin-top:2px;">
+              <span style="font-size:9px;font-weight:700;color:#0078D4;">Note</span>
+              <span style="font-size:9px;color:#555;margin-left:6px;">Notify the team in Slack before deploying during business hours.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <span class="trust-label">Trusted By</span>
+    <div class="trust-items">
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Customer success teams</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Support & service teams</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Enterprise product teams</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>HR & operations teams</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Global enterprise teams</span>
+    </div>
+  </div>
+</div>
+
+<!-- DELIVERABLES -->
+<div class="section">
+  <div class="wrap">
+    <div class="section-ey">What We Deliver</div>
+    <div class="section-h2">Every type of knowledge system, built right.</div>
+    <div class="section-sub">From customer-facing help centres to internal wikis and SOPs, we design and build knowledge systems that reduce support load and keep teams aligned.</div>
+    <div class="del-grid" style="grid-template-columns:repeat(3,1fr);">
+      <div class="del-cat" style="grid-column:span 1;">
+        <span class="del-cat-icon">Knowledge Base</span>
+        <div class="del-cat-title">Self-serve answers at scale</div>
+        <ul class="del-cat-list">
+          <li>Customer Knowledge Bases</li>
+          <li>Help Centres</li>
+          <li>Support Documentation</li>
+          <li>FAQ Documentation</li>
+          <li>Troubleshooting Guides</li>
+          <li>How-To Guides</li>
+          <li>Product Knowledge Bases</li>
+          <li>Feature Guides</li>
+          <li>Knowledge Governance</li>
+          <li>Content Maintenance Plans</li>
+          <li>Knowledge Base Templates</li>
+          <li>Style Guides</li>
+        </ul>
+      </div>
+      <div class="del-cat" style="grid-column:span 1;">
+        <span class="del-cat-icon">Internal Knowledge</span>
+        <div class="del-cat-title">One place for everything internal</div>
+        <ul class="del-cat-list">
+          <li>Internal Wikis</li>
+          <li>Employee Handbooks</li>
+          <li>Onboarding Documentation</li>
+          <li>Standard Operating Procedures</li>
+          <li>Process Documentation</li>
+          <li>Policy Documentation</li>
+          <li>Runbooks &amp; Playbooks</li>
+          <li>Team Documentation</li>
+          <li>Review Workflows</li>
+          <li>Content Ownership Models</li>
+        </ul>
+      </div>
+      <div class="del-cat" style="grid-column:span 1;">
+        <span class="del-cat-icon">Knowledge Architecture</span>
+        <div class="del-cat-title">Structure users can actually navigate</div>
+        <ul class="del-cat-list">
+          <li>Knowledge Base Architecture</li>
+          <li>Content Taxonomy</li>
+          <li>Navigation Design</li>
+          <li>Search Optimisation</li>
+          <li>Metadata Strategy</li>
+          <li>Content Categorisation</li>
+          <li>Knowledge Audits</li>
+          <li>Content Gap Analysis</li>
+          <li>Version Control</li>
+          <li>Content Reuse Strategy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHO WE WORK WITH -->
+<div class="section section-alt">
+  <div class="wrap">
+    <div class="section-ey">Who We Work With</div>
+    <div class="section-h2">Built for every team that needs a source of truth.</div>
+    <div class="section-sub">Knowledge management serves every part of an organisation. We work across teams to build systems that reduce noise, cut support tickets, and keep everyone aligned.</div>
+    <div class="ind-grid">
+      <div class="ind-card"><div class="ind-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><span class="ind-name">Customer Success Teams</span></div>
+      <div class="ind-card"><div class="ind-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><span class="ind-name">Support Teams</span></div>
+      <div class="ind-card"><div class="ind-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><span class="ind-name">Product Teams</span></div>
+      <div class="ind-card"><div class="ind-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><span class="ind-name">Engineering Teams</span></div>
+      <div class="ind-card"><div class="ind-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><span class="ind-name">HR & People Teams</span></div>
+      <div class="ind-card"><div class="ind-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><span class="ind-name">Finance & Operations</span></div>
+      <div class="ind-card"><div class="ind-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><span class="ind-name">Sales Teams</span></div>
+      <div class="ind-card"><div class="ind-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><span class="ind-name">Marketing Teams</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div class="section" style="background:#f0f5ff;">
+  <div class="wrap">
+    <div class="section-ey">How We Work</div>
+    <div class="section-h2">Audit, structure, write, maintain.</div>
+    <div class="section-sub">Good knowledge management starts with understanding what already exists and what is missing. We audit before we build.</div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="process-num">01 / Audit</div>
+        <div class="process-title">Review what exists</div>
+        <div class="process-desc">We audit your existing knowledge assets, identify gaps, duplication, and outdated content before recommending any structure.</div>
+      </div>
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <div class="process-num">02 / Structure</div>
+        <div class="process-title">Design the architecture</div>
+        <div class="process-desc">We design the information architecture, taxonomy, navigation, and categorisation system that makes content easy to find.</div>
+      </div>
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <div class="process-num">03 / Write</div>
+        <div class="process-title">Create and migrate content</div>
+        <div class="process-desc">We write new articles, migrate and restructure existing content, and apply consistent style and terminology throughout.</div>
+      </div>
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div class="process-num">04 / Maintain</div>
+        <div class="process-title">Keep it current</div>
+        <div class="process-desc">We establish governance, review workflows, and maintenance plans so your knowledge base stays accurate as your product evolves.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOOLS -->
+<div class="section" style="background:#0f172a;">
+  <div class="wrap">
+    <div class="section-ey" style="color:#7dd3fc;">Tools & Platforms</div>
+    <div class="section-h2" style="color:#fff;">We work in your environment.</div>
+    <div class="section-sub" style="color:rgba(255,255,255,.55);">From Confluence and Notion to Zendesk and Document360, we adapt to whatever platform you use.</div>
+    <div class="tools-grid">
+      <span class="tool-tag">Confluence</span><span class="tool-tag">Notion</span><span class="tool-tag">SharePoint</span><span class="tool-tag">Document360</span><span class="tool-tag">Zendesk Guide</span><span class="tool-tag">Helpjuice</span><span class="tool-tag">Guru</span><span class="tool-tag">Bloomfire</span><span class="tool-tag">Slab</span><span class="tool-tag">GitBook</span><span class="tool-tag">Help Scout Docs</span><span class="tool-tag">Tettra</span><span class="tool-tag">Slite</span><span class="tool-tag">Freshdesk</span><span class="tool-tag">Intercom Articles</span><span class="tool-tag">Docusaurus</span><span class="tool-tag">MkDocs</span><span class="tool-tag">Sphinx</span><span class="tool-tag">Jekyll</span><span class="tool-tag">MadCap Flare</span><span class="tool-tag">Adobe RoboHelp</span><span class="tool-tag">Adobe FrameMaker</span><span class="tool-tag">Oxygen XML Author</span><span class="tool-tag">Microsoft Word</span><span class="tool-tag">Markdown</span><span class="tool-tag">AsciiDoc</span><span class="tool-tag">reStructuredText</span><span class="tool-tag">DITA XML</span><span class="tool-tag">Google Docs</span><span class="tool-tag">Jira</span><span class="tool-tag">Azure DevOps</span><span class="tool-tag">Microsoft Teams</span><span class="tool-tag">Slack</span><span class="tool-tag">Microsoft Visio</span><span class="tool-tag">Lucidchart</span><span class="tool-tag">draw.io</span><span class="tool-tag">Miro</span><span class="tool-tag">Figma</span><span class="tool-tag">Git</span><span class="tool-tag">GitHub</span><span class="tool-tag">GitLab</span><span class="tool-tag">Azure Repos</span><span class="tool-tag">Bitbucket</span>
+    </div>
+  </div>
+</div>
+
+<!-- FAQs -->
+<div class="section">
+  <div class="wrap">
+    <div class="section-ey">FAQs</div>
+    <div class="section-h2">Common questions.</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">What is knowledge management? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Knowledge management is the process of creating, organising, maintaining, and distributing information so that the right people can find the right answers at the right time. It reduces support load, speeds up onboarding, and keeps teams aligned.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you build a knowledge base from scratch? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We handle everything from information architecture and platform setup to writing every article. We can start from a blank slate or migrate and restructure existing content.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you improve an existing knowledge base? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Absolutely. We audit your existing content, identify gaps and outdated articles, restructure the navigation, improve search performance, and rewrite content to meet a consistent standard.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do you keep knowledge bases up to date? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">We establish governance frameworks, content ownership models, review schedules, and maintenance plans. We also offer ongoing retainer arrangements to keep your knowledge base current as your product changes.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you work with both customer-facing and internal knowledge bases? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We build customer-facing help centres, internal wikis, employee handbooks, SOPs, and team documentation. The principles are the same, the audience and tone are adjusted accordingly.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Which knowledge base platforms do you work with? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">We work with Confluence, Notion, Zendesk, Document360, GitBook, Help Scout, Guru, Tettra, Intercom, Freshdesk, MkDocs, Docusaurus, and more. If you use a platform not listed, we adapt to it.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA + WAVES -->
+<div class="bottom">
+  <div class="wrap">
+    <div class="cta">
+      <div class="cta-eyebrow">Ready when you are</div>
+      <h2 class="cta-h2">Build a knowledge base your team <em>actually uses.</em></h2>
+      <p class="cta-sub">Tell us what you need. We audit, structure, write, and hand over a knowledge system built to last.</p>
+      <div class="cta-btns">
+        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s;display:inline-flex;align-items:center;gap:8px;background-color:#0a0a0a;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/contact'">Get in touch <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s;display:inline-flex;align-items:center;gap:8px;background-color:#fff;color:#0a0a0a;border:1.5px solid #d0d0d0;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/work/success-stories'">View success stories <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <canvas id="waveCanvas"></canvas>
+</div>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+const wc=document.getElementById('waveCanvas');
+const wx=wc&&wc.getContext('2d');
+function resize(){if(!wc)return;wc.width=wc.offsetWidth;wc.height=200;}
+resize();window.addEventListener('resize',resize);
+const layers=[
+  {a:20,s:.0009,c1:'#b8d0e8',c2:'#88b0d0',y:0.44,o:.5,p:0},
+  {a:18,s:.0007,c1:'#4888c0',c2:'#0078D4',y:0.54,o:.62,p:1.8},
+  {a:18,s:.0011,c1:'#0060a8',c2:'#004880',y:0.65,o:.72,p:3.2},
+  {a:16,s:.0006,c1:'#003060',c2:'#002040',y:0.75,o:.82,p:0.9},
+  {a:14,s:.0013,c1:'#011828',c2:'#021430',y:0.85,o:.93,p:2.1},
+  {a:10,s:.0005,c1:'#010e20',c2:'#010e20',y:0.93,o:1,p:1.2},
+];
+function draw(t){
+  if(!wx||!wc)return;
+  const W=wc.width,H=wc.height;
+  wx.clearRect(0,0,W,H);
+  wx.fillStyle='#f8f9fa';wx.fillRect(0,0,W,H);
+  layers.forEach(l=>{
+    wx.beginPath();
+    const by=H*l.y;wx.moveTo(0,H);
+    for(let x=0;x<=W;x+=2){
+      const n=x/W;
+      const raw=by+Math.sin(n*Math.PI*3.5+t*l.s+l.p)*l.a+Math.sin(n*Math.PI*6+t*l.s*.65+l.p*1.4)*l.a*.35;
+      wx.lineTo(x,Math.max(by-l.a*1.45,raw));
+    }
+    wx.lineTo(W,H);wx.closePath();
+    const g=wx.createLinearGradient(0,0,W,0);
+    g.addColorStop(0,l.c1);g.addColorStop(1,l.c2);
+    wx.fillStyle=g;wx.globalAlpha=l.o;wx.fill();
+  });
+  wx.globalAlpha=1;requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);
+</script>
+
+</BaseLayout>

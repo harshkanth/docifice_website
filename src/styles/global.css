@@ -208,7 +208,7 @@ h1 em{font-style:normal;color:#7dd3fc;}
   z-index:2;
 }
 .sc-icon{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;flex-shrink:0;background:#f0f5ff;}
-.sc-label{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0078D4;display:block;margin-bottom:8px;}
+.sc-label{font-size:10px;font-weight:700;letter-spacing:.04em;color:#0078D4;display:block;margin-bottom:8px;}
 .sc-title{font-size:16px;font-weight:800;color:#0a0a0a;line-height:1.2;letter-spacing:-.02em;margin-bottom:6px;}
 .sc-tags{display:none;}
 .sc-tag{display:none;}

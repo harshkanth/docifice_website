@@ -1,0 +1,199 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About Us" description="Docifice is a technical writing and content agency that helps companies build documentation their users actually use.">
+
+<style>
+.au-hero{background:#021430;padding:88px 0 80px;position:relative;overflow:hidden;}
+.au-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 20% 50%,rgba(0,120,212,.22) 0%,transparent 60%);pointer-events:none;}
+.au-hero-inner{max-width:1400px;margin:0 auto;padding:0 32px;position:relative;z-index:2;max-width:800px;}
+.au-eyebrow{font-size:11px;font-weight:700;letter-spacing:.04em;color:#7dd3fc;margin-bottom:20px;}
+.au-hero h1{font-size:60px;font-weight:800;color:#fff;letter-spacing:-.05em;line-height:1.02;margin-bottom:24px;}
+.au-hero h1 em{font-style:normal;color:#7dd3fc;}
+.au-hero-sub{font-size:19px;color:rgba(255,255,255,.55);line-height:1.75;max-width:640px;}
+
+.au-section{padding:88px 0;}
+.au-section-alt{background:#f8f9fa;}
+.au-inner{max-width:1400px;margin:0 auto;padding:0 32px;}
+.au-two-col{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.au-label{font-size:11px;font-weight:700;letter-spacing:.04em;color:#0078D4;margin-bottom:20px;}
+.au-h2{font-size:38px;font-weight:800;color:#0a0a0a;letter-spacing:-.04em;line-height:1.1;margin-bottom:20px;}
+.au-h2 em{font-style:normal;color:#0078D4;}
+.au-body{font-size:16px;color:#555;line-height:1.8;}
+.au-body p{margin-bottom:18px;}
+.au-body p:last-child{margin-bottom:0;}
+
+.au-beliefs{display:flex;flex-direction:column;gap:0;}
+.au-belief{padding:28px 0;border-bottom:1px solid #f0f0f0;}
+.au-belief:first-child{padding-top:0;}
+.au-belief:last-child{border-bottom:none;padding-bottom:0;}
+.au-belief-num{font-size:11px;font-weight:700;color:#0078D4;letter-spacing:.04em;margin-bottom:8px;}
+.au-belief-title{font-size:18px;font-weight:800;color:#0a0a0a;letter-spacing:-.02em;margin-bottom:8px;}
+.au-belief-text{font-size:15px;color:#666;line-height:1.7;}
+
+.au-how{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#eaecf0;margin-top:48px;}
+.au-how-item{background:#fff;padding:36px 32px;}
+.au-how-num{font-size:11px;font-weight:700;color:#0078D4;letter-spacing:.04em;margin-bottom:12px;}
+.au-how-title{font-size:17px;font-weight:800;color:#0a0a0a;letter-spacing:-.02em;margin-bottom:10px;}
+.au-how-text{font-size:14px;color:#666;line-height:1.7;}
+
+.wrap{max-width:1400px;margin:0 auto;padding:0 32px;}
+.bottom{background:#f8f9fa;padding:80px 0 0;position:relative;overflow:hidden;}
+.cta{text-align:center;padding-bottom:88px;position:relative;z-index:2;}
+.cta-eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0078D4;margin-bottom:16px;}
+.cta-h2{font-size:40px;font-weight:800;letter-spacing:-.04em;color:#0a0a0a;margin-bottom:16px;line-height:1.1;}
+.cta-h2 em{font-style:normal;color:#0078D4;}
+.cta-sub{font-size:16px;color:#555;line-height:1.7;max-width:520px;margin:0 auto 32px;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+canvas#waveCanvas{width:100%;height:200px;display:block;position:relative;z-index:1;}
+</style>
+
+<!-- HERO -->
+<div class="au-hero">
+  <div class="au-hero-inner">
+    <div class="au-eyebrow">About Docifice</div>
+    <h1>We write documentation people actually <em>use.</em></h1>
+    <p class="au-hero-sub">Docifice is a technical writing and content agency built for companies that have outgrown unclear, outdated, or inconsistent documentation. We come in, learn your product, and build documentation that works.</p>
+  </div>
+</div>
+
+<!-- WHO WE ARE -->
+<div class="au-section">
+  <div class="au-inner">
+    <div class="au-two-col">
+      <div>
+        <div class="au-label">Who We Are</div>
+        <h2 class="au-h2">A documentation agency that treats writing as a <em>craft.</em></h2>
+      </div>
+      <div class="au-body">
+        <p>Docifice is a technical writing and content agency. We work with software companies, SaaS platforms, and enterprise teams who need documentation that is accurate, clear, and actually useful to the people reading it.</p>
+        <p>We are not a content farm. We do not produce templated output. Every project starts with us learning your product, understanding your users, and figuring out what the documentation needs to do before we write a single word.</p>
+        <p>Our work spans technical documentation, API references, knowledge bases, content strategy, training materials, and documentation engineering. We have worked across enterprise software, fintech, healthcare, cybersecurity, and developer tools, and we bring the same standard to every project.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WE BELIEVE -->
+<div class="au-section au-section-alt">
+  <div class="au-inner">
+    <div class="au-label">What We Believe</div>
+    <h2 class="au-h2" style="max-width:560px;">A few things we hold to be true about <em>documentation.</em></h2>
+    <div style="margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:0 80px;">
+      <div class="au-beliefs">
+        <div class="au-belief">
+          <div class="au-belief-num">01</div>
+          <div class="au-belief-title">Documentation is a product, not an afterthought.</div>
+          <div class="au-belief-text">Good documentation is designed, structured, and maintained with the same care as the product it supports. When it is treated as an afterthought, users pay the price.</div>
+        </div>
+        <div class="au-belief">
+          <div class="au-belief-num">02</div>
+          <div class="au-belief-title">You have to use the product to document it well.</div>
+          <div class="au-belief-text">We do not write from specs. We get hands-on, test workflows, make API calls, and verify every step before we write it down. That is the only way to produce documentation that is actually accurate.</div>
+        </div>
+        <div class="au-belief">
+          <div class="au-belief-num">03</div>
+          <div class="au-belief-title">Clarity is a sign of respect for the reader.</div>
+          <div class="au-belief-text">Complicated writing is not sophisticated. It is inconsiderate. Every sentence we write is tested against one question: does this make the reader's job easier?</div>
+        </div>
+      </div>
+      <div class="au-beliefs">
+        <div class="au-belief">
+          <div class="au-belief-num">04</div>
+          <div class="au-belief-title">Consistency matters more than most people think.</div>
+          <div class="au-belief-text">Inconsistent terminology, formatting, and voice erode trust in documentation quietly. Users stop relying on it. We enforce consistency rigorously because the details add up.</div>
+        </div>
+        <div class="au-belief">
+          <div class="au-belief-num">05</div>
+          <div class="au-belief-title">Documentation should reduce the need for support.</div>
+          <div class="au-belief-text">If users are contacting support for answers that should be in the documentation, the documentation has failed. We measure success by how well it enables users to help themselves.</div>
+        </div>
+        <div class="au-belief">
+          <div class="au-belief-num">06</div>
+          <div class="au-belief-title">Structure is not optional.</div>
+          <div class="au-belief-text">Well-structured documentation is easier to read, easier to maintain, and easier to scale. We design information architecture before we write, not as an afterthought.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW WE WORK -->
+<div class="au-section">
+  <div class="au-inner">
+    <div class="au-label">How We Work</div>
+    <h2 class="au-h2">Direct, collaborative, and built around <em>your project.</em></h2>
+    <div class="au-how">
+      <div class="au-how-item">
+        <div class="au-how-num">Remote first</div>
+        <div class="au-how-title">We work with teams everywhere.</div>
+        <div class="au-how-text">Our entire process is designed for remote collaboration. We work across time zones, communicate clearly in writing, and deliver without needing to be in the same room.</div>
+      </div>
+      <div class="au-how-item">
+        <div class="au-how-num">No account managers</div>
+        <div class="au-how-title">You work directly with the writer.</div>
+        <div class="au-how-text">There is no layer between you and the person doing the work. You brief us directly, give feedback directly, and get answers directly. That is how we keep quality high and communication clear.</div>
+      </div>
+      <div class="au-how-item">
+        <div class="au-how-num">One revision round</div>
+        <div class="au-how-title">We get it right the first time.</div>
+        <div class="au-how-text">Because we do thorough discovery upfront, our drafts land close to the mark. We include one structured revision round in every project and we use it to refine, not to course-correct.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA + WAVES -->
+<div class="bottom">
+  <div class="wrap">
+    <div class="cta">
+      <div class="cta-eyebrow">Work with us</div>
+      <h2 class="cta-h2">Good documentation starts with a <em>conversation.</em></h2>
+      <p class="cta-sub">Tell us about your project. We will be direct about what we can do, how long it will take, and what it will cost.</p>
+      <div class="cta-btns">
+        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s;display:inline-flex;align-items:center;gap:8px;background-color:#0a0a0a;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/contact'">Get in touch <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s;display:inline-flex;align-items:center;gap:8px;background-color:#fff;color:#0a0a0a;border:1.5px solid #d0d0d0;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/work/case-studies'">View our work <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <canvas id="waveCanvas"></canvas>
+</div>
+
+<script>
+const wc=document.getElementById('waveCanvas');
+const wx=wc&&wc.getContext('2d');
+function resize(){if(!wc)return;wc.width=wc.offsetWidth;wc.height=200;}
+resize();window.addEventListener('resize',resize);
+const layers=[
+  {a:20,s:.0009,c1:'#b8d0e8',c2:'#88b0d0',y:0.44,o:.5,p:0},
+  {a:18,s:.0007,c1:'#4888c0',c2:'#0078D4',y:0.54,o:.62,p:1.8},
+  {a:18,s:.0011,c1:'#0060a8',c2:'#004880',y:0.65,o:.72,p:3.2},
+  {a:16,s:.0006,c1:'#003060',c2:'#002040',y:0.75,o:.82,p:0.9},
+  {a:14,s:.0013,c1:'#011828',c2:'#021430',y:0.85,o:.93,p:2.1},
+  {a:10,s:.0005,c1:'#010e20',c2:'#010e20',y:0.93,o:1,p:1.2},
+];
+function draw(t){
+  if(!wx||!wc)return;
+  const W=wc.width,H=wc.height;
+  wx.clearRect(0,0,W,H);
+  wx.fillStyle='#f8f9fa';wx.fillRect(0,0,W,H);
+  layers.forEach(l=>{
+    wx.beginPath();
+    const by=H*l.y;wx.moveTo(0,H);
+    for(let x=0;x<=W;x+=2){
+      const n=x/W;
+      const raw=by+Math.sin(n*Math.PI*3.5+t*l.s+l.p)*l.a+Math.sin(n*Math.PI*6+t*l.s*.65+l.p*1.4)*l.a*.35;
+      wx.lineTo(x,Math.max(by-l.a*1.45,raw));
+    }
+    wx.lineTo(W,H);wx.closePath();
+    const g=wx.createLinearGradient(0,0,W,0);
+    g.addColorStop(0,l.c1);g.addColorStop(1,l.c2);
+    wx.fillStyle=g;wx.globalAlpha=l.o;wx.fill();
+  });
+  wx.globalAlpha=1;requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);
+</script>
+
+</BaseLayout>

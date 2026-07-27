@@ -1,0 +1,323 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Our Process" description="How Docifice works — from discovery and research to writing, review, and delivery.">
+
+<style>
+.proc-hero{background:#021430;padding:80px 0 72px;position:relative;overflow:hidden;}
+.proc-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 30% 50%,rgba(0,120,212,.25) 0%,transparent 60%);pointer-events:none;}
+.proc-hero-inner{max-width:1400px;margin:0 auto;padding:0 32px;position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.proc-eyebrow{font-size:11px;font-weight:700;letter-spacing:.04em;color:#7dd3fc;margin-bottom:16px;}
+.proc-hero h1{font-size:56px;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1.04;margin-bottom:20px;max-width:700px;}
+.proc-hero h1 em{font-style:normal;color:#7dd3fc;}
+.proc-hero p{font-size:17px;color:rgba(255,255,255,.55);line-height:1.7;max-width:560px;}
+
+/* Timeline */
+.timeline-section{background:#f8f9fa;padding:100px 0;}
+.timeline-inner{max-width:1100px;margin:0 auto;padding:0 32px;position:relative;}
+
+.timeline-step{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:72px;position:relative;align-items:center;}
+.timeline-step:last-child{margin-bottom:0;}
+
+.timeline-card{background:#fff;border-radius:16px;border:1px solid #eaecf0;padding:40px;opacity:0;transition:opacity .7s ease,transform .7s ease;}
+.timeline-card.from-left{transform:translateX(-48px);}
+.timeline-card.from-right{transform:translateX(48px);}
+.timeline-card.visible{opacity:1;transform:translateX(0);}
+
+.timeline-step.left .timeline-card{grid-column:1;grid-row:1;}
+.timeline-step.left .timeline-spacer{grid-column:2;grid-row:1;}
+.timeline-step.right .timeline-spacer{grid-column:1;grid-row:1;}
+.timeline-step.right .timeline-card{grid-column:2;grid-row:1;}
+
+.step-num{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0078D4;margin-bottom:14px;}
+.step-icon{width:48px;height:48px;border-radius:12px;background:#f0f5ff;display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+.step-title{font-size:22px;font-weight:800;color:#0a0a0a;letter-spacing:-.03em;line-height:1.2;margin-bottom:10px;}
+.step-desc{font-size:15px;color:#666;line-height:1.75;margin-bottom:20px;}
+.step-details{display:flex;flex-direction:column;gap:8px;}
+.step-detail{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#555;line-height:1.55;}
+.step-detail svg{flex-shrink:0;margin-top:2px;}
+
+/* Spacer visual — step number floating */
+.timeline-spacer{display:flex;align-items:center;justify-content:center;}
+.timeline-spacer-num{font-size:120px;font-weight:800;color:rgba(0,120,212,.07);letter-spacing:-.05em;line-height:1;user-select:none;}
+
+/* What to expect */
+.expect-strip{background:#0a0a0a;padding:72px 0;}
+.expect-inner{max-width:1400px;margin:0 auto;padding:0 32px;}
+.expect-ey{font-size:11px;font-weight:700;letter-spacing:.04em;color:#7dd3fc;margin-bottom:12px;}
+.expect-h2{font-size:36px;font-weight:800;letter-spacing:-.04em;color:#fff;margin-bottom:8px;}
+.expect-sub{font-size:15px;color:rgba(255,255,255,.45);line-height:1.6;max-width:480px;margin-bottom:48px;}
+.expect-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.2);}
+.expect-item{background:#0a0a0a;padding:32px;}
+.expect-label{font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;}
+.expect-sub-item{font-size:13px;color:rgba(255,255,255,.4);line-height:1.6;}
+
+.wrap{max-width:1400px;margin:0 auto;padding:0 32px;}
+.bottom{background:#f8f9fa;padding:80px 0 0;position:relative;overflow:hidden;}
+.cta{text-align:center;padding-bottom:88px;position:relative;z-index:2;}
+.cta-eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0078D4;margin-bottom:16px;}
+.cta-h2{font-size:40px;font-weight:800;letter-spacing:-.04em;color:#0a0a0a;margin-bottom:16px;line-height:1.1;}
+.cta-h2 em{font-style:normal;color:#0078D4;}
+.cta-sub{font-size:16px;color:#555;line-height:1.7;max-width:520px;margin:0 auto 32px;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+canvas#waveCanvas{width:100%;height:200px;display:block;position:relative;z-index:1;}
+</style>
+
+<!-- HERO -->
+<div class="proc-hero">
+  <div class="proc-hero-inner">
+    <div>
+      <div class="proc-eyebrow">Our Process</div>
+      <h1>How we turn complexity into <em>clarity.</em></h1>
+      <p>Every project follows a proven five-step process built around understanding your product, your users, and your goals before we write a single word.</p>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;">
+      <canvas id="gearCanvas" width="480" height="420" style="max-width:100%;"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline-section">
+  <div class="timeline-inner">
+
+    <!-- Step 1: left -->
+    <div class="timeline-step left">
+      <div class="timeline-card from-left" data-step="1">
+        <div class="step-num">01 / Discovery</div>
+        <div class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="step-title">We start by understanding everything.</div>
+        <div class="step-desc">Before we write a single word, we learn your product, your users, and what the documentation needs to achieve. No assumptions, no templates.</div>
+        <div class="step-details">
+          <div class="step-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Stakeholder interviews and briefings</div>
+          <div class="step-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Product and platform walkthroughs</div>
+          <div class="step-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Existing documentation audit</div>
+          <div class="step-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Audience and user analysis</div>
+        </div>
+      </div>
+      <div class="timeline-spacer"><div class="timeline-spacer-num">01</div></div>
+    </div>
+
+    <!-- Step 2: right -->
+    <div class="timeline-step right">
+      <div class="timeline-spacer"><div class="timeline-spacer-num">02</div></div>
+      <div class="timeline-card from-right" data-step="2">
+        <div class="step-num">02 / Planning</div>
+        <div class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <div class="step-title">We define scope, structure, and timeline.</div>
+        <div class="step-desc">We structure the content and create a plan you can see and approve. You know exactly what we will deliver, in what order, and by when before we start writing.</div>
+        <div class="step-details">
+          <div class="step-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Content structure and outlines</div>
+          <div class="step-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Information architecture design</div>
+          <div class="step-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Project timeline and milestones</div>
+          <div class="step-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Style guide alignment</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3: left -->
+    <div class="timeline-step left">
+      <div class="timeline-card from-left" data-step="3">
+        <div class="step-num">03 / Research & Writing</div>
+        <div class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <div class="step-title">We get hands-on, then write with precision.</div>
+        <div class="step-desc">We test workflows, make API calls, and do what it takes to understand what we are documenting. Then we write with precision, clarity, and consistency throughout.</div>
+        <div class="step-details">
+          <div class="step-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Hands-on product testing</div>
+          <div class="step-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>SME interviews and fact-checking</div>
+          <div class="step-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Drafts delivered per milestone</div>
+          <div class="step-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Consistent voice, tone, and terminology</div>
+        </div>
+      </div>
+      <div class="timeline-spacer"><div class="timeline-spacer-num">03</div></div>
+    </div>
+
+    <!-- Step 4: right -->
+    <div class="timeline-step right">
+      <div class="timeline-spacer"><div class="timeline-spacer-num">04</div></div>
+      <div class="timeline-card from-right" data-step="4">
+        <div class="step-num">04 / Review</div>
+        <div class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="step-title">We refine until it is right.</div>
+        <div class="step-desc">We share drafts with your team, gather structured feedback, and revise until the documentation is accurate, complete, and meets your standards. No loose ends.</div>
+        <div class="step-details">
+          <div class="step-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Structured review cycles</div>
+          <div class="step-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Feedback incorporation and tracking</div>
+          <div class="step-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Technical accuracy validation</div>
+          <div class="step-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Style and consistency checks</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5: left -->
+    <div class="timeline-step left">
+      <div class="timeline-card from-left" data-step="5">
+        <div class="step-num">05 / Delivery</div>
+        <div class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div class="step-title">We deliver and set your team up to maintain it.</div>
+        <div class="step-desc">We deliver the final documentation in your preferred format, publish it to your platform, and hand over everything your team needs to keep it up to date.</div>
+        <div class="step-details">
+          <div class="step-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Final delivery in your format of choice</div>
+          <div class="step-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Platform publishing and setup</div>
+          <div class="step-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Style guide and governance handover</div>
+          <div class="step-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Post-delivery support available</div>
+        </div>
+      </div>
+      <div class="timeline-spacer"><div class="timeline-spacer-num">05</div></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- WHAT TO EXPECT -->
+<div class="expect-strip">
+  <div class="expect-inner">
+    <div class="expect-ey">What to Expect</div>
+    <div class="expect-h2">Working with Docifice.</div>
+    <div class="expect-sub">Clear communication, no surprises, and documentation delivered on time.</div>
+    <div class="expect-grid">
+      <div class="expect-item">
+        <div class="expect-label">Product Understanding</div>
+        <div class="expect-sub-item">We learn your product before we document it.</div>
+      </div>
+      <div class="expect-item">
+        <div class="expect-label">Technical Accuracy</div>
+        <div class="expect-sub-item">Every detail is verified for clarity and correctness.</div>
+      </div>
+      <div class="expect-item">
+        <div class="expect-label">Documentation Excellence</div>
+        <div class="expect-sub-item">Consistent, structured, and user-focused documentation.</div>
+      </div>
+      <div class="expect-item">
+        <div class="expect-label">Built to Scale</div>
+        <div class="expect-sub-item">Documentation that grows alongside your products.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA + WAVES -->
+<div class="bottom">
+  <div class="wrap">
+    <div class="cta">
+      <div class="cta-eyebrow">Ready when you are</div>
+      <h2 class="cta-h2">Let's start with a <em>conversation.</em></h2>
+      <p class="cta-sub">Tell us about your project. We will walk you through how we would approach it and what the process would look like for your specific needs.</p>
+      <div class="cta-btns">
+        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s;display:inline-flex;align-items:center;gap:8px;background-color:#0a0a0a;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/contact'">Get in touch <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s;display:inline-flex;align-items:center;gap:8px;background-color:#fff;color:#0a0a0a;border:1.5px solid #d0d0d0;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/work/case-studies'">View case studies <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <canvas id="waveCanvas"></canvas>
+</div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.timeline-card').forEach(card => observer.observe(card));
+
+
+// Animated canvas gears
+const canvas=document.getElementById('gearCanvas');
+const ctx=canvas.getContext('2d');
+const W=canvas.width,H=canvas.height;
+
+function drawGear(x,y,angle,teeth,pitchR,toothH,col,isCenter){
+  const step=(Math.PI*2)/teeth;
+  const outerR=pitchR+toothH*0.6;
+  const innerR=pitchR-toothH*0.4;
+  const tw=step*0.44;
+  ctx.save();ctx.translate(x,y);ctx.rotate(angle);
+  ctx.beginPath();
+  for(let i=0;i<teeth;i++){
+    const a=i*step,a0=a-tw/2,a1=a+tw/2,g1=a+step-tw/2;
+    if(i===0)ctx.moveTo(Math.cos(a0)*innerR,Math.sin(a0)*innerR);
+    ctx.lineTo(Math.cos(a0)*innerR,Math.sin(a0)*innerR);
+    ctx.lineTo(Math.cos(a0)*outerR,Math.sin(a0)*outerR);
+    ctx.arc(0,0,outerR,a0,a1);
+    ctx.lineTo(Math.cos(a1)*innerR,Math.sin(a1)*innerR);
+    ctx.arc(0,0,innerR,a1,g1);
+  }
+  ctx.closePath();
+  ctx.strokeStyle=col.replace('1)','0.07)');ctx.lineWidth=10;ctx.stroke();
+  ctx.strokeStyle=col.replace('1)','0.16)');ctx.lineWidth=4;ctx.stroke();
+  ctx.fillStyle=col.replace('1)',isCenter?'0.22)':'0.14)');ctx.fill();
+  ctx.strokeStyle=col;ctx.lineWidth=1.8;ctx.stroke();
+  ctx.restore();
+}
+
+const grad=ctx.createRadialGradient(240,210,0,240,210,210);
+grad.addColorStop(0,'rgba(0,120,212,0.2)');grad.addColorStop(1,'rgba(0,0,0,0)');
+
+const sats=[{x:240,y:69,phase:7.3304,num:"01",word:"DISCOVER"},
+  {x:374,y:166,phase:9.2153,num:"02",word:"PLAN"},
+  {x:323,y:324,phase:1.6755,num:"05",word:"DELIVER"},
+  {x:157,y:324,phase:3.5605,num:"03",word:"WRITE"},
+  {x:106,y:166,phase:5.4454,num:"04",word:"REVIEW"}];
+let t=0;
+
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);
+  sats.forEach(s=>drawGear(s.x,s.y,-t*1.5000+s.phase,12,50,10,'rgba(125,211,252,1)',false));
+  drawGear(240,210,t,18,75,13,'rgba(0,120,212,1)',true);
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.shadowColor='#0078D4';ctx.shadowBlur=8;
+  ctx.font='bold 13px "Plus Jakarta Sans",sans-serif';ctx.fillStyle='#fff';ctx.fillText('PROCESS',240,210-5);
+  ctx.shadowBlur=0;ctx.font='8px "Plus Jakarta Sans",sans-serif';
+  ctx.fillStyle='rgba(125,211,252,0.85)';ctx.fillText('ENGINE',240,210+9);
+  sats.forEach(s=>{
+    ctx.shadowColor='#0078D4';ctx.shadowBlur=5;
+    ctx.font='bold 7px "Plus Jakarta Sans",sans-serif';ctx.fillStyle='rgba(125,211,252,0.9)';ctx.fillText(s.num,s.x,s.y-7);
+    ctx.font='bold 9.5px "Plus Jakarta Sans",sans-serif';ctx.fillStyle='#fff';ctx.fillText(s.word,s.x,s.y+7);
+    ctx.shadowBlur=0;
+  });
+  t+=0.0018;
+  requestAnimationFrame(draw);
+}
+draw();
+// Waves
+const wc=document.getElementById('waveCanvas');
+const wx=wc&&wc.getContext('2d');
+function resize(){if(!wc)return;wc.width=wc.offsetWidth;wc.height=200;}
+resize();window.addEventListener('resize',resize);
+const layers=[
+  {a:20,s:.0009,c1:'#b8d0e8',c2:'#88b0d0',y:0.44,o:.5,p:0},
+  {a:18,s:.0007,c1:'#4888c0',c2:'#0078D4',y:0.54,o:.62,p:1.8},
+  {a:18,s:.0011,c1:'#0060a8',c2:'#004880',y:0.65,o:.72,p:3.2},
+  {a:16,s:.0006,c1:'#003060',c2:'#002040',y:0.75,o:.82,p:0.9},
+  {a:14,s:.0013,c1:'#011828',c2:'#021430',y:0.85,o:.93,p:2.1},
+  {a:10,s:.0005,c1:'#010e20',c2:'#010e20',y:0.93,o:1,p:1.2},
+];
+function drawWave(t){
+  if(!wx||!wc)return;
+  const W=wc.width,H=wc.height;
+  wx.clearRect(0,0,W,H);
+  wx.fillStyle='#f8f9fa';wx.fillRect(0,0,W,H);
+  layers.forEach(l=>{
+    wx.beginPath();
+    const by=H*l.y;wx.moveTo(0,H);
+    for(let x=0;x<=W;x+=2){
+      const n=x/W;
+      const raw=by+Math.sin(n*Math.PI*3.5+t*l.s+l.p)*l.a+Math.sin(n*Math.PI*6+t*l.s*.65+l.p*1.4)*l.a*.35;
+      wx.lineTo(x,Math.max(by-l.a*1.45,raw));
+    }
+    wx.lineTo(W,H);wx.closePath();
+    const g=wx.createLinearGradient(0,0,W,0);
+    g.addColorStop(0,l.c1);g.addColorStop(1,l.c2);
+    wx.fillStyle=g;wx.globalAlpha=l.o;wx.fill();
+  });
+  wx.globalAlpha=1;requestAnimationFrame(drawWave);
+}
+requestAnimationFrame(drawWave);
+</script>
+
+</BaseLayout>

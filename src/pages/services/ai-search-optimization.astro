@@ -1,0 +1,366 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="AI Search Optimization" description="Professional AI search optimization services — AISO, AEO, GEO, RAG-ready documentation, semantic content structuring and more. Docifice makes your content visible where AI searches happen.">
+
+<style>
+.td-hero{background:#021430;padding:72px 0 64px;position:relative;overflow:hidden;}
+.td-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 20%,rgba(0,120,212,.28) 0%,transparent 60%);pointer-events:none;}
+.td-hero-inner{max-width:1400px;margin:0 auto;padding:0 32px;position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center;}
+.td-eyebrow{font-size:11px;font-weight:700;letter-spacing:.04em;color:#7dd3fc;margin-bottom:14px;}
+.td-hero h1{font-size:52px;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1.04;margin-bottom:18px;}
+.td-hero h1 em{font-style:normal;color:#7dd3fc;}
+.td-hero p{font-size:16px;color:rgba(255,255,255,.58);line-height:1.76;max-width:480px;margin-bottom:32px;}
+.td-hero-btns{display:flex;gap:12px;align-items:center;}
+.trust-bar{background:#f8f9fa;border-bottom:1px solid #f0f0f0;padding:20px 0;}
+.trust-bar-inner{max-width:1400px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+.trust-label{font-size:13px;font-weight:700;color:#0a0a0a;white-space:nowrap;}
+.trust-items{display:flex;flex:1;justify-content:space-between;flex-wrap:wrap;align-items:center;margin-left:32px;}
+.trust-item{font-size:13px;font-weight:600;color:#555;display:flex;align-items:center;gap:6px;}
+.section{padding:88px 0;}
+.section-alt{background:#f8f9fa;}
+.wrap{max-width:1400px;margin:0 auto;padding:0 32px;}
+.section-ey{font-size:11px;font-weight:700;letter-spacing:.04em;color:#0078D4;margin-bottom:12px;}
+.section-h2{font-size:36px;font-weight:800;letter-spacing:-.04em;color:#0a0a0a;line-height:1.1;margin-bottom:14px;}
+.section-sub{font-size:15px;color:#666;line-height:1.6;}
+.del-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px;}
+.del-cat{border-radius:12px;padding:24px 26px;border:1.5px solid #d8e2f0;border-top:3px solid #d8e2f0;background:#fff;transition:border-color .2s,box-shadow .2s,transform .22s cubic-bezier(.34,1.1,.64,1);}
+.del-cat:hover{border-color:#c8ddf5;border-top-color:#0078D4;box-shadow:0 6px 20px rgba(0,120,212,.08);transform:translateY(-3px);}
+.del-cat-icon{font-size:10px;font-weight:700;letter-spacing:.05em;color:#0078D4;margin-bottom:6px;display:block;}
+.del-cat-title{font-size:15px;font-weight:800;color:#0a0a0a;letter-spacing:-.02em;margin-bottom:12px;}
+.del-cat-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.del-cat-list li{font-size:12px;color:#444;padding-left:14px;position:relative;line-height:1.5;}
+.del-cat-list li::before{content:'';position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:#0078D4;}
+.aud-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px;}
+.aud-card{background:#fff;border:1px solid #eaecf0;border-radius:10px;padding:18px 20px;display:flex;align-items:center;gap:12px;transition:border-color .2s,box-shadow .2s,transform .22s cubic-bezier(.34,1.1,.64,1);}
+.aud-card:hover{border-color:#0078D4;box-shadow:0 4px 16px rgba(0,120,212,.08);transform:translateY(-2px);}
+.aud-icon{width:32px;height:32px;border-radius:8px;background:#f0f5ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.aud-name{font-size:13px;font-weight:600;color:#0a0a0a;}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px;}
+.process-step{background:#fff;border:1px solid #e4edf8;border-radius:12px;padding:28px 24px;}
+.process-num{font-size:11px;font-weight:700;color:#0078D4;letter-spacing:.04em;margin-bottom:12px;}
+.process-title{font-size:16px;font-weight:800;color:#0a0a0a;margin-bottom:8px;letter-spacing:-.02em;}
+.process-desc{font-size:13px;color:#666;line-height:1.65;}
+.tools-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;}
+.tool-tag{font-size:12px;font-weight:600;padding:7px 14px;border-radius:8px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.1);transition:background .2s,color .2s,border-color .2s;}
+.tool-tag:hover{background:rgba(0,120,212,.2);border-color:rgba(0,120,212,.4);color:#fff;}
+.faq-list{display:flex;flex-direction:column;gap:2px;margin-top:48px;}
+.faq-item{border:1px solid #eaecf0;border-radius:10px;overflow:hidden;}
+.faq-q{padding:20px 24px;font-size:15px;font-weight:600;color:#0a0a0a;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;}
+.faq-q:hover{background:#f8f9fa;}
+.faq-a{padding:0 24px 0;font-size:14px;color:#555;line-height:1.74;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;}
+.faq-item.open .faq-a{max-height:200px;padding:0 24px 20px;}
+.faq-item.open .faq-chevron{transform:rotate(180deg);}
+.faq-chevron{transition:transform .2s;flex-shrink:0;color:#0078D4;}
+.btn-primary{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background:#0078D4;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s,opacity .2s;text-decoration:none;}
+.btn-primary:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,120,212,.3);}
+.btn-ghost{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.3);padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;transition:background .2s,transform .22s cubic-bezier(.34,1.1,.64,1);text-decoration:none;}
+.btn-ghost:hover{background:rgba(255,255,255,.2);transform:translateY(-2px);}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+</style>
+
+<!-- HERO -->
+<div class="td-hero">
+  <div class="td-hero-inner">
+    <div>
+      <div class="td-eyebrow">AI Search Optimization</div>
+      <h1>Visible where AI <em>searches happen.</em></h1>
+      <p>We optimize your documentation and content so it surfaces in AI-powered search, answer engines, and generative results. Built for ChatGPT, Perplexity, Google SGE, and every AI search engine that follows.</p>
+      <div class="td-hero-btns">
+        <a href="/contact" class="btn-primary" onclick="location.href='/contact'">Get in touch <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="/work/case-studies" class="btn-ghost" onclick="location.href='/work/case-studies'">View case studies <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Hero visual: AI search results screen -->
+    <div style="background:#0a0a0a;border-radius:16px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.08);">
+      <div style="background:#111;padding:9px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06);">
+        <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:rgba(255,255,255,.35);font-family:'JetBrains Mono',monospace;">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          AI Search &middot; Perplexity
+        </div>
+        <span style="font-size:9px;font-weight:700;padding:3px 8px;border-radius:4px;background:rgba(52,211,153,.12);color:#34d399;letter-spacing:.04em;">Cited</span>
+      </div>
+      <div style="padding:16px 20px;">
+        <!-- Query -->
+        <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:8px;padding:9px 12px;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span style="font-size:11px;color:rgba(255,255,255,.6);">how to authenticate with the platform API</span>
+        </div>
+        <!-- AI answer -->
+        <div style="font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:8px;">AI Answer</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:12px;">To authenticate with the Platform API, send a <code style="background:rgba(255,255,255,.08);padding:1px 5px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#60b0f4;">POST</code> request to <code style="background:rgba(255,255,255,.08);padding:1px 5px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#60b0f4;">/api/v2/auth/token</code> with your credentials. Include the returned Bearer token in the <code style="background:rgba(255,255,255,.08);padding:1px 5px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#60b0f4;">Authorization</code> header of all subsequent requests.</div>
+        <!-- Sources -->
+        <div style="font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:8px;">Sources</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:rgba(0,120,212,.12);border:1px solid rgba(0,120,212,.25);border-radius:6px;">
+            <div style="width:16px;height:16px;border-radius:3px;background:#0078D4;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+            </div>
+            <div>
+              <div style="font-size:10px;font-weight:600;color:#60b0f4;">docs.platform.com/authentication</div>
+              <div style="font-size:9px;color:rgba(255,255,255,.3);">Platform API Reference</div>
+            </div>
+            <span style="margin-left:auto;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;background:rgba(52,211,153,.12);color:#34d399;">Top source</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;">
+            <div style="width:16px;height:16px;border-radius:3px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+            </div>
+            <div>
+              <div style="font-size:10px;color:rgba(255,255,255,.5);">docs.platform.com/getting-started</div>
+              <div style="font-size:9px;color:rgba(255,255,255,.3);">Getting Started Guide</div>
+            </div>
+          </div>
+        </div>
+        <!-- Score -->
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:10px;">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:8px 10px;text-align:center;">
+            <div style="font-size:13px;font-weight:800;color:#34d399;">#1</div>
+            <div style="font-size:9px;color:rgba(255,255,255,.35);margin-top:2px;">AI rank</div>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:8px 10px;text-align:center;">
+            <div style="font-size:13px;font-weight:800;color:#60b0f4;">94%</div>
+            <div style="font-size:9px;color:rgba(255,255,255,.35);margin-top:2px;">Cited rate</div>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:8px 10px;text-align:center;">
+            <div style="font-size:13px;font-weight:800;color:#fff;">AEO</div>
+            <div style="font-size:9px;color:rgba(255,255,255,.35);margin-top:2px;">Optimised</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <span class="trust-label">Trusted By</span>
+    <div class="trust-items">
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>SaaS & platform companies</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Developer tool teams</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Enterprise documentation teams</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>AI product teams</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Global enterprise teams</span>
+    </div>
+  </div>
+</div>
+
+<!-- DELIVERABLES -->
+<div class="section">
+  <div class="wrap">
+    <div class="section-ey">What We Deliver</div>
+    <div class="section-h2">Content optimized for where AI searches happen.</div>
+    <div class="section-sub">From AISO and AEO to knowledge base optimization and AI search strategy, we cover everything your content needs to surface in AI-generated answers.</div>
+    <div class="del-grid">
+      <div class="del-cat">
+        <span class="del-cat-icon">AI Search Optimization</span>
+        <div class="del-cat-title">Visible in AI-generated answers</div>
+        <ul class="del-cat-list">
+          <li>AI Search Optimization (AISO)</li>
+          <li>Answer Engine Optimization (AEO)</li>
+          <li>Generative Engine Optimization (GEO)</li>
+          <li>AI Search Readiness Audits</li>
+          <li>Semantic Search Optimization</li>
+          <li>Entity-Based Content Optimization</li>
+          <li>Search Intent Optimization</li>
+          <li>AI Search Performance Analysis</li>
+        </ul>
+      </div>
+      <div class="del-cat">
+        <span class="del-cat-icon">AI Knowledge Optimization</span>
+        <div class="del-cat-title">Content structured for AI retrieval</div>
+        <ul class="del-cat-list">
+          <li>RAG-Ready Documentation</li>
+          <li>Knowledge Base Optimization</li>
+          <li>Content Chunking</li>
+          <li>Structured FAQs</li>
+          <li>Semantic Content Structuring</li>
+          <li>Metadata Strategy</li>
+          <li>Content Taxonomy</li>
+          <li>Cross-Linking Strategy</li>
+          <li>Canonical Content</li>
+          <li>AI Retrieval Optimization</li>
+        </ul>
+      </div>
+      <div class="del-cat">
+        <span class="del-cat-icon">AI Search Strategy</span>
+        <div class="del-cat-title">A roadmap for AI search visibility</div>
+        <ul class="del-cat-list">
+          <li>AI Readiness Assessments</li>
+          <li>Documentation Audits</li>
+          <li>Content Gap Analysis</li>
+          <li>Documentation Modernization</li>
+          <li>AI Documentation Roadmaps</li>
+          <li>Documentation Governance</li>
+          <li>Performance Recommendations</li>
+          <li>AI Search Consulting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AUDIENCE -->
+<div class="section section-alt">
+  <div class="wrap">
+    <div class="section-ey">Who We Work With</div>
+    <div class="section-h2">Built for teams who want to be found by AI.</div>
+    <div class="section-sub">As AI search becomes the default way people find information, the teams who invest in AI search optimization now will be the ones who get cited, referenced, and trusted.</div>
+    <div class="aud-grid">
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><span class="aud-name">Product Teams</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></div><span class="aud-name">Documentation Teams</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><span class="aud-name">Marketing Teams</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><span class="aud-name">AI Product Teams</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><span class="aud-name">Engineering Teams</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><span class="aud-name">Customer Success Teams</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><span class="aud-name">SEO & Growth Teams</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><span class="aud-name">Enterprise Brands</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div class="section" style="background:#f0f5ff;">
+  <div class="wrap">
+    <div class="section-ey">How We Work</div>
+    <div class="section-h2">Audit, optimize, structure, monitor.</div>
+    <div class="section-sub">AI search optimization starts with understanding how AI systems currently perceive your content, then systematically improving it so you get cited where it counts.</div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="process-num">01 / Audit</div>
+        <div class="process-title">Assess your AI search visibility</div>
+        <div class="process-desc">We audit how your content performs in AI search engines, identify gaps, and benchmark your visibility against competitors in AI-generated answers.</div>
+      </div>
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <div class="process-num">02 / Structure</div>
+        <div class="process-title">Structure content for AI retrieval</div>
+        <div class="process-desc">We restructure your documentation with semantic markup, metadata, entity optimization, and content chunking designed for AI retrieval systems.</div>
+      </div>
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <div class="process-num">03 / Optimize</div>
+        <div class="process-title">Write and optimize content</div>
+        <div class="process-desc">We rewrite and optimize content for search intent, semantic relevance, and answer-engine retrieval — so AI systems cite your docs as the authoritative source.</div>
+      </div>
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div class="process-num">04 / Monitor</div>
+        <div class="process-title">Track and improve</div>
+        <div class="process-desc">We monitor your AI search citation rates, track performance across AI engines, and provide ongoing recommendations to maintain and grow your visibility.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOOLS -->
+<div class="section" style="background:#0f172a;">
+  <div class="wrap">
+    <div class="section-ey" style="color:#7dd3fc;">Tools & Platforms</div>
+    <div class="section-h2" style="color:#fff;">We work across the AI search stack.</div>
+    <div class="section-sub" style="color:rgba(255,255,255,.55);">From content platforms and structured authoring tools to AI search engines and analytics, we optimize across the full AI search ecosystem.</div>
+    <div class="tools-grid">
+      <span class="tool-tag">ChatGPT</span><span class="tool-tag">Perplexity</span><span class="tool-tag">Google SGE</span><span class="tool-tag">Bing Copilot</span><span class="tool-tag">Claude</span><span class="tool-tag">Gemini</span><span class="tool-tag">LangChain</span><span class="tool-tag">LlamaIndex</span><span class="tool-tag">Pinecone</span><span class="tool-tag">Weaviate</span><span class="tool-tag">Chroma</span><span class="tool-tag">Schema.org</span><span class="tool-tag">JSON-LD</span><span class="tool-tag">OpenAPI</span><span class="tool-tag">DITA XML</span><span class="tool-tag">Markdown</span><span class="tool-tag">MDX</span><span class="tool-tag">Confluence</span><span class="tool-tag">Notion</span><span class="tool-tag">Document360</span><span class="tool-tag">Docusaurus</span><span class="tool-tag">GitBook</span><span class="tool-tag">ReadMe</span><span class="tool-tag">Mintlify</span><span class="tool-tag">Google Search Console</span><span class="tool-tag">Semrush</span><span class="tool-tag">Ahrefs</span><span class="tool-tag">Vale</span><span class="tool-tag">Acrolinx</span>
+    </div>
+  </div>
+</div>
+
+<!-- FAQs -->
+<div class="section">
+  <div class="wrap">
+    <div class="section-ey">FAQs</div>
+    <div class="section-h2">Common questions.</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">What is AI Search Optimization (AISO)? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">AI Search Optimization (AISO) is the practice of structuring and writing content so it surfaces in AI-generated answers on platforms like Perplexity, ChatGPT, Google SGE, and Bing Copilot. Where traditional SEO targets search rankings, AISO targets citation and inclusion in AI-generated responses.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What is the difference between AEO and GEO? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Answer Engine Optimization (AEO) focuses on getting your content cited in direct AI-generated answers. Generative Engine Optimization (GEO) is broader and covers optimizing for inclusion across all generative AI outputs. Both are disciplines we apply depending on your visibility goals.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you audit our existing documentation for AI search readiness? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We conduct AI search readiness audits that assess how AI systems currently retrieve and cite your content, identify structural and metadata gaps, and provide a prioritized action plan to improve your visibility.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How is AI search optimization different from traditional SEO? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Traditional SEO optimizes for search engine rankings and click-through rates. AI search optimization focuses on being cited and referenced in AI-generated answers, which requires different signals: semantic structure, entity clarity, content authority, and retrievability by LLM systems.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you optimize documentation specifically for RAG systems? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We structure and chunk documentation specifically for retrieval-augmented generation pipelines, optimising content boundaries, metadata, and semantic links so your RAG system retrieves the most accurate and relevant content.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do you measure AI search performance? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">We track citation rates across AI search engines, monitor which content gets referenced in AI-generated answers, and benchmark your visibility against competitors. We provide regular reports and recommendations based on AI search performance data.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA + WAVES -->
+<div class="bottom">
+  <div class="wrap">
+    <div class="cta">
+      <div class="cta-eyebrow">Ready when you are</div>
+      <h2 class="cta-h2">Be the source AI <em>cites.</em></h2>
+      <p class="cta-sub">Tell us about your content. We audit, optimize, and structure your documentation so it surfaces in AI-generated answers across every major AI search engine.</p>
+      <div class="cta-btns">
+        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s;display:inline-flex;align-items:center;gap:8px;background-color:#0a0a0a;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/contact'">Get in touch <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s;display:inline-flex;align-items:center;gap:8px;background-color:#fff;color:#0a0a0a;border:1.5px solid #d0d0d0;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/work/success-stories'">View success stories <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <canvas id="waveCanvas"></canvas>
+</div>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+const wc=document.getElementById('waveCanvas');
+const wx=wc&&wc.getContext('2d');
+function resize(){if(!wc)return;wc.width=wc.offsetWidth;wc.height=200;}
+resize();window.addEventListener('resize',resize);
+const layers=[
+  {a:20,s:.0009,c1:'#b8d0e8',c2:'#88b0d0',y:0.44,o:.5,p:0},
+  {a:18,s:.0007,c1:'#4888c0',c2:'#0078D4',y:0.54,o:.62,p:1.8},
+  {a:18,s:.0011,c1:'#0060a8',c2:'#004880',y:0.65,o:.72,p:3.2},
+  {a:16,s:.0006,c1:'#003060',c2:'#002040',y:0.75,o:.82,p:0.9},
+  {a:14,s:.0013,c1:'#011828',c2:'#021430',y:0.85,o:.93,p:2.1},
+  {a:10,s:.0005,c1:'#010e20',c2:'#010e20',y:0.93,o:1,p:1.2},
+];
+function draw(t){
+  if(!wx||!wc)return;
+  const W=wc.width,H=wc.height;
+  wx.clearRect(0,0,W,H);
+  wx.fillStyle='#f8f9fa';wx.fillRect(0,0,W,H);
+  layers.forEach(l=>{
+    wx.beginPath();
+    const by=H*l.y;wx.moveTo(0,H);
+    for(let x=0;x<=W;x+=2){
+      const n=x/W;
+      const raw=by+Math.sin(n*Math.PI*3.5+t*l.s+l.p)*l.a+Math.sin(n*Math.PI*6+t*l.s*.65+l.p*1.4)*l.a*.35;
+      wx.lineTo(x,Math.max(by-l.a*1.45,raw));
+    }
+    wx.lineTo(W,H);wx.closePath();
+    const g=wx.createLinearGradient(0,0,W,0);
+    g.addColorStop(0,l.c1);g.addColorStop(1,l.c2);
+    wx.fillStyle=g;wx.globalAlpha=l.o;wx.fill();
+  });
+  wx.globalAlpha=1;requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);
+</script>
+
+</BaseLayout>

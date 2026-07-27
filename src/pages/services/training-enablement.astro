@@ -1,0 +1,399 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Training & Enablement" description="Professional training and enablement documentation services — LMS courses, product training, onboarding programmes, certification guides and more. Docifice builds knowledge that sticks.">
+
+<style>
+.td-hero{background:#021430;padding:72px 0 64px;position:relative;overflow:hidden;}
+.td-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 20%,rgba(0,120,212,.28) 0%,transparent 60%);pointer-events:none;}
+.td-hero-inner{max-width:1400px;margin:0 auto;padding:0 32px;position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center;}
+.td-eyebrow{font-size:11px;font-weight:700;letter-spacing:.04em;color:#7dd3fc;margin-bottom:14px;}
+.td-hero h1{font-size:52px;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1.04;margin-bottom:18px;}
+.td-hero h1 em{font-style:normal;color:#7dd3fc;}
+.td-hero p{font-size:16px;color:rgba(255,255,255,.58);line-height:1.76;max-width:480px;margin-bottom:32px;}
+.td-hero-btns{display:flex;gap:12px;align-items:center;}
+.trust-bar{background:#f8f9fa;border-bottom:1px solid #f0f0f0;padding:20px 0;}
+.trust-bar-inner{max-width:1400px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+.trust-label{font-size:13px;font-weight:700;color:#0a0a0a;white-space:nowrap;}
+.trust-items{display:flex;flex:1;justify-content:space-between;flex-wrap:wrap;align-items:center;margin-left:32px;}
+.trust-item{font-size:13px;font-weight:600;color:#555;display:flex;align-items:center;gap:6px;}
+.section{padding:88px 0;}
+.section-alt{background:#f8f9fa;}
+.wrap{max-width:1400px;margin:0 auto;padding:0 32px;}
+.section-ey{font-size:11px;font-weight:700;letter-spacing:.04em;color:#0078D4;margin-bottom:12px;}
+.section-h2{font-size:36px;font-weight:800;letter-spacing:-.04em;color:#0a0a0a;line-height:1.1;margin-bottom:14px;}
+.section-sub{font-size:15px;color:#666;line-height:1.6;}
+.del-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px;}
+.del-cat{border-radius:12px;padding:24px 26px;border:1.5px solid #d8e2f0;border-top:3px solid #d8e2f0;background:#fff;transition:border-color .2s,box-shadow .2s,transform .22s cubic-bezier(.34,1.1,.64,1);}
+.del-cat:hover{border-color:#c8ddf5;border-top-color:#0078D4;box-shadow:0 6px 20px rgba(0,120,212,.08);transform:translateY(-3px);}
+.del-cat-icon{font-size:10px;font-weight:700;letter-spacing:.05em;color:#0078D4;margin-bottom:6px;display:block;}
+.del-cat-title{font-size:15px;font-weight:800;color:#0a0a0a;letter-spacing:-.02em;margin-bottom:12px;}
+.del-cat-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.del-cat-list li{font-size:12px;color:#444;padding-left:14px;position:relative;line-height:1.5;}
+.del-cat-list li::before{content:'';position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:#0078D4;}
+.aud-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px;}
+.aud-card{background:#fff;border:1px solid #eaecf0;border-radius:10px;padding:18px 20px;display:flex;align-items:center;gap:12px;transition:border-color .2s,box-shadow .2s,transform .22s cubic-bezier(.34,1.1,.64,1);}
+.aud-card:hover{border-color:#0078D4;box-shadow:0 4px 16px rgba(0,120,212,.08);transform:translateY(-2px);}
+.aud-icon{width:32px;height:32px;border-radius:8px;background:#f0f5ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.aud-name{font-size:13px;font-weight:600;color:#0a0a0a;}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px;}
+.process-step{background:#fff;border:1px solid #e4edf8;border-radius:12px;padding:28px 24px;}
+.process-num{font-size:11px;font-weight:700;color:#0078D4;letter-spacing:.04em;margin-bottom:12px;}
+.process-title{font-size:16px;font-weight:800;color:#0a0a0a;margin-bottom:8px;letter-spacing:-.02em;}
+.process-desc{font-size:13px;color:#666;line-height:1.65;}
+.tools-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;}
+.tool-tag{font-size:12px;font-weight:600;padding:7px 14px;border-radius:8px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.1);transition:background .2s,color .2s,border-color .2s;}
+.tool-tag:hover{background:rgba(0,120,212,.2);border-color:rgba(0,120,212,.4);color:#fff;}
+.faq-list{display:flex;flex-direction:column;gap:2px;margin-top:48px;}
+.faq-item{border:1px solid #eaecf0;border-radius:10px;overflow:hidden;}
+.faq-q{padding:20px 24px;font-size:15px;font-weight:600;color:#0a0a0a;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;}
+.faq-q:hover{background:#f8f9fa;}
+.faq-a{padding:0 24px 0;font-size:14px;color:#555;line-height:1.74;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;}
+.faq-item.open .faq-a{max-height:200px;padding:0 24px 20px;}
+.faq-item.open .faq-chevron{transform:rotate(180deg);}
+.faq-chevron{transition:transform .2s;flex-shrink:0;color:#0078D4;}
+.btn-primary{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background:#0078D4;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s,opacity .2s;text-decoration:none;}
+.btn-primary:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,120,212,.3);}
+.btn-ghost{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.3);padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;transition:background .2s,transform .22s cubic-bezier(.34,1.1,.64,1);text-decoration:none;}
+.btn-ghost:hover{background:rgba(255,255,255,.2);transform:translateY(-2px);}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+</style>
+
+<!-- HERO -->
+<div class="td-hero">
+  <div class="td-hero-inner">
+    <div>
+      <div class="td-eyebrow">Training & Enablement</div>
+      <h1>Knowledge that builds <em>capability.</em></h1>
+      <p>We design and write training documentation, LMS courses, onboarding programmes, and certification guides that turn users and employees into confident, capable experts.</p>
+      <div class="td-hero-btns">
+        <a href="/contact" class="btn-primary" onclick="location.href='/contact'">Get in touch <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="/work/case-studies" class="btn-ghost" onclick="location.href='/work/case-studies'">View case studies <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Hero visual: LMS course progress screen -->
+    <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.15);">
+      <div style="background:#f7f8fa;padding:9px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ebebeb;">
+        <div style="display:flex;align-items:center;gap:7px;font-size:11px;color:#888;">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Training Portal &middot; Module 4 of 8
+        </div>
+        <span style="font-size:9px;font-weight:700;padding:2px 8px;border-radius:3px;background:#e8f2ff;color:#0078D4;">In Progress</span>
+      </div>
+      <div style="display:grid;grid-template-columns:130px 1fr;">
+        <!-- Sidebar -->
+        <div style="background:#f9fafb;border-right:1px solid #ebebeb;padding:12px 10px;">
+          <div style="font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#bbb;margin-bottom:8px;">Course Modules</div>
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="display:flex;align-items:center;gap:6px;padding:4px 6px;border-radius:4px;">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="font-size:10px;color:#888;">Introduction</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;padding:4px 6px;border-radius:4px;">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="font-size:10px;color:#888;">Core Concepts</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;padding:4px 6px;border-radius:4px;">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="font-size:10px;color:#888;">Configuration</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;padding:4px 6px;border-radius:4px;background:#e8f2ff;">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <span style="font-size:10px;font-weight:600;color:#0078D4;">Workflows</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;padding:4px 6px;border-radius:4px;">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+              <span style="font-size:10px;color:#bbb;">Advanced Setup</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;padding:4px 6px;border-radius:4px;">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+              <span style="font-size:10px;color:#bbb;">Troubleshooting</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;padding:4px 6px;border-radius:4px;">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+              <span style="font-size:10px;color:#bbb;">Assessment</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;padding:4px 6px;border-radius:4px;">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+              <span style="font-size:10px;color:#bbb;">Certification</span>
+            </div>
+          </div>
+        </div>
+        <!-- Content -->
+        <div style="padding:14px 16px;background:#fff;">
+          <div style="font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0078D4;margin-bottom:4px;">Module 4</div>
+          <div style="font-size:13px;font-weight:800;color:#0a0a0a;margin-bottom:8px;letter-spacing:-.02em;">Managing Approval Workflows</div>
+          <div style="font-size:10px;color:#555;line-height:1.6;margin-bottom:10px;">In this module, you will learn how to configure, assign, and monitor approval workflows within the platform.</div>
+          <!-- Progress bar -->
+          <div style="margin-bottom:10px;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+              <span style="font-size:9px;color:#aaa;">Overall progress</span>
+              <span style="font-size:9px;font-weight:700;color:#0078D4;">42%</span>
+            </div>
+            <div style="height:4px;background:#e8edf5;border-radius:2px;">
+              <div style="width:42%;height:100%;background:#0078D4;border-radius:2px;"></div>
+            </div>
+          </div>
+          <!-- Steps -->
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <div style="display:flex;gap:7px;align-items:center;padding:6px 8px;background:#f0fdf4;border-radius:6px;">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="font-size:10px;color:#333;">Create a new approval workflow</span>
+            </div>
+            <div style="display:flex;gap:7px;align-items:center;padding:6px 8px;background:#f0fdf4;border-radius:6px;">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="font-size:10px;color:#333;">Assign approvers and escalation rules</span>
+            </div>
+            <div style="display:flex;gap:7px;align-items:center;padding:6px 8px;background:#e8f2ff;border-radius:6px;border:1px solid rgba(0,120,212,.15);">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <span style="font-size:10px;font-weight:600;color:#0078D4;">Monitor workflow status<span style="display:inline-block;width:1px;height:10px;background:#0078D4;margin-left:2px;vertical-align:middle;animation:blink 1s step-end infinite;"></span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <span class="trust-label">Trusted By</span>
+    <div class="trust-items">
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>HR & people teams</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Customer success teams</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Product & engineering teams</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Sales enablement teams</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Global enterprise teams</span>
+    </div>
+  </div>
+</div>
+
+<!-- DELIVERABLES -->
+<div class="section">
+  <div class="wrap">
+    <div class="section-ey">What We Deliver</div>
+    <div class="section-h2">Every type of training document, built to enable.</div>
+    <div class="section-sub">From product training and employee onboarding to certification programmes and compliance training, we cover the full training lifecycle.</div>
+    <div class="del-grid">
+      <div class="del-cat">
+        <span class="del-cat-icon">Product & Software Training</span>
+        <div class="del-cat-title">Turn users into confident experts</div>
+        <ul class="del-cat-list">
+          <li>End-User Training Guides</li>
+          <li>Administrator Training Guides</li>
+          <li>Feature Training Guides</li>
+          <li>Software Training Manuals</li>
+          <li>Quick Reference Cards</li>
+          <li>Release Training Documentation</li>
+          <li>Video Tutorial Scripts</li>
+          <li>In-App Guidance Documentation</li>
+          <li>Lab Guides &amp; Hands-on Exercises</li>
+          <li>Practice Labs</li>
+          <li>Exercise Files Documentation</li>
+          <li>Training Checklists</li>
+        </ul>
+      </div>
+      <div class="del-cat">
+        <span class="del-cat-icon">LMS Courses & eLearning</span>
+        <div class="del-cat-title">Courses built for how people learn</div>
+        <ul class="del-cat-list">
+          <li>LMS Course Content</li>
+          <li>SCORM-Ready Course Scripts</li>
+          <li>Instructor-Led Training Guides</li>
+          <li>Video Course Scripts & Narration</li>
+          <li>Microlearning Module Content</li>
+          <li>Knowledge Check Questions</li>
+          <li>Assessment Documentation</li>
+          <li>Interactive Learning Activities</li>
+          <li>Course Slide Deck Content</li>
+          <li>Instructor Guides</li>
+          <li>Facilitator Guides</li>
+          <li>Participant Workbooks</li>
+          <li>Workshop Materials</li>
+        </ul>
+      </div>
+      <div class="del-cat">
+        <span class="del-cat-icon">Onboarding & Certification</span>
+        <div class="del-cat-title">From day one to certified</div>
+        <ul class="del-cat-list">
+          <li>Employee Onboarding Guides</li>
+          <li>Customer Onboarding Guides</li>
+          <li>Role-Based Learning Paths</li>
+          <li>Compliance Training Materials</li>
+          <li>Certification Guides</li>
+          <li>Exam Preparation Guides</li>
+          <li>Learning Paths</li>
+          <li>Product Adoption Guides</li>
+          <li>Training Plans</li>
+          <li>Learning Objectives</li>
+          <li>Training Curriculum</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AUDIENCE -->
+<div class="section section-alt">
+  <div class="wrap">
+    <div class="section-ey">Who We Work With</div>
+    <div class="section-h2">Built for every team that trains and enables.</div>
+    <div class="section-sub">Training and enablement touches every part of an organisation. We work across teams to build documentation that makes learning stick.</div>
+    <div class="aud-grid">
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><span class="aud-name">HR & People Teams</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><span class="aud-name">Product Teams</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><span class="aud-name">Customer Success Teams</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><span class="aud-name">Sales Enablement Teams</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><span class="aud-name">Engineering Teams</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><span class="aud-name">Compliance Teams</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><span class="aud-name">Learning & Development</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><span class="aud-name">Operations Teams</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div class="section" style="background:#f0f5ff;">
+  <div class="wrap">
+    <div class="section-ey">How We Work</div>
+    <div class="section-h2">We learn the product before we teach it.</div>
+    <div class="section-sub">We never write training documentation without first understanding the product, the audience, and the learning outcomes. Every module is built with the learner in mind.</div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="process-num">01 / Discover</div>
+        <div class="process-title">Understand the product and learner</div>
+        <div class="process-desc">We analyse your product, identify learning objectives, and understand your audience's existing knowledge level before designing anything.</div>
+      </div>
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <div class="process-num">02 / Design</div>
+        <div class="process-title">Design the learning path</div>
+        <div class="process-desc">We structure the course, define modules, set learning outcomes, and design the flow so each section builds logically on the last.</div>
+      </div>
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <div class="process-num">03 / Write</div>
+        <div class="process-title">Write clear, learner-focused content</div>
+        <div class="process-desc">Every module is written in plain language from the learner's perspective. Step-by-step, practical, and free of unnecessary complexity.</div>
+      </div>
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div class="process-num">04 / Deliver</div>
+        <div class="process-title">Review and hand over</div>
+        <div class="process-desc">We review with your subject matter experts, refine based on feedback, and deliver training-ready content on time, in your format of choice.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOOLS -->
+<div class="section" style="background:#0f172a;">
+  <div class="wrap">
+    <div class="section-ey" style="color:#7dd3fc;">Tools & Platforms</div>
+    <div class="section-h2" style="color:#fff;">We work in your environment.</div>
+    <div class="section-sub" style="color:rgba(255,255,255,.55);">From LMS platforms and authoring tools to video and collaboration tools, we adapt to whatever your team uses.</div>
+    <div class="tools-grid">
+      <span class="tool-tag">Articulate Storyline</span><span class="tool-tag">Articulate Rise</span><span class="tool-tag">Adobe Captivate</span><span class="tool-tag">iSpring Suite</span><span class="tool-tag">Lectora</span><span class="tool-tag">Camtasia</span><span class="tool-tag">Snagit</span><span class="tool-tag">Loom</span><span class="tool-tag">Moodle</span><span class="tool-tag">Canvas LMS</span><span class="tool-tag">Docebo</span><span class="tool-tag">TalentLMS</span><span class="tool-tag">Cornerstone</span><span class="tool-tag">SAP SuccessFactors</span><span class="tool-tag">Workday Learning</span><span class="tool-tag">Microsoft Word</span><span class="tool-tag">Google Docs</span><span class="tool-tag">PowerPoint</span><span class="tool-tag">Notion</span><span class="tool-tag">Confluence</span><span class="tool-tag">SharePoint</span><span class="tool-tag">Figma</span><span class="tool-tag">Miro</span><span class="tool-tag">Lucidchart</span><span class="tool-tag">Jira</span><span class="tool-tag">Slack</span><span class="tool-tag">Microsoft Teams</span>
+    </div>
+  </div>
+</div>
+
+<!-- FAQs -->
+<div class="section">
+  <div class="wrap">
+    <div class="section-ey">FAQs</div>
+    <div class="section-h2">Common questions.</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Do you write LMS course content? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We write full LMS course content including module text, learning objectives, knowledge check questions, and assessment criteria. We work with your instructional design team or handle the full structure ourselves.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you document a product for training purposes? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We get hands-on with your product, understand it from a user's perspective, and write training content that teaches people how to use it effectively. No assumptions, no generic content.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you write compliance training documentation? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We write compliance training material, policy documentation, and assessment content that meets regulatory and organisational requirements. We work with your legal and compliance teams to ensure accuracy.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you build onboarding programmes from scratch? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We design and write complete onboarding programmes for new employees, including role-specific guides, process documentation, tool training, and culture documentation. We can start from scratch or build on existing materials.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What formats do you deliver training content in? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">We deliver in whatever format works for your platform and team: Word, PDF, Markdown, HTML, SCORM-ready scripts, PowerPoint, Notion, Confluence, or directly into your LMS. We match your workflow.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you write certification guide content? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We write certification guides, exam preparation content, competency frameworks, and assessment documentation for both internal certification programmes and external professional certifications.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA + WAVES -->
+<div class="bottom">
+  <div class="wrap">
+    <div class="cta">
+      <div class="cta-eyebrow">Ready when you are</div>
+      <h2 class="cta-h2">Training content that makes knowledge <em>stick.</em></h2>
+      <p class="cta-sub">Tell us what you need. We design, write, and deliver training documentation your teams will actually learn from.</p>
+      <div class="cta-btns">
+        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s;display:inline-flex;align-items:center;gap:8px;background-color:#0a0a0a;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/contact'">Get in touch <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s;display:inline-flex;align-items:center;gap:8px;background-color:#fff;color:#0a0a0a;border:1.5px solid #d0d0d0;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/work/success-stories'">View success stories <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <canvas id="waveCanvas"></canvas>
+</div>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+const wc=document.getElementById('waveCanvas');
+const wx=wc&&wc.getContext('2d');
+function resize(){if(!wc)return;wc.width=wc.offsetWidth;wc.height=200;}
+resize();window.addEventListener('resize',resize);
+const layers=[
+  {a:20,s:.0009,c1:'#b8d0e8',c2:'#88b0d0',y:0.44,o:.5,p:0},
+  {a:18,s:.0007,c1:'#4888c0',c2:'#0078D4',y:0.54,o:.62,p:1.8},
+  {a:18,s:.0011,c1:'#0060a8',c2:'#004880',y:0.65,o:.72,p:3.2},
+  {a:16,s:.0006,c1:'#003060',c2:'#002040',y:0.75,o:.82,p:0.9},
+  {a:14,s:.0013,c1:'#011828',c2:'#021430',y:0.85,o:.93,p:2.1},
+  {a:10,s:.0005,c1:'#010e20',c2:'#010e20',y:0.93,o:1,p:1.2},
+];
+function draw(t){
+  if(!wx||!wc)return;
+  const W=wc.width,H=wc.height;
+  wx.clearRect(0,0,W,H);
+  wx.fillStyle='#f8f9fa';wx.fillRect(0,0,W,H);
+  layers.forEach(l=>{
+    wx.beginPath();
+    const by=H*l.y;wx.moveTo(0,H);
+    for(let x=0;x<=W;x+=2){
+      const n=x/W;
+      const raw=by+Math.sin(n*Math.PI*3.5+t*l.s+l.p)*l.a+Math.sin(n*Math.PI*6+t*l.s*.65+l.p*1.4)*l.a*.35;
+      wx.lineTo(x,Math.max(by-l.a*1.45,raw));
+    }
+    wx.lineTo(W,H);wx.closePath();
+    const g=wx.createLinearGradient(0,0,W,0);
+    g.addColorStop(0,l.c1);g.addColorStop(1,l.c2);
+    wx.fillStyle=g;wx.globalAlpha=l.o;wx.fill();
+  });
+  wx.globalAlpha=1;requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);
+</script>
+
+</BaseLayout>

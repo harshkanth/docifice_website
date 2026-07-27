@@ -1,0 +1,369 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="AI-Ready Documentation" description="Professional AI-ready documentation services — structured content, semantic markup, RAG-optimised docs and more.">
+
+<style>
+.td-hero{background:#021430;padding:72px 0 64px;position:relative;overflow:hidden;}
+.td-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 20%,rgba(0,120,212,.28) 0%,transparent 60%);pointer-events:none;}
+.td-hero-inner{max-width:1400px;margin:0 auto;padding:0 32px;position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center;}
+.td-eyebrow{font-size:11px;font-weight:700;letter-spacing:.04em;color:#7dd3fc;margin-bottom:14px;}
+.td-hero h1{font-size:52px;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1.04;margin-bottom:18px;}
+.td-hero h1 em{font-style:normal;color:#7dd3fc;}
+.td-hero p{font-size:16px;color:rgba(255,255,255,.58);line-height:1.76;max-width:480px;margin-bottom:32px;}
+.td-hero-btns{display:flex;gap:12px;align-items:center;}
+.trust-bar{background:#f8f9fa;border-bottom:1px solid #f0f0f0;padding:20px 0;}
+.trust-bar-inner{max-width:1400px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+.trust-label{font-size:13px;font-weight:700;color:#0a0a0a;white-space:nowrap;}
+.trust-items{display:flex;flex:1;justify-content:space-between;flex-wrap:wrap;align-items:center;margin-left:32px;}
+.trust-item{font-size:13px;font-weight:600;color:#555;display:flex;align-items:center;gap:6px;}
+.section{padding:88px 0;}
+.section-alt{background:#f8f9fa;}
+.wrap{max-width:1400px;margin:0 auto;padding:0 32px;}
+.section-ey{font-size:11px;font-weight:700;letter-spacing:.04em;color:#0078D4;margin-bottom:12px;}
+.section-h2{font-size:36px;font-weight:800;letter-spacing:-.04em;color:#0a0a0a;line-height:1.1;margin-bottom:14px;}
+.section-sub{font-size:15px;color:#666;line-height:1.6;}
+.del-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px;}
+.del-cat{border-radius:12px;padding:24px 26px;border:1.5px solid #d8e2f0;border-top:3px solid #d8e2f0;background:#fff;transition:border-color .2s,box-shadow .2s,transform .22s cubic-bezier(.34,1.1,.64,1);}
+.del-cat:hover{border-color:#c8ddf5;border-top-color:#0078D4;box-shadow:0 6px 20px rgba(0,120,212,.08);transform:translateY(-3px);}
+.del-cat-icon{font-size:10px;font-weight:700;letter-spacing:.05em;color:#0078D4;margin-bottom:6px;display:block;}
+.del-cat-title{font-size:15px;font-weight:800;color:#0a0a0a;letter-spacing:-.02em;margin-bottom:12px;}
+.del-cat-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.del-cat-list li{font-size:12px;color:#444;padding-left:14px;position:relative;line-height:1.5;}
+.del-cat-list li::before{content:'';position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:#0078D4;}
+.aud-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px;}
+.aud-card{background:#fff;border:1px solid #eaecf0;border-radius:10px;padding:18px 20px;display:flex;align-items:center;gap:12px;transition:border-color .2s,box-shadow .2s,transform .22s cubic-bezier(.34,1.1,.64,1);}
+.aud-card:hover{border-color:#0078D4;box-shadow:0 4px 16px rgba(0,120,212,.08);transform:translateY(-2px);}
+.aud-icon{width:32px;height:32px;border-radius:8px;background:#f0f5ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.aud-name{font-size:13px;font-weight:600;color:#0a0a0a;}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px;}
+.process-step{background:#fff;border:1px solid #e4edf8;border-radius:12px;padding:28px 24px;}
+.process-num{font-size:11px;font-weight:700;color:#0078D4;letter-spacing:.04em;margin-bottom:12px;}
+.process-title{font-size:16px;font-weight:800;color:#0a0a0a;margin-bottom:8px;letter-spacing:-.02em;}
+.process-desc{font-size:13px;color:#666;line-height:1.65;}
+.tools-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;}
+.tool-tag{font-size:12px;font-weight:600;padding:7px 14px;border-radius:8px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.1);transition:background .2s,color .2s,border-color .2s;}
+.tool-tag:hover{background:rgba(0,120,212,.2);border-color:rgba(0,120,212,.4);color:#fff;}
+.faq-list{display:flex;flex-direction:column;gap:2px;margin-top:48px;}
+.faq-item{border:1px solid #eaecf0;border-radius:10px;overflow:hidden;}
+.faq-q{padding:20px 24px;font-size:15px;font-weight:600;color:#0a0a0a;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;}
+.faq-q:hover{background:#f8f9fa;}
+.faq-a{padding:0 24px 0;font-size:14px;color:#555;line-height:1.74;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;}
+.faq-item.open .faq-a{max-height:200px;padding:0 24px 20px;}
+.faq-item.open .faq-chevron{transform:rotate(180deg);}
+.faq-chevron{transition:transform .2s;flex-shrink:0;color:#0078D4;}
+.btn-primary{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background:#0078D4;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s,opacity .2s;text-decoration:none;}
+.btn-primary:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,120,212,.3);}
+.btn-ghost{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.3);padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;transition:background .2s,transform .22s cubic-bezier(.34,1.1,.64,1);text-decoration:none;}
+.btn-ghost:hover{background:rgba(255,255,255,.2);transform:translateY(-2px);}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+</style>
+
+<!-- HERO -->
+<div class="td-hero">
+  <div class="td-hero-inner">
+    <div>
+      <div class="td-eyebrow">AI-Ready Documentation</div>
+      <h1>Documentation built for <em>AI and humans.</em></h1>
+      <p>We structure, tag, and write documentation that works for AI search, retrieval-augmented generation, LLM training, and every user who reads it. Content that performs in both worlds.</p>
+      <div class="td-hero-btns">
+        <a href="/contact" class="btn-primary" onclick="location.href='/contact'">Get in touch <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="/work/case-studies" class="btn-ghost" onclick="location.href='/work/case-studies'">View case studies <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Hero visual: AI doc pipeline -->
+    <div style="background:#0a0a0a;border-radius:16px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.08);">
+      <div style="background:#111;padding:9px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06);">
+        <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:rgba(255,255,255,.35);font-family:'JetBrains Mono',monospace;">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          AI Doc Pipeline &middot; v1.0
+        </div>
+        <span style="font-size:9px;font-weight:700;padding:3px 8px;border-radius:4px;background:rgba(52,211,153,.12);color:#34d399;letter-spacing:.04em;">Active</span>
+      </div>
+      <div style="padding:18px 20px;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:8px;">Input</div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:10px 12px;margin-bottom:12px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#60b0f4" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span style="font-size:10px;font-weight:600;color:rgba(255,255,255,.7);">user-guide-v3.md</span>
+            <span style="margin-left:auto;font-size:9px;color:rgba(255,255,255,.3);">48 sections</span>
+          </div>
+          <div style="display:flex;gap:5px;">
+            <span style="font-size:9px;padding:2px 7px;border-radius:3px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.4);">Markdown</span>
+            <span style="font-size:9px;padding:2px 7px;border-radius:3px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.4);">Unstructured</span>
+            <span style="font-size:9px;padding:2px 7px;border-radius:3px;background:rgba(251,191,36,.1);color:#fbbf24;">Needs tagging</span>
+          </div>
+        </div>
+        <div style="font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:8px;">Processing</div>
+        <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:12px;">
+          <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2);border-radius:6px;">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span style="font-size:10px;color:rgba(255,255,255,.7);">Semantic structure applied</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2);border-radius:6px;">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span style="font-size:10px;color:rgba(255,255,255,.7);">Metadata &amp; taxonomy added</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:rgba(0,120,212,.1);border:1px solid rgba(0,120,212,.3);border-radius:6px;">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#60b0f4" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span style="font-size:10px;color:rgba(255,255,255,.7);">Chunking for RAG<span style="display:inline-block;width:1px;height:10px;background:#60b0f4;margin-left:3px;vertical-align:middle;animation:blink 1s step-end infinite;"></span></span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+            <span style="font-size:10px;color:rgba(255,255,255,.35);">Vector embedding</span>
+          </div>
+        </div>
+        <div style="font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:8px;">Output</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:8px 10px;text-align:center;">
+            <div style="font-size:13px;font-weight:800;color:#34d399;">RAG</div>
+            <div style="font-size:9px;color:rgba(255,255,255,.35);margin-top:2px;">Ready</div>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:8px 10px;text-align:center;">
+            <div style="font-size:13px;font-weight:800;color:#60b0f4;">LLM</div>
+            <div style="font-size:9px;color:rgba(255,255,255,.35);margin-top:2px;">Optimised</div>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:8px 10px;text-align:center;">
+            <div style="font-size:13px;font-weight:800;color:#fff;">AI</div>
+            <div style="font-size:9px;color:rgba(255,255,255,.35);margin-top:2px;">Searchable</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <span class="trust-label">Trusted By</span>
+    <div class="trust-items">
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>AI product teams</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>LLM & RAG teams</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Enterprise documentation teams</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>SaaS & platform companies</span>
+      <span class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Global enterprise teams</span>
+    </div>
+  </div>
+</div>
+
+<!-- DELIVERABLES -->
+<div class="section">
+  <div class="wrap">
+    <div class="section-ey">What We Deliver</div>
+    <div class="section-h2">Documentation that works for AI and the people who use it.</div>
+    <div class="section-sub">We structure, tag, and write content that performs in AI-powered search, RAG pipelines, and LLM workflows, while staying clear and useful for every human reader.</div>
+    <div class="del-grid">
+      <div class="del-cat">
+        <span class="del-cat-icon">Structured Content & Semantic Markup</span>
+        <div class="del-cat-title">Content AI can actually parse</div>
+        <ul class="del-cat-list">
+          <li>Semantic Document Structure</li>
+          <li>Structured Authoring (DITA, XML)</li>
+          <li>Metadata Strategy &amp; Tagging</li>
+          <li>Content Taxonomy Design</li>
+          <li>Topic-Based Authoring</li>
+          <li>Consistent Heading Hierarchies</li>
+          <li>Content Chunking for RAG</li>
+          <li>Schema.org Markup</li>
+          <li>Structured Metadata</li>
+        </ul>
+      </div>
+      <div class="del-cat">
+        <span class="del-cat-icon">AI Knowledge & Retrieval Optimisation</span>
+        <div class="del-cat-title">Content optimised for LLMs and retrieval</div>
+        <ul class="del-cat-list">
+          <li>RAG-Ready Documentation</li>
+          <li>Knowledge Base Structuring</li>
+          <li>Content Chunking</li>
+          <li>Retrieval Optimisation</li>
+          <li>Semantic Linking</li>
+          <li>Source Prioritisation</li>
+          <li>AI Search Optimisation</li>
+          <li>Structured FAQs</li>
+          <li>Prompt Documentation</li>
+          <li>Annotation Guidelines</li>
+        </ul>
+      </div>
+      <div class="del-cat">
+        <span class="del-cat-icon">AI Product & Feature Documentation</span>
+        <div class="del-cat-title">Docs for products powered by AI</div>
+        <ul class="del-cat-list">
+          <li>AI Feature Documentation</li>
+          <li>AI Product User Guides</li>
+          <li>AI Integration Guides</li>
+          <li>AI API Documentation</li>
+          <li>Explainability Documentation</li>
+          <li>AI Workflow Documentation</li>
+          <li>AI Configuration Guides</li>
+          <li>AI Implementation Guides</li>
+          <li>AI Release Notes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AUDIENCE -->
+<div class="section section-alt">
+  <div class="wrap">
+    <div class="section-ey">Who We Work With</div>
+    <div class="section-h2">Built for teams building with and for AI.</div>
+    <div class="section-sub">Whether you are building AI products, deploying RAG pipelines, or preparing documentation for LLM consumption, we help you get the content right.</div>
+    <div class="aud-grid">
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><span class="aud-name">AI Product Teams</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><span class="aud-name">ML & AI Engineers</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div><span class="aud-name">LLM & RAG Teams</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><span class="aud-name">Product Managers</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></div><span class="aud-name">Technical Writers</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><span class="aud-name">Enterprise Doc Teams</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><span class="aud-name">Solution Architects</span></div>
+      <div class="aud-card"><div class="aud-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><span class="aud-name">DevOps & Platform Teams</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div class="section" style="background:#f0f5ff;">
+  <div class="wrap">
+    <div class="section-ey">How We Work</div>
+    <div class="section-h2">We audit, structure, write, and validate.</div>
+    <div class="section-sub">Making documentation AI-ready is not just about tagging. It starts with auditing what exists, restructuring it properly, then validating it performs as expected.</div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="process-num">01 / Audit</div>
+        <div class="process-title">Assess your existing content</div>
+        <div class="process-desc">We audit your documentation for structure, consistency, metadata, and AI-readiness. We identify what works, what does not, and what is missing.</div>
+      </div>
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <div class="process-num">02 / Structure</div>
+        <div class="process-title">Design the content architecture</div>
+        <div class="process-desc">We design semantic structure, metadata schemas, taxonomy, and chunking strategies that make content retrievable and parseable by AI systems.</div>
+      </div>
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <div class="process-num">03 / Write</div>
+        <div class="process-title">Write and restructure content</div>
+        <div class="process-desc">We write new content and restructure existing documentation to be clear, consistent, and optimised for both human readers and AI retrieval.</div>
+      </div>
+      <div class="process-step">
+        <div style="width:40px;height:40px;border-radius:10px;background:#e8f2ff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div class="process-num">04 / Validate</div>
+        <div class="process-title">Test and deliver</div>
+        <div class="process-desc">We validate that content performs correctly in your AI pipeline, review with your team, and deliver with full documentation of the structure and metadata approach.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOOLS -->
+<div class="section" style="background:#0f172a;">
+  <div class="wrap">
+    <div class="section-ey" style="color:#7dd3fc;">Tools & Platforms</div>
+    <div class="section-h2" style="color:#fff;">We work across the AI documentation stack.</div>
+    <div class="section-sub" style="color:rgba(255,255,255,.55);">From structured authoring tools and content platforms to AI frameworks and vector databases, we adapt to your stack.</div>
+    <div class="tools-grid">
+      <span class="tool-tag">DITA XML</span><span class="tool-tag">Oxygen XML Author</span><span class="tool-tag">MadCap Flare</span><span class="tool-tag">Markdown</span><span class="tool-tag">MDX</span><span class="tool-tag">AsciiDoc</span><span class="tool-tag">Confluence</span><span class="tool-tag">Notion</span><span class="tool-tag">SharePoint</span><span class="tool-tag">Document360</span><span class="tool-tag">GitBook</span><span class="tool-tag">Docusaurus</span><span class="tool-tag">LangChain</span><span class="tool-tag">LlamaIndex</span><span class="tool-tag">OpenAI</span><span class="tool-tag">Pinecone</span><span class="tool-tag">Weaviate</span><span class="tool-tag">Chroma</span><span class="tool-tag">Hugging Face</span><span class="tool-tag">Git</span><span class="tool-tag">GitHub</span><span class="tool-tag">Azure DevOps</span><span class="tool-tag">Jira</span><span class="tool-tag">Figma</span><span class="tool-tag">Vale</span><span class="tool-tag">Acrolinx</span>
+    </div>
+  </div>
+</div>
+
+<!-- FAQs -->
+<div class="section">
+  <div class="wrap">
+    <div class="section-ey">FAQs</div>
+    <div class="section-h2">Common questions.</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">What is AI-ready documentation? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">AI-ready documentation is content that is structured, tagged, and written in a way that AI systems can reliably parse, retrieve, and reason over. It performs well in RAG pipelines, LLM prompts, and AI-powered search, while remaining clear and useful for human readers.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you restructure our existing documentation for AI? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We audit your existing content, identify structural and metadata issues, and restructure it to perform well in AI systems. This includes chunking, tagging, heading hierarchy, and semantic consistency improvements.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you prepare documentation for RAG pipelines? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We structure and chunk documentation specifically for retrieval-augmented generation, optimising content boundaries, metadata, and context so your RAG system retrieves accurate, relevant results.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you write documentation for AI products? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We write user guides, API documentation, integration guides, and explainability content for AI-powered products. We work with your product and engineering teams to document AI features accurately.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you help with LLM training data preparation? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. We help prepare, clean, and structure documentation intended for LLM fine-tuning or pre-training datasets. We also write annotation guidelines and quality standards for training data workflows.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What makes documentation perform better in AI search? <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Consistent structure, clear headings, rich metadata, well-defined content boundaries, and plain language all improve AI search performance. We apply these principles systematically across your documentation to improve retrieval accuracy and relevance.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA + WAVES -->
+<div class="bottom">
+  <div class="wrap">
+    <div class="cta">
+      <div class="cta-eyebrow">Ready when you are</div>
+      <h2 class="cta-h2">Documentation that works for AI and <em>everyone who reads it.</em></h2>
+      <p class="cta-sub">Tell us about your AI documentation needs. We audit, structure, and deliver content that performs in both worlds.</p>
+      <div class="cta-btns">
+        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s;display:inline-flex;align-items:center;gap:8px;background-color:#0a0a0a;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/contact'">Get in touch <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s;display:inline-flex;align-items:center;gap:8px;background-color:#fff;color:#0a0a0a;border:1.5px solid #d0d0d0;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/work/success-stories'">View success stories <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <canvas id="waveCanvas"></canvas>
+</div>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+const wc=document.getElementById('waveCanvas');
+const wx=wc&&wc.getContext('2d');
+function resize(){if(!wc)return;wc.width=wc.offsetWidth;wc.height=200;}
+resize();window.addEventListener('resize',resize);
+const layers=[
+  {a:20,s:.0009,c1:'#b8d0e8',c2:'#88b0d0',y:0.44,o:.5,p:0},
+  {a:18,s:.0007,c1:'#4888c0',c2:'#0078D4',y:0.54,o:.62,p:1.8},
+  {a:18,s:.0011,c1:'#0060a8',c2:'#004880',y:0.65,o:.72,p:3.2},
+  {a:16,s:.0006,c1:'#003060',c2:'#002040',y:0.75,o:.82,p:0.9},
+  {a:14,s:.0013,c1:'#011828',c2:'#021430',y:0.85,o:.93,p:2.1},
+  {a:10,s:.0005,c1:'#010e20',c2:'#010e20',y:0.93,o:1,p:1.2},
+];
+function draw(t){
+  if(!wx||!wc)return;
+  const W=wc.width,H=wc.height;
+  wx.clearRect(0,0,W,H);
+  wx.fillStyle='#f8f9fa';wx.fillRect(0,0,W,H);
+  layers.forEach(l=>{
+    wx.beginPath();
+    const by=H*l.y;wx.moveTo(0,H);
+    for(let x=0;x<=W;x+=2){
+      const n=x/W;
+      const raw=by+Math.sin(n*Math.PI*3.5+t*l.s+l.p)*l.a+Math.sin(n*Math.PI*6+t*l.s*.65+l.p*1.4)*l.a*.35;
+      wx.lineTo(x,Math.max(by-l.a*1.45,raw));
+    }
+    wx.lineTo(W,H);wx.closePath();
+    const g=wx.createLinearGradient(0,0,W,0);
+    g.addColorStop(0,l.c1);g.addColorStop(1,l.c2);
+    wx.fillStyle=g;wx.globalAlpha=l.o;wx.fill();
+  });
+  wx.globalAlpha=1;requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);
+</script>
+
+</BaseLayout>

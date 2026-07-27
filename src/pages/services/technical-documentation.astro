@@ -6,10 +6,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 <style>
 /* ── Page-level styles ── */
-.td-hero{background:#021430;padding:72px 0 64px;position:relative;overflow:hidden;}
+.td-hero{background:#021430;padding:56px 0 48px;position:relative;overflow:hidden;}
 .td-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 20%,rgba(0,120,212,.28) 0%,transparent 60%);pointer-events:none;}
-.td-hero-inner{max-width:1400px;margin:0 auto;padding:0 32px;position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center;}
-.td-eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7dd3fc;margin-bottom:14px;}
+.td-hero-inner{max-width:1400px;margin:0 auto;padding:0 32px;position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:start;padding-top:12px;}
+.td-eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;color:#7dd3fc;margin-bottom:14px;}
 .td-hero h1{font-size:52px;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1.04;margin-bottom:18px;}
 .td-hero h1 em{font-style:normal;color:#7dd3fc;}
 .td-hero p{font-size:16px;color:rgba(255,255,255,.58);line-height:1.76;max-width:480px;margin-bottom:32px;}
@@ -54,8 +54,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 .del-cat:nth-child(3){grid-column:span 2;}
 .del-cat:nth-child(4){grid-column:2/span 2;}
 .del-cat:nth-child(5){grid-column:span 2;}
-.del-cat{border-radius:12px;padding:24px 26px;border:1px solid #eaecf0;border-top:3px solid #0078D4;background:#fff;transition:border-color .2s,box-shadow .2s,transform .22s cubic-bezier(.34,1.1,.64,1);}
-.del-cat:hover{border-color:#c8ddf5;box-shadow:0 6px 20px rgba(0,120,212,.08);transform:translateY(-3px);}
+.del-cat{border-radius:12px;padding:24px 26px;border:1.5px solid #d8e2f0;border-top:3px solid #d8e2f0;background:#fff;transition:border-color .2s,box-shadow .2s,transform .22s cubic-bezier(.34,1.1,.64,1);}
+.del-cat:hover{border-color:#c8ddf5;border-top-color:#0078D4;box-shadow:0 6px 20px rgba(0,120,212,.08);transform:translateY(-3px);}
 .del-cat-icon{font-size:10px;font-weight:700;letter-spacing:.05em;color:#0078D4;margin-bottom:6px;display:block;}
 .del-cat-title{font-size:15px;font-weight:800;color:#0a0a0a;letter-spacing:-.02em;margin-bottom:12px;}
 .del-cat-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
@@ -127,8 +127,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <h1>Documentation that makes your product <em>easy to use.</em></h1>
       <p>We go beyond writing. We test your product, understand your users, and deliver documentation that reduces support tickets, accelerates onboarding, and builds user confidence.</p>
       <div class="td-hero-btns">
-        <a href="/contact" class="btn-primary">Get in touch <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        <a href="/work/case-studies" class="btn-ghost">View case studies <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="/contact" class="btn-primary" onclick="location.href='/contact'">Get in touch <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="/work/case-studies" class="btn-ghost" onclick="location.href='/work/case-studies'">View case studies <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
     </div>
     <!-- Hero visual: real document page mockup -->
@@ -426,8 +426,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <h2 class="cta-h2">Documentation that works as hard<br>as your <em>product.</em></h2>
       <p class="cta-sub">Tell us what you need. We scope it, plan it, and deliver it, on time, every time.</p>
       <div class="cta-btns">
-        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s cubic-bezier(.34,1.1,.64,1);display:inline-flex;align-items:center;gap:8px;background-color:#0a0a0a;color:#ffffff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;">Get in touch <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
-        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s cubic-bezier(.34,1.1,.64,1);display:inline-flex;align-items:center;gap:8px;background-color:#fff;color:#0a0a0a;border:1.5px solid #d0d0d0;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;">View success stories <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s cubic-bezier(.34,1.1,.64,1);display:inline-flex;align-items:center;gap:8px;background-color:#0a0a0a;color:#ffffff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/contact'">Get in touch <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s cubic-bezier(.34,1.1,.64,1);display:inline-flex;align-items:center;gap:8px;background-color:#fff;color:#0a0a0a;border:1.5px solid #d0d0d0;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/work/success-stories'">View success stories <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
       </div>
     </div>
   </div>

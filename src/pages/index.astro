@@ -17,7 +17,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
  <h1>Words that make<br>your product <em>work.</em></h1>
  <p class="sub">Documentation, content, SEO, AEO, and product training for teams that know clarity is a competitive advantage.</p>
  <div class="btns">
- <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s cubic-bezier(.34,1.1,.64,1);display:inline-flex;align-items:center;gap:8px;background-color:#ffffff;color:#021430;padding:12px 26px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;">Get in touch <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#021430" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+ <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s cubic-bezier(.34,1.1,.64,1);display:inline-flex;align-items:center;gap:8px;background-color:#ffffff;color:#021430;padding:12px 26px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/contact'">Get in touch <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#021430" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
  <button class="btn-lift" onclick="document.getElementById('services-section').scrollIntoView({behavior:'smooth'})" style="all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background-color:#ffffff;color:#021430;padding:12px 22px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;">Explore services <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#021430" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
  </div>
  </div>
@@ -108,56 +108,56 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
  <div class="sc">
  <div class="sc-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
- <span class="sc-label">Technical Documentation</span>
+ <span class="sc-label" onclick="location.href='/services/technical-documentation'" style="cursor:pointer;">Technical Documentation</span>
  <div class="sc-title">The foundation of everything</div>
  <div class="sc-desc">User guides, admin guides, installation guides, release notes and more...</div>
  </div>
 
  <div class="sc">
  <div class="sc-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
- <span class="sc-label">API & Developer Documentation</span>
+ <span class="sc-label" onclick="location.href='/services/api-documentation'" style="cursor:pointer;">API & Developer Documentation</span>
  <div class="sc-title">Docs developers actually use</div>
- <div class="sc-desc">API references, SDK docs, developer portals, OpenAPI specs and more...</div>
+ <div class="sc-desc">API references, SDK docs, developer portals, SAP ABAP docs, OpenAPI specs and more...</div>
  </div>
 
  <div class="sc">
  <div class="sc-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
- <span class="sc-label">Content Strategy & Design</span>
+ <span class="sc-label" onclick="location.href='/services/content-strategy'" style="cursor:pointer;">Content Strategy & Design</span>
  <div class="sc-title">Structure that scales</div>
  <div class="sc-desc">IA design, UX writing, UI text, content modelling, DITA XML, style guides and more...</div>
  </div>
 
  <div class="sc">
  <div class="sc-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="12" y1="2" x2="12" y2="22"/></svg></div>
- <span class="sc-label">Documentation Engineering</span>
+ <span class="sc-label" onclick="location.href='/services/documentation-engineering'" style="cursor:pointer;">Documentation Engineering</span>
  <div class="sc-title">Docs built like software</div>
  <div class="sc-desc">Docs-as-code, CI/CD pipelines, doc site generation and more...</div>
  </div>
 
  <div class="sc">
  <div class="sc-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
- <span class="sc-label">Knowledge Management</span>
+ <span class="sc-label" onclick="location.href='/services/knowledge-management'" style="cursor:pointer;">Knowledge Management</span>
  <div class="sc-title">One source of truth</div>
  <div class="sc-desc">Knowledge bases, IA design, SOP documentation and more...</div>
  </div>
 
  <div class="sc">
  <div class="sc-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
- <span class="sc-label">Product Training & Enablement</span>
+ <span class="sc-label" onclick="location.href='/services/training-enablement'" style="cursor:pointer;">Training & Enablement</span>
  <div class="sc-title">Turn users into experts</div>
  <div class="sc-desc">LMS courses, video tutorials, certification programmes and more...</div>
  </div>
 
  <div class="sc">
  <div class="sc-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 2v10l4.5 4.5"/><circle cx="19" cy="5" r="3"/></svg></div>
- <span class="sc-label">AI-Ready Documentation</span>
+ <span class="sc-label" onclick="location.href='/services/ai-ready-documentation'" style="cursor:pointer;">AI-Ready Documentation</span>
  <div class="sc-title">Documentation built for AI</div>
  <div class="sc-desc">Structured content, AI training data, machine-readable docs and more...</div>
  </div>
 
  <div class="sc">
  <div class="sc-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
- <span class="sc-label">AI Search Optimization</span>
+ <span class="sc-label" onclick="location.href='/services/ai-search-optimization'" style="cursor:pointer;">AI Search Optimization</span>
  <div class="sc-title">Visible where AI searches happen</div>
  <div class="sc-desc">SEO, GEO, AEO, AI search readiness and more...</div>
  </div>
@@ -172,13 +172,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
  <div class="vsc-ey">How We Work?</div> <h2>Every project shipped to a documented standard</h2>
  <p>We scope it, write it, refine it with you, and hand it over. Style guide enforced, terminology locked, on time.</p>
  <div class="vsc-checks">
- <div class="vsc-check"><div class="vsc-cdot"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span>Style guide applied to every deliverable</span></div>
- <div class="vsc-check"><div class="vsc-cdot"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span>Terminology consistent throughout</span></div>
- <div class="vsc-check"><div class="vsc-cdot"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span>Fixed scope, fixed price, no surprises</span></div>
- <div class="vsc-check"><div class="vsc-cdot"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span>Two rounds of revisions included</span></div>
- <div class="vsc-check"><div class="vsc-cdot"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span>Delivered on time, every time</span></div>
+ <div class="vsc-check"><div class="vsc-cdot"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span>Documentation aligned with your product and business goals</span></div>
+ <div class="vsc-check"><div class="vsc-cdot"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span>Consistent terminology across every deliverable</span></div>
+ <div class="vsc-check"><div class="vsc-cdot"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span>Reviewed for accuracy, clarity, and usability</span></div>
+ <div class="vsc-check"><div class="vsc-cdot"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span>Collaborative reviews with stakeholders and SMEs</span></div>
+ <div class="vsc-check"><div class="vsc-cdot"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span>Delivered on schedule, without compromising quality</span></div>
  </div>
- <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s cubic-bezier(.34,1.1,.64,1);display:inline-flex;align-items:center;gap:8px;background-color:#ffffff;color:#0a0a0a;padding:11px 22px;border-radius:7px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;"><span>View our process</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></button>
+ <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s cubic-bezier(.34,1.1,.64,1);display:inline-flex;align-items:center;gap:8px;background-color:#ffffff;color:#0a0a0a;padding:11px 22px;border-radius:7px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;" onclick="location.href='/process'"><span>View our process</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></button>
  </div>
  <div>
  <div style="background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.18);border:1px solid rgba(0,0,0,.06);max-width:540px;margin-left:40px;">
@@ -252,8 +252,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
  <div style="font-size:32px;font-weight:800;letter-spacing:-.035em;margin-bottom:14px;line-height:1.12;color:#0a0a0a;">We've worked inside what we write about</div>
  <p style="font-size:15px;color:#555;line-height:1.78;margin-bottom:10px;">Most agencies assign generalists and hope they pick up the domain. We started the other way a decade inside enterprise software before turning that into a practice.</p>
  <p style="font-size:15px;color:#555;line-height:1.78;margin-bottom:24px;">No ramp-up. No hand-holding. No asking engineering to explain how it works.</p>
- <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s cubic-bezier(.34,1.1,.64,1);display:inline-flex;align-items:center;gap:8px;background:#0078D4;color:#fff;padding:11px 22px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;">View case studies <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
- <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s cubic-bezier(.34,1.1,.64,1);display:inline-flex;align-items:center;gap:8px;background:#fff;color:#0078D4;border:1.5px solid #0078D4;padding:11px 22px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;margin-left:10px;">View success stories <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+ <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s cubic-bezier(.34,1.1,.64,1);display:inline-flex;align-items:center;gap:8px;background:#0078D4;color:#fff;padding:11px 22px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/work/case-studies'">View case studies <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+ <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s cubic-bezier(.34,1.1,.64,1);display:inline-flex;align-items:center;gap:8px;background:#fff;color:#0078D4;border:1.5px solid #0078D4;padding:11px 22px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;margin-left:10px;" onclick="location.href='/work/success-stories'">View success stories <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
  </div>
  <div class="why-items">
  <div class="wi"><div class="wi-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="wi-t">11+ Years of Experience</div><p class="wi-s">Proven expertise in technical documentation.</p></div></div>
@@ -280,7 +280,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
  <h2 class="cta-h2">Give your content the <em>current</em><br>it deserves</h2>
  <p class="cta-sub">Whether it's a one-off project or a long-term engagement, we'd love to hear about your documentation needs.</p>
  <div class="cta-btns">
- <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s cubic-bezier(.34,1.1,.64,1);display:inline-flex;align-items:center;gap:8px;background-color:#0a0a0a;color:#ffffff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;">Get in touch <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+ <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s cubic-bezier(.34,1.1,.64,1);display:inline-flex;align-items:center;gap:8px;background-color:#0a0a0a;color:#ffffff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/contact'">Get in touch <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
  </div>
  </div>
   </div>
@@ -466,6 +466,27 @@ function draw(t){
   wx.globalAlpha=1;requestAnimationFrame(draw);
 }
 requestAnimationFrame(draw);
+
+// Service card clicks
+document.querySelectorAll('.sc').forEach(card => {
+  const label = card.querySelector('.sc-label');
+  if (!label) return;
+  const text = label.textContent.trim();
+  const map = {
+    'Technical Documentation': '/services/technical-documentation',
+    'API & Developer Documentation': '/services/api-documentation',
+    'Content Strategy & Design': '/services/content-strategy',
+    'Documentation Engineering': '/services/documentation-engineering',
+    'Knowledge Management': '/services/knowledge-management',
+    'Training & Enablement': '/services/training-enablement',
+    'AI-Ready Documentation': '/services/ai-ready-documentation',
+    'AI Search Optimization': '/services/ai-search-optimization',
+  };
+  if (map[text]) {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => location.href = map[text]);
+  }
+});
 
 </script>
 

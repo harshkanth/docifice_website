@@ -1,0 +1,274 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Blog" description="Insights on technical writing, documentation, content strategy, and AI search from the Docifice team.">
+
+<style>
+.blog-hero{background:linear-gradient(135deg,#f0f5ff 0%,#f8f9fa 60%,#fff 100%);padding:80px 0 64px;border-bottom:1px solid #e8eef7;}
+.blog-hero-inner{max-width:1400px;margin:0 auto;padding:0 32px;}
+.blog-eyebrow{font-size:11px;font-weight:700;letter-spacing:.04em;color:#0078D4;margin-bottom:16px;}
+.blog-hero h1{font-size:56px;font-weight:800;color:#0a0a0a;letter-spacing:-.04em;line-height:1.04;margin-bottom:16px;max-width:700px;}
+.blog-hero h1 em{font-style:normal;color:#0078D4;}
+.blog-hero p{font-size:17px;color:#666;line-height:1.7;max-width:520px;}
+
+.filter-bar{background:#fff;border-bottom:1px solid #f0f0f0;position:sticky;top:0;z-index:10;}
+.filter-inner{max-width:1400px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:none;justify-content:space-between;}
+.filter-inner::-webkit-scrollbar{display:none;}
+.filter-btn{all:unset;font-family:"Plus Jakarta Sans",sans-serif;font-size:13px;font-weight:600;padding:7px 16px;border-radius:20px;cursor:pointer;white-space:nowrap;border:1.5px solid #eaecf0;color:#555;background:#fff;transition:all .2s;flex:1;text-align:center;}
+.filter-btn:hover{border-color:#0078D4;color:#0078D4;}
+.filter-btn.active{background:#0078D4;color:#fff;border-color:#0078D4;}
+
+.blog-body{background:#f8f9fa;padding:64px 0;}
+.blog-inner{max-width:1400px;margin:0 auto;padding:0 32px;}
+
+.blog-featured{background:#fff;border-radius:16px;border:1px solid #eaecf0;overflow:hidden;margin-bottom:24px;display:grid;grid-template-columns:1fr 1fr;}
+.blog-featured-content{padding:48px;}
+.blog-featured-visual{background:#021430;min-height:340px;display:flex;align-items:flex-end;padding:40px;position:relative;overflow:hidden;}
+.blog-featured-visual::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 30% 30%,rgba(0,120,212,.35) 0%,transparent 65%);}
+.blog-featured-visual-text{position:relative;z-index:2;}
+.feat-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.04em;color:#0078D4;background:#f0f5ff;padding:4px 10px;border-radius:20px;margin-bottom:16px;}
+.blog-featured-content h2{font-size:26px;font-weight:800;color:#0a0a0a;letter-spacing:-.03em;line-height:1.25;margin-bottom:12px;}
+.blog-featured-content p{font-size:15px;color:#666;line-height:1.75;margin-bottom:24px;}
+.blog-meta{display:flex;gap:16px;align-items:center;margin-bottom:24px;}
+.blog-meta-item{font-size:12px;color:#aaa;display:flex;align-items:center;gap:5px;}
+.blog-read-more{all:unset;display:inline-flex;align-items:center;gap:8px;font-family:"Plus Jakarta Sans",sans-serif;font-size:14px;font-weight:700;color:#0078D4;cursor:pointer;transition:gap .2s;}
+.blog-read-more:hover{gap:12px;}
+
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.blog-card{background:#fff;border-radius:14px;border:1px solid #eaecf0;overflow:hidden;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s;display:flex;flex-direction:column;}
+.blog-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.08);}
+.blog-card-banner{height:160px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:20px;}
+.blog-card-content{padding:24px;flex:1;display:flex;flex-direction:column;}
+.blog-cat{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.04em;color:#0078D4;background:#f0f5ff;padding:3px 8px;border-radius:12px;margin-bottom:10px;}
+.blog-card h3{font-size:17px;font-weight:800;color:#0a0a0a;letter-spacing:-.02em;line-height:1.3;margin-bottom:8px;}
+.blog-card p{font-size:13px;color:#666;line-height:1.65;flex:1;margin-bottom:16px;}
+.blog-card-foot{display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid #f5f5f5;}
+.blog-card-date{font-size:11px;color:#bbb;}
+.blog-card-link{font-size:12px;font-weight:700;color:#0078D4;display:flex;align-items:center;gap:4px;}
+
+.wrap{max-width:1400px;margin:0 auto;padding:0 32px;}
+.bottom{background:#f8f9fa;padding:80px 0 0;position:relative;overflow:hidden;}
+.cta{text-align:center;padding-bottom:88px;position:relative;z-index:2;}
+.cta-eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0078D4;margin-bottom:16px;}
+.cta-h2{font-size:40px;font-weight:800;letter-spacing:-.04em;color:#0a0a0a;margin-bottom:16px;line-height:1.1;}
+.cta-h2 em{font-style:normal;color:#0078D4;}
+.cta-sub{font-size:16px;color:#555;line-height:1.7;max-width:520px;margin:0 auto 32px;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+canvas#waveCanvas{width:100%;height:200px;display:block;position:relative;z-index:1;}
+</style>
+
+<!-- HERO -->
+<div class="blog-hero">
+  <div class="blog-hero-inner">
+    <div class="blog-eyebrow">Blog</div>
+    <h1>Insights on documentation, content, and <em>writing well.</em></h1>
+    <p>Practical writing on technical documentation, content strategy, AI search, and how to build documentation that actually works for your users.</p>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="technical-writing">Technical Writing</button>
+    <button class="filter-btn" data-filter="documentation">Documentation</button>
+    <button class="filter-btn" data-filter="content-strategy">Content Strategy</button>
+    <button class="filter-btn" data-filter="ai-search">AI &amp; Search</button>
+  </div>
+</div>
+
+<!-- BLOG BODY -->
+<div class="blog-body">
+  <div class="blog-inner">
+
+    <!-- Featured post -->
+    <div class="blog-featured" data-category="documentation">
+      <div class="blog-featured-content">
+        <div class="feat-tag">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Featured
+        </div>
+        <h2>Why most enterprise documentation fails its users before they even start reading</h2>
+        <p>The problem with most enterprise documentation is not that it is wrong. It is that it was written for the person who already knows the answer. We break down the structural and stylistic failures that make documentation unusable, and what it takes to fix them.</p>
+        <div class="blog-meta">
+          <span class="blog-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>June 2025</span>
+          <span class="blog-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>8 min read</span>
+          <span class="blog-meta-item">Documentation</span>
+        </div>
+        <a href="#" class="blog-read-more">Read article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="blog-featured-visual">
+        <div class="blog-featured-visual-text">
+          <div style="font-size:48px;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1;margin-bottom:10px;">Docs<span style="color:#0078D4;">.</span></div>
+          <div style="font-size:14px;color:rgba(255,255,255,.45);line-height:1.6;max-width:260px;">The documentation problem is not a writing problem. It is a design problem.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="blog-grid">
+
+      <div class="blog-card" data-category="technical-writing">
+        <div class="blog-card-banner" style="background:#021430;">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(0,120,212,.3) 0%,transparent 65%);"></div>
+          <div style="position:relative;z-index:2;font-size:32px;font-weight:800;color:rgba(255,255,255,.15);letter-spacing:-.03em;">Style</div>
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-cat">Technical Writing</span>
+          <h3>How to write a style guide your team will actually follow</h3>
+          <p>Most style guides fail not because they are wrong but because they are ignored. Here is how to write one that sticks, with practical examples from real documentation projects.</p>
+          <div class="blog-card-foot">
+            <span class="blog-card-date">May 2025 &middot; 6 min</span>
+            <a href="#" class="blog-card-link">Read <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card" data-category="ai-search">
+        <div class="blog-card-banner" style="background:#0f172a;">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 40%,rgba(0,120,212,.25) 0%,transparent 65%);"></div>
+          <div style="position:relative;z-index:2;font-size:32px;font-weight:800;color:rgba(255,255,255,.15);letter-spacing:-.03em;">AEO</div>
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-cat">AI &amp; Search</span>
+          <h3>Answer Engine Optimization: how to get your documentation cited by AI</h3>
+          <p>ChatGPT, Perplexity, and Google SGE are changing how people find information. Here is what it takes to get your documentation into AI-generated answers instead of just search results.</p>
+          <div class="blog-card-foot">
+            <span class="blog-card-date">May 2025 &middot; 9 min</span>
+            <a href="#" class="blog-card-link">Read <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card" data-category="documentation">
+        <div class="blog-card-banner" style="background:#021430;">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(0,120,212,.2) 0%,transparent 65%);"></div>
+          <div style="position:relative;z-index:2;font-size:32px;font-weight:800;color:rgba(255,255,255,.15);letter-spacing:-.03em;">API</div>
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-cat">Documentation</span>
+          <h3>The difference between API documentation that developers love and documentation they tolerate</h3>
+          <p>Great API documentation does not just describe endpoints. It anticipates questions, provides working examples, and respects the developer's time. Here is how to tell the difference.</p>
+          <div class="blog-card-foot">
+            <span class="blog-card-date">April 2025 &middot; 7 min</span>
+            <a href="#" class="blog-card-link">Read <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card" data-category="content-strategy">
+        <div class="blog-card-banner" style="background:#0f172a;">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 40% 30%,rgba(0,120,212,.22) 0%,transparent 65%);"></div>
+          <div style="position:relative;z-index:2;font-size:32px;font-weight:800;color:rgba(255,255,255,.15);letter-spacing:-.03em;">IA</div>
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-cat">Content Strategy</span>
+          <h3>Information architecture for documentation: how to structure content users can actually navigate</h3>
+          <p>Content that is hard to find is content that does not get used. This is a practical guide to designing documentation structure that matches how users think, not how products are built.</p>
+          <div class="blog-card-foot">
+            <span class="blog-card-date">April 2025 &middot; 8 min</span>
+            <a href="#" class="blog-card-link">Read <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card" data-category="technical-writing">
+        <div class="blog-card-banner" style="background:#021430;">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(0,120,212,.2) 0%,transparent 65%);"></div>
+          <div style="position:relative;z-index:2;font-size:32px;font-weight:800;color:rgba(255,255,255,.15);letter-spacing:-.03em;">Tone</div>
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-cat">Technical Writing</span>
+          <h3>Active voice, passive voice, and when the rules do not apply in technical documentation</h3>
+          <p>The rule is simple: use active voice. The reality is more nuanced. Here is how experienced technical writers decide when to break the rule and why it matters for documentation quality.</p>
+          <div class="blog-card-foot">
+            <span class="blog-card-date">March 2025 &middot; 5 min</span>
+            <a href="#" class="blog-card-link">Read <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card" data-category="ai-search">
+        <div class="blog-card-banner" style="background:#0f172a;">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(0,120,212,.22) 0%,transparent 65%);"></div>
+          <div style="position:relative;z-index:2;font-size:32px;font-weight:800;color:rgba(255,255,255,.15);letter-spacing:-.03em;">RAG</div>
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-cat">AI &amp; Search</span>
+          <h3>How to structure documentation for RAG systems so your AI actually retrieves the right content</h3>
+          <p>Retrieval-augmented generation is only as good as the content it retrieves. Here is how to structure, chunk, and tag your documentation so RAG systems surface the right answers.</p>
+          <div class="blog-card-foot">
+            <span class="blog-card-date">March 2025 &middot; 10 min</span>
+            <a href="#" class="blog-card-link">Read <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CTA + WAVES -->
+<div class="bottom">
+  <div class="wrap">
+    <div class="cta">
+      <div class="cta-eyebrow">Stay in the loop</div>
+      <h2 class="cta-h2">Documentation insights, delivered to your <em>inbox.</em></h2>
+      <p class="cta-sub">We write about technical documentation, content strategy, and AI search. No filler, no frequency pressure, just useful content when we have something worth saying.</p>
+      <div class="cta-btns">
+        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s;display:inline-flex;align-items:center;gap:8px;background-color:#0a0a0a;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/contact'">Get in touch <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s;display:inline-flex;align-items:center;gap:8px;background-color:#fff;color:#0a0a0a;border:1.5px solid #d0d0d0;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/work/case-studies'">View our work <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <canvas id="waveCanvas"></canvas>
+</div>
+
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.blog-card, .blog-featured').forEach(card => {
+      card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+    });
+  });
+});
+const wc=document.getElementById('waveCanvas');
+const wx=wc&&wc.getContext('2d');
+function resize(){if(!wc)return;wc.width=wc.offsetWidth;wc.height=200;}
+resize();window.addEventListener('resize',resize);
+const layers=[
+  {a:20,s:.0009,c1:'#b8d0e8',c2:'#88b0d0',y:0.44,o:.5,p:0},
+  {a:18,s:.0007,c1:'#4888c0',c2:'#0078D4',y:0.54,o:.62,p:1.8},
+  {a:18,s:.0011,c1:'#0060a8',c2:'#004880',y:0.65,o:.72,p:3.2},
+  {a:16,s:.0006,c1:'#003060',c2:'#002040',y:0.75,o:.82,p:0.9},
+  {a:14,s:.0013,c1:'#011828',c2:'#021430',y:0.85,o:.93,p:2.1},
+  {a:10,s:.0005,c1:'#010e20',c2:'#010e20',y:0.93,o:1,p:1.2},
+];
+function draw(t){
+  if(!wx||!wc)return;
+  const W=wc.width,H=wc.height;
+  wx.clearRect(0,0,W,H);
+  wx.fillStyle='#f8f9fa';wx.fillRect(0,0,W,H);
+  layers.forEach(l=>{
+    wx.beginPath();
+    const by=H*l.y;wx.moveTo(0,H);
+    for(let x=0;x<=W;x+=2){
+      const n=x/W;
+      const raw=by+Math.sin(n*Math.PI*3.5+t*l.s+l.p)*l.a+Math.sin(n*Math.PI*6+t*l.s*.65+l.p*1.4)*l.a*.35;
+      wx.lineTo(x,Math.max(by-l.a*1.45,raw));
+    }
+    wx.lineTo(W,H);wx.closePath();
+    const g=wx.createLinearGradient(0,0,W,0);
+    g.addColorStop(0,l.c1);g.addColorStop(1,l.c2);
+    wx.fillStyle=g;wx.globalAlpha=l.o;wx.fill();
+  });
+  wx.globalAlpha=1;requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);
+</script>
+
+</BaseLayout>
