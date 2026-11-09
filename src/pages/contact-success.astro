@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Message sent" description="Thanks for getting in touch with Docifice.">
+
+<style>
+.cs-thanks{background:#f8f9fa;padding:120px 0 140px;text-align:center;}
+.cs-thanks-inner{max-width:640px;margin:0 auto;padding:0 24px;}
+.cs-thanks-ey{font-size:11px;font-weight:700;letter-spacing:.04em;color:#0078D4;margin-bottom:14px;}
+.cs-thanks h1{font-size:44px;font-weight:800;letter-spacing:-.04em;line-height:1.1;color:#0a0a0a;margin-bottom:16px;}
+.cs-thanks h1 em{font-style:normal;color:#0078D4;}
+.cs-thanks p{font-size:16px;color:#555;line-height:1.7;margin-bottom:32px;}
+.cs-thanks-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.cs-thanks-btns a{box-sizing:border-box;display:inline-flex;align-items:center;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;text-decoration:none;}
+.cs-thanks-dark{background:#0a0a0a;color:#fff;}
+.cs-thanks-light{background:#fff;color:#0a0a0a;border:1.5px solid #d0d0d0;font-weight:500!important;}
+@media(max-width:768px){.cs-thanks{padding:80px 0 100px}.cs-thanks h1{font-size:32px}}
+</style>
+
+<div class="cs-thanks">
+  <div class="cs-thanks-inner">
+    <div class="cs-thanks-ey">Message sent</div>
+    <h1>Thanks, we will be <em>in touch.</em></h1>
+    <p>Your message has reached us. We will read it and reply to the email address you gave us. In the meantime, you can look at how we work or see some of our projects.</p>
+    <div class="cs-thanks-btns">
+      <a href="/work/case-studies" class="cs-thanks-dark">View case studies</a>
+      <a href="/process" class="cs-thanks-light">Our process</a>
+    </div>
+  </div>
+</div>
+
+</BaseLayout>

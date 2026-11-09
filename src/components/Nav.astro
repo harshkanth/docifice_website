@@ -7,8 +7,17 @@
 
     <!-- Desktop nav -->
     <div class="nav-links">
+      <div class="nav-item">
+        <div class="nav-item-label">Ways to Engage <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="nav-dropdown">
+          <a href="/ways-to-engage/managed-documentation" class="nav-dd-item">End-to-End Documentation</a>
+          <a href="/ways-to-engage/embedded-writers" class="nav-dd-item">Embedded Writers</a>
+          <a href="/ways-to-engage/technical-recruitment" class="nav-dd-item">Technical Recruitment</a>
+        </div>
+      </div>
+
       <div class="nav-item wide">
-        <div class="nav-item-label">What We Do <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="nav-item-label">Services <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
         <div class="nav-dropdown">
           <div class="nav-dd-section">
             <div class="nav-dd-col">
@@ -31,12 +40,11 @@
       </div>
 
       <div class="nav-item">
-        <div class="nav-item-label">Our Work <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
-        <div class="nav-dropdown">
-          <a href="/process" class="nav-dd-item">Our Process</a>
-          <a href="/work/case-studies" class="nav-dd-item">Case Studies</a>
-          <a href="/work/success-stories" class="nav-dd-item">Success Stories</a>
-        </div>
+        <a href="/process" class="nav-item-label nav-direct">Our Process</a>
+      </div>
+
+      <div class="nav-item">
+        <a href="/work/case-studies" class="nav-item-label nav-direct">Case Studies</a>
       </div>
 
       <div class="nav-item">
@@ -66,7 +74,13 @@
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-inner">
     <div class="mobile-section">
-      <div class="mobile-section-label">What We Do</div>
+      <div class="mobile-section-label">Ways to Engage</div>
+      <a href="/ways-to-engage/managed-documentation">End-to-End Documentation</a>
+      <a href="/ways-to-engage/embedded-writers">Embedded Writers</a>
+      <a href="/ways-to-engage/technical-recruitment">Technical Recruitment</a>
+    </div>
+    <div class="mobile-section">
+      <div class="mobile-section-label">Services</div>
       <a href="/services/technical-documentation">Technical Documentation</a>
       <a href="/services/api-documentation">API &amp; Developer Docs</a>
       <a href="/services/content-strategy">Content Strategy &amp; Design</a>
@@ -77,10 +91,8 @@
       <a href="/services/ai-search-optimization">AI Search Optimization</a>
     </div>
     <div class="mobile-section">
-      <div class="mobile-section-label">Our Work</div>
       <a href="/process">Our Process</a>
       <a href="/work/case-studies">Case Studies</a>
-      <a href="/work/success-stories">Success Stories</a>
     </div>
     <div class="mobile-section">
       <div class="mobile-section-label">Resources</div>
@@ -92,7 +104,10 @@
 </div>
 
 <style>
-/* Hamburger — hidden on desktop */
+.nav-dd-link{text-decoration:none;}
+a.nav-direct{text-decoration:none;}
+.nav-dd-link:hover{color:#0078D4;}
+/* Hamburger, hidden on desktop */
 .hamburger {
   display: none;
   flex-direction: column;

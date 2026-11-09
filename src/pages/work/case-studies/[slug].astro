@@ -1,0 +1,204 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { caseStudies } from '../../../data/case-studies';
+
+export function getStaticPaths() {
+  return caseStudies.map((cs) => ({
+    params: { slug: cs.slug },
+    props: { cs },
+  }));
+}
+
+const { cs } = Astro.props;
+const others = caseStudies.filter((c) => c.slug !== cs.slug).slice(0, 3);
+---
+
+<BaseLayout title={cs.title} description={cs.summary}>
+
+<style>
+.csd-hero{background:#021430;padding:64px 0 60px;position:relative;overflow:hidden;}
+.csd-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 20%,rgba(0,120,212,.28) 0%,transparent 60%);pointer-events:none;}
+.csd-hero-inner{max-width:1400px;margin:0 auto;padding:0 32px;position:relative;z-index:2;display:grid;grid-template-columns:1.15fr 1fr;gap:64px;align-items:center;}
+.csd-back{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:rgba(255,255,255,.6);text-decoration:none;margin-bottom:22px;transition:color .2s;}
+.csd-back:hover{color:#fff;}
+.csd-eyebrow{font-size:11px;font-weight:700;letter-spacing:.04em;color:#7dd3fc;margin-bottom:14px;}
+.csd-hero h1{font-size:42px;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1.1;margin-bottom:18px;}
+.csd-hero p{font-size:16px;color:rgba(255,255,255,.62);line-height:1.75;max-width:560px;margin-bottom:26px;}
+.csd-chips{display:flex;flex-wrap:wrap;gap:10px;}
+.csd-chip{font-size:12px;font-weight:600;padding:7px 14px;border-radius:8px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.12);}
+.csd-stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:36px 40px;text-align:center;}
+.csd-stat-num{font-size:52px;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1;margin-bottom:10px;}
+.csd-stat-lbl{font-size:15px;color:rgba(255,255,255,.62);margin-bottom:22px;}
+.csd-hl{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border-radius:8px;padding:10px 14px;margin-top:10px;text-align:left;font-size:13px;color:rgba(255,255,255,.75);}
+.csd-body{max-width:860px;margin:0 auto;padding:72px 32px 24px;}
+.csd-sec{margin-bottom:56px;}
+.csd-ey{font-size:11px;font-weight:700;letter-spacing:.04em;color:#0078D4;margin-bottom:10px;}
+.csd-h2{font-size:28px;font-weight:800;letter-spacing:-.03em;color:#0a0a0a;line-height:1.2;margin-bottom:14px;}
+.csd-text{font-size:16px;color:#444;line-height:1.8;}
+.csd-outcome{background:#f0f5ff;border:1.5px solid #d8e2f0;border-left:4px solid #0078D4;border-radius:12px;padding:26px 30px;}
+.csd-outcome-v{font-size:22px;font-weight:800;color:#0a0a0a;letter-spacing:-.02em;line-height:1.35;}
+.csd-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:6px;}
+.csd-list li{font-size:15px;color:#444;line-height:1.65;padding-left:22px;position:relative;}
+.csd-list li::before{content:'';position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:#0078D4;}
+.csd-tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px;}
+.csd-tool{font-size:12px;font-weight:600;padding:7px 14px;border-radius:8px;background:#f0f5ff;color:#0a0a0a;border:1px solid #d8e2f0;}
+.csd-quote{font-size:20px;font-weight:600;color:#0a0a0a;line-height:1.55;letter-spacing:-.01em;border-left:3px solid #0078D4;padding-left:22px;}
+.csd-more{background:#f8f9fa;padding:72px 0;}
+.csd-more-inner{max-width:1400px;margin:0 auto;padding:0 32px;}
+.csd-more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px;}
+.csd-mc{display:block;text-decoration:none;background:#fff;border:1.5px solid #d8e2f0;border-top:3px solid #d8e2f0;border-radius:12px;padding:22px 24px;transition:border-color .2s,box-shadow .2s,transform .22s cubic-bezier(.34,1.1,.64,1);}
+.csd-mc:hover{border-top-color:#0078D4;box-shadow:0 6px 20px rgba(0,120,212,.08);transform:translateY(-3px);}
+.csd-mc-tag{font-size:10px;font-weight:700;letter-spacing:.05em;color:#0078D4;margin-bottom:8px;display:block;}
+.csd-mc-title{font-size:15px;font-weight:800;color:#0a0a0a;letter-spacing:-.02em;line-height:1.35;margin-bottom:10px;}
+.csd-mc-out{font-size:12px;color:#666;}
+@media(max-width:900px){.csd-hero-inner{grid-template-columns:1fr;gap:36px}.csd-hero h1{font-size:32px}.csd-more-grid{grid-template-columns:1fr}}
+</style>
+
+<div class="csd-hero">
+  <div class="csd-hero-inner">
+    <div>
+      <a href="/work/case-studies" class="csd-back">&larr; All case studies</a>
+      <div class="csd-eyebrow">{cs.tag}</div>
+      <h1>{cs.title}</h1>
+      <p>{cs.summary}</p>
+      <div class="csd-chips">
+        <span class="csd-chip">{cs.industry}</span>
+        <span class="csd-chip">{cs.tag}</span>
+        {cs.duration && (<span class="csd-chip">{cs.duration}</span>)}
+      </div>
+    </div>
+    <div class="csd-stat">
+      <div class="csd-stat-num">{cs.statNumber}</div>
+      <div class="csd-stat-lbl">{cs.statLabel}</div>
+      {cs.highlights.map((h) => (
+        <div class="csd-hl">{h}</div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<div class="csd-body">
+  <div class="csd-sec">
+    <div class="csd-ey">Key Outcome</div>
+    <div class="csd-outcome"><div class="csd-outcome-v">{cs.outcome}</div></div>
+  </div>
+
+  {cs.challenge && (
+    <div class="csd-sec">
+      <div class="csd-ey">The Challenge</div>
+      <div class="csd-text">{cs.challenge}</div>
+    </div>
+  )}
+
+  {cs.approach.length > 0 && (
+    <div class="csd-sec">
+      <div class="csd-ey">Our Approach</div>
+      <ul class="csd-list">
+        {cs.approach.map((a) => (<li>{a}</li>))}
+      </ul>
+    </div>
+  )}
+
+  {cs.deliverables.length > 0 && (
+    <div class="csd-sec">
+      <div class="csd-ey">What We Delivered</div>
+      <ul class="csd-list">
+        {cs.deliverables.map((d) => (<li>{d}</li>))}
+      </ul>
+    </div>
+  )}
+
+  {cs.results.length > 0 && (
+    <div class="csd-sec">
+      <div class="csd-ey">Results</div>
+      <ul class="csd-list">
+        {cs.results.map((r) => (<li>{r}</li>))}
+      </ul>
+    </div>
+  )}
+
+  {cs.tools.length > 0 && (
+    <div class="csd-sec">
+      <div class="csd-ey">Tools</div>
+      <div class="csd-tools">
+        {cs.tools.map((t) => (<span class="csd-tool">{t}</span>))}
+      </div>
+    </div>
+  )}
+
+  {cs.quote && (
+    <div class="csd-sec">
+      <div class="csd-quote">{cs.quote}</div>
+    </div>
+  )}
+</div>
+
+<div class="csd-more">
+  <div class="csd-more-inner">
+    <div class="csd-ey">More Case Studies</div>
+    <div class="csd-h2">See how else we have helped.</div>
+    <div class="csd-more-grid">
+      {others.map((o) => (
+        <a href={`/work/case-studies/${o.slug}`} class="csd-mc">
+          <span class="csd-mc-tag">{o.tag}</span>
+          <div class="csd-mc-title">{o.title}</div>
+          <div class="csd-mc-out">{o.outcome}</div>
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
+
+<!-- CTA + WAVES -->
+<div class="bottom">
+  <div class="wrap">
+    <div class="cta">
+      <div class="cta-eyebrow">Ready when you are</div>
+      <h2 class="cta-h2">Want results like <em>these?</em></h2>
+      <p class="cta-sub">Tell us what you are working on. We will tell you how we would approach it.</p>
+      <div class="cta-btns">
+        <a href="/contact" style="box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background-color:#0a0a0a;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;text-decoration:none;">Get in touch</a>
+        <a href="/work/case-studies" style="box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background-color:#fff;color:#0a0a0a;border:1.5px solid #d0d0d0;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;text-decoration:none;">All case studies</a>
+      </div>
+    </div>
+  </div>
+  <canvas id="waveCanvas"></canvas>
+</div>
+
+<script>
+const wc=document.getElementById('waveCanvas');
+const wx=wc&&wc.getContext('2d');
+function resize(){if(!wc)return;wc.width=wc.offsetWidth;wc.height=200;}
+resize();window.addEventListener('resize',resize);
+const layers=[
+  {a:20,s:.0009,c1:'#b8d0e8',c2:'#88b0d0',y:0.44,o:.5,p:0},
+  {a:18,s:.0007,c1:'#4888c0',c2:'#0078D4',y:0.54,o:.62,p:1.8},
+  {a:18,s:.0011,c1:'#0060a8',c2:'#004880',y:0.65,o:.72,p:3.2},
+  {a:16,s:.0006,c1:'#003060',c2:'#002040',y:0.75,o:.82,p:0.9},
+  {a:14,s:.0013,c1:'#011828',c2:'#021430',y:0.85,o:.93,p:2.1},
+  {a:10,s:.0005,c1:'#010e20',c2:'#010e20',y:0.93,o:1,p:1.2},
+];
+function draw(t){
+  if(!wx||!wc)return;
+  const W=wc.width,H=wc.height;
+  wx.clearRect(0,0,W,H);
+  wx.fillStyle='#f8f9fa';wx.fillRect(0,0,W,H);
+  layers.forEach(l=>{
+    wx.beginPath();
+    const by=H*l.y;wx.moveTo(0,H);
+    for(let x=0;x<=W;x+=2){
+      const n=x/W;
+      const raw=by+Math.sin(n*Math.PI*3.5+t*l.s+l.p)*l.a+Math.sin(n*Math.PI*6+t*l.s*.65+l.p*1.4)*l.a*.35;
+      wx.lineTo(x,Math.max(by-l.a*1.45,raw));
+    }
+    wx.lineTo(W,H);wx.closePath();
+    const g=wx.createLinearGradient(0,0,W,0);
+    g.addColorStop(0,l.c1);g.addColorStop(1,l.c2);
+    wx.fillStyle=g;wx.globalAlpha=l.o;wx.fill();
+  });
+  wx.globalAlpha=1;requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);
+</script>
+
+</BaseLayout>

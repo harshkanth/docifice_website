@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Words that make your product work" description="Docifice — Technical documentation, content, SEO, AEO, and product training for teams that know clarity is a competitive advantage.">
+<BaseLayout title="Words that make your product work" description="Docifice: Technical documentation, content, SEO, AEO, and product training for teams that know clarity is a competitive advantage.">
 
 <div class="hero">
   <div class="hero-bg"></div><div class="hero-dots"></div>
@@ -15,7 +15,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
  <!-- LEFT -->
  <div class="hero-content">
  <h1>Words that make<br>your product <em>work.</em></h1>
- <p class="sub">Documentation, content, SEO, AEO, and product training for teams that know clarity is a competitive advantage.</p>
+ <p class="sub">We run your documentation, add a writer to your team, or help you hire one. Docifice is the technical writing partner for teams that know clarity is a competitive advantage.</p>
  <div class="btns">
  <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s cubic-bezier(.34,1.1,.64,1);display:inline-flex;align-items:center;gap:8px;background-color:#ffffff;color:#021430;padding:12px 26px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/contact'">Get in touch <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#021430" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
  <button class="btn-lift" onclick="document.getElementById('services-section').scrollIntoView({behavior:'smooth'})" style="all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background-color:#ffffff;color:#021430;padding:12px 22px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;">Explore services <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#021430" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
@@ -98,6 +98,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
  <div class="mq-item"><span>Enterprise Software</span></div><div class="mq-item"><span>Fintech</span></div><div class="mq-item"><span>Payments</span></div><div class="mq-item"><span>Data Security</span></div><div class="mq-item"><span>Healthcare</span></div><div class="mq-item"><span>MedTech</span></div><div class="mq-item"><span>E-commerce</span></div><div class="mq-item"><span>FMCG</span></div><div class="mq-item"><span>Automotive</span></div><div class="mq-item"><span>Cloud Infrastructure</span></div><div class="mq-item"><span>Identity Management</span></div><div class="mq-item"><span>SaaS Platforms</span></div><div class="mq-item"><span>Insurance</span></div><div class="mq-item"><span>Energy</span></div><div class="mq-item"><span>Developer Tools</span></div><div class="mq-item"><span>Supply Chain</span></div>
   </div></div>
 </div>
+
+<style>
+.ww-sec{padding:88px 0 24px;}
+.ww-ey{font-size:11px;font-weight:700;letter-spacing:.04em;color:#0078D4;margin-bottom:12px;}
+.ww-h2{font-size:36px;font-weight:800;letter-spacing:-.04em;color:#0a0a0a;line-height:1.1;margin-bottom:14px;}
+.ww-sub{font-size:15px;color:#666;line-height:1.6;max-width:640px;}
+.ww-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px;}
+.ww-card{display:block;text-decoration:none;border-radius:12px;padding:26px 28px;border:1.5px solid #d8e2f0;border-top:3px solid #d8e2f0;background:#fff;transition:border-color .2s,box-shadow .2s,transform .22s cubic-bezier(.34,1.1,.64,1);}
+.ww-card:hover{border-color:#c8ddf5;border-top-color:#0078D4;box-shadow:0 6px 20px rgba(0,120,212,.08);transform:translateY(-3px);}
+.ww-label{display:block;font-size:10px;font-weight:700;letter-spacing:.05em;color:#0078D4;margin-bottom:6px;}
+.ww-title{font-size:18px;font-weight:800;color:#0a0a0a;letter-spacing:-.02em;margin-bottom:10px;}
+.ww-desc{font-size:13px;color:#555;line-height:1.65;margin-bottom:18px;}
+.ww-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#0078D4;}
+@media(max-width:768px){.ww-grid{grid-template-columns:1fr}.ww-h2{font-size:28px}.ww-sec{padding:56px 0 8px}}
+</style>
+<div class="ww-sec" id="ways-section"><div class="wrap">
+  <div class="ww-ey">Ways to Engage</div>
+  <div class="ww-h2">Three ways to engage.</div>
+  <div class="ww-sub">Choose whether we handle your documentation, add a writer to your team, or help you hire your own.</div>
+  <div class="ww-grid">
+    <a href="/ways-to-engage/managed-documentation" class="ww-card"><span class="ww-label">End-to-End Documentation</span><div class="ww-title">A team that takes over your documentation</div><div class="ww-desc">We take ownership of your documentation and work alongside your team every day, in your tools and your review cycles.</div><span class="ww-link">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></a>
+    <a href="/ways-to-engage/embedded-writers" class="ww-card"><span class="ww-label">Embedded Writers</span><div class="ww-title">A technical writer who joins your team</div><div class="ww-desc">Experienced technical writers who join your tools and sprints, for as long as you need them.</div><span class="ww-link">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></a>
+    <a href="/ways-to-engage/technical-recruitment" class="ww-card"><span class="ww-label">Technical Recruitment</span><div class="ww-title">Hire the right writer</div><div class="ww-desc">We source and assess documentation talent, then introduce a shortlist for your in-house team.</div><span class="ww-link">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></a>
+  </div>
+</div></div>
 
 <div class="svc-outer" id="services-section"><div class="wrap">
   <div class="eyebrow">Services</div>
@@ -253,7 +278,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
  <p style="font-size:15px;color:#555;line-height:1.78;margin-bottom:10px;">Most agencies assign generalists and hope they pick up the domain. We started the other way a decade inside enterprise software before turning that into a practice.</p>
  <p style="font-size:15px;color:#555;line-height:1.78;margin-bottom:24px;">No ramp-up. No hand-holding. No asking engineering to explain how it works.</p>
  <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s cubic-bezier(.34,1.1,.64,1);display:inline-flex;align-items:center;gap:8px;background:#0078D4;color:#fff;padding:11px 22px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/work/case-studies'">View case studies <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
- <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s cubic-bezier(.34,1.1,.64,1);display:inline-flex;align-items:center;gap:8px;background:#fff;color:#0078D4;border:1.5px solid #0078D4;padding:11px 22px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;margin-left:10px;" onclick="location.href='/work/success-stories'">View success stories <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+ <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s cubic-bezier(.34,1.1,.64,1);display:inline-flex;align-items:center;gap:8px;background:#fff;color:#0078D4;border:1.5px solid #0078D4;padding:11px 22px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;margin-left:10px;" onclick="location.href='/work/case-studies'">View case studies <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
  </div>
  <div class="why-items">
  <div class="wi"><div class="wi-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="wi-t">11+ Years of Experience</div><p class="wi-s">Proven expertise in technical documentation.</p></div></div>

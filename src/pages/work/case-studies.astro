@@ -37,7 +37,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 .cs-meta-item{font-size:12px;color:#888;display:flex;align-items:center;gap:5px;}
 .cs-read-more{all:unset;display:inline-flex;align-items:center;gap:8px;font-family:"Plus Jakarta Sans",sans-serif;font-size:14px;font-weight:700;color:#0078D4;cursor:pointer;transition:gap .2s;}
 .cs-read-more:hover{gap:12px;}
-.cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.cs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
 .cs-card{background:#fff;border-radius:14px;border:1px solid #eaecf0;overflow:hidden;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s;display:flex;flex-direction:column;}
 .cs-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.08);}
 .cs-card-banner{height:140px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
@@ -79,10 +79,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="technical-documentation">Technical Documentation</button>
     <button class="filter-btn" data-filter="api-documentation">API &amp; Developer Docs</button>
-    <button class="filter-btn" data-filter="knowledge-management">Knowledge Management</button>
     <button class="filter-btn" data-filter="content-strategy">Content Strategy</button>
-    <button class="filter-btn" data-filter="training">Training &amp; Enablement</button>
     <button class="filter-btn" data-filter="documentation-engineering">Documentation Engineering</button>
+    <button class="filter-btn" data-filter="ai-training">AI Training</button>
   </div>
 </div>
 
@@ -93,97 +92,72 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <div class="cs-featured" data-category="technical-documentation">
       <div class="cs-featured-content">
         <div class="cs-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Featured</div>
-        <h2>Rebuilding a 400-page enterprise user guide from the ground up</h2>
-        <p>An enterprise IAM software company had a user guide that had not been updated in three years. Outdated procedures, missing sections, no consistent style, and a support team drowning in tickets that the docs should have answered.</p>
-        <div class="cs-result"><div class="cs-result-label">Key outcome</div><div class="cs-result-value">42% reduction in support tickets within 90 days of launch</div></div>
+        <h2>Documentation for a complex energy utility platform, across multiple development teams</h2>
+        <p>A software company serving energy utilities was facing customer escalations because its documentation did not explain the concepts behind a very complex product. We learned the product from the inside, then took over its documentation.</p>
+        <div class="cs-result"><div class="cs-result-label">Key outcome</div><div class="cs-result-value">Fewer customer tickets and escalations, and a wider remit across multiple development teams</div></div>
         <div class="cs-meta">
-          <span class="cs-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Enterprise SaaS</span>
+          <span class="cs-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Energy &amp; Utilities</span>
           <span class="cs-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16h16V8z"/></svg> Technical Documentation</span>
-          <span class="cs-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 8 weeks</span>
+          <span class="cs-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Ongoing</span>
         </div>
-        <a href="#" class="cs-read-more">Read case study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="/work/case-studies/utility-platform-documentation" class="cs-read-more">Read case study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
       <div class="cs-featured-visual">
         <div style="position:relative;z-index:2;text-align:center;">
           <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:32px 40px;">
-            <div style="font-size:48px;font-weight:800;color:#fff;letter-spacing:-.04em;margin-bottom:8px;">42<span style="color:#0078D4;">%</span></div>
-            <div style="font-size:14px;color:rgba(255,255,255,.6);margin-bottom:24px;">Fewer support tickets</div>
-            <div style="display:flex;flex-direction:column;gap:10px;">
-              <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border-radius:8px;padding:10px 14px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:12px;color:rgba(255,255,255,.7);">400+ pages restructured</span></div>
-              <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border-radius:8px;padding:10px 14px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:12px;color:rgba(255,255,255,.7);">Style guide created</span></div>
-              <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border-radius:8px;padding:10px 14px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:12px;color:rgba(255,255,255,.7);">Delivered in 8 weeks</span></div>
-            </div>
+            <div style="font-size:40px;font-weight:800;color:#fff;letter-spacing:-.04em;margin-bottom:8px;">Fewer</div>
+            <div style="font-size:14px;color:rgba(255,255,255,.6);margin-bottom:24px;">customer tickets and escalations</div>
+            <div style="display:flex;flex-direction:column;gap:10px;"><div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border-radius:8px;padding:10px 14px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:12px;color:rgba(255,255,255,.7);">Full product documented</span></div><div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border-radius:8px;padding:10px 14px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:12px;color:rgba(255,255,255,.7);">Part of a larger connected platform covered</span></div><div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border-radius:8px;padding:10px 14px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:12px;color:rgba(255,255,255,.7);">Multiple teams, one documentation function</span></div></div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="cs-grid">
-      <div class="cs-card" data-category="api-documentation">
-        <div class="cs-card-banner" style="background:#021430;"><div style="text-align:center;position:relative;z-index:2;"><div style="font-size:32px;font-weight:800;color:#fff;letter-spacing:-.03em;">60<span style="color:#0078D4;">%</span></div><div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;">Faster developer onboarding</div></div><div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(0,120,212,.25) 0%,transparent 70%);"></div></div>
-        <div class="cs-card-content">
-          <div class="cs-card-tag">API &amp; Developer Documentation</div>
-          <h3>API documentation overhaul for a payments platform</h3>
-          <p>The existing API docs were incomplete and inconsistent. Developers were abandoning integrations midway and raising support tickets for basic questions.</p>
-          <div class="cs-card-result"><div class="cs-card-result-label">Key outcome</div><div class="cs-card-result-value">60% faster developer onboarding</div></div>
-          <div class="cs-card-meta"><span>FinTech</span><span>12 weeks</span><a href="#" class="cs-card-link">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
-        </div>
-      </div>
-
-      <div class="cs-card" data-category="knowledge-management">
-        <div class="cs-card-banner" style="background:#0f172a;"><div style="text-align:center;position:relative;z-index:2;"><div style="font-size:32px;font-weight:800;color:#fff;letter-spacing:-.03em;">3x</div><div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;">Knowledge base search success</div></div><div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(0,120,212,.2) 0%,transparent 70%);"></div></div>
-        <div class="cs-card-content">
-          <div class="cs-card-tag">Knowledge Management</div>
-          <h3>Knowledge base rebuild for a global HR platform</h3>
-          <p>A disorganized knowledge base with no taxonomy, duplicate content, and outdated articles was pushing users to contact support instead of self-serving.</p>
-          <div class="cs-card-result"><div class="cs-card-result-label">Key outcome</div><div class="cs-card-result-value">3x improvement in search success rate</div></div>
-          <div class="cs-card-meta"><span>HR Technology</span><span>6 weeks</span><a href="#" class="cs-card-link">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
-        </div>
-      </div>
-
       <div class="cs-card" data-category="documentation-engineering">
-        <div class="cs-card-banner" style="background:#1e1e1e;"><div style="text-align:center;position:relative;z-index:2;"><div style="font-size:32px;font-weight:800;color:#fff;letter-spacing:-.03em;">0</div><div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;">Manual publishing steps remaining</div></div></div>
+        <div class="cs-card-banner" style="background:#0f172a;"><div style="text-align:center;position:relative;z-index:2;"><div style="font-size:30px;font-weight:800;color:#fff;letter-spacing:-.03em;">From zero</div><div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;">to a complete documentation set</div></div><div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(0,120,212,.25) 0%,transparent 70%);"></div></div>
         <div class="cs-card-content">
           <div class="cs-card-tag">Documentation Engineering</div>
-          <h3>Docs-as-code migration for a developer tools company</h3>
-          <p>A team publishing docs manually via a CMS with no version control, no review process, and no way to keep docs in sync with product releases.</p>
-          <div class="cs-card-result"><div class="cs-card-result-label">Key outcome</div><div class="cs-card-result-value">Fully automated CI/CD doc pipeline</div></div>
-          <div class="cs-card-meta"><span>Developer Tools</span><span>4 weeks</span><a href="#" class="cs-card-link">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+          <h3>Documentation, training and in-app help for a new RPA product</h3>
+          <p>A new robotic process automation product had no documentation at all. We built everything from scratch, from user documentation and in-app help to training videos and sales material, and published it online at low cost.</p>
+          <div class="cs-card-result"><div class="cs-card-result-label">Key outcome</div><div class="cs-card-result-value">A complete documentation and training set, published online and shareable with the client's own customers</div></div>
+          <div class="cs-card-meta"><span>Automation Software</span><a href="/work/case-studies/rpa-product-documentation" class="cs-card-link">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
         </div>
       </div>
 
       <div class="cs-card" data-category="content-strategy">
-        <div class="cs-card-banner" style="background:#021430;"><div style="text-align:center;position:relative;z-index:2;"><div style="font-size:32px;font-weight:800;color:#fff;letter-spacing:-.03em;">85<span style="color:#0078D4;">%</span></div><div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;">Reduction in style inconsistencies</div></div><div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(0,120,212,.2) 0%,transparent 70%);"></div></div>
+        <div class="cs-card-banner" style="background:#021430;"><div style="text-align:center;position:relative;z-index:2;"><div style="font-size:30px;font-weight:800;color:#fff;letter-spacing:-.03em;">Unified</div><div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;">documentation, style and voice</div></div><div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(0,120,212,.25) 0%,transparent 70%);"></div></div>
         <div class="cs-card-content">
-          <div class="cs-card-tag">Content Strategy &amp; Design</div>
-          <h3>Content strategy and style guide for a SaaS platform</h3>
-          <p>Multiple teams writing documentation independently with no shared standards, resulting in inconsistent voice, terminology, and formatting across all content.</p>
-          <div class="cs-card-result"><div class="cs-card-result-label">Key outcome</div><div class="cs-card-result-value">85% reduction in style inconsistencies</div></div>
-          <div class="cs-card-meta"><span>Enterprise SaaS</span><span>5 weeks</span><a href="#" class="cs-card-link">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+          <div class="cs-card-tag">Content Strategy &amp; Migration</div>
+          <h3>Documentation overhaul and Confluence migration for an identity management company</h3>
+          <p>Poor documentation for an identity management company's apps was causing problems with the platform teams who review apps for onboarding, and frustrating existing customers. We audited it, wrote a style guide, rewrote the content, and moved everything to Confluence.</p>
+          <div class="cs-card-result"><div class="cs-card-result-label">Key outcome</div><div class="cs-card-result-value">Audited, consistent documentation under a single style guide, published in Confluence</div></div>
+          <div class="cs-card-meta"><span>Identity &amp; Access Management</span><a href="/work/case-studies/iam-documentation-overhaul" class="cs-card-link">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
         </div>
       </div>
 
-      <div class="cs-card" data-category="training">
-        <div class="cs-card-banner" style="background:#0f172a;"><div style="text-align:center;position:relative;z-index:2;"><div style="font-size:32px;font-weight:800;color:#fff;letter-spacing:-.03em;">50<span style="color:#0078D4;">%</span></div><div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;">Faster new hire ramp-up</div></div><div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(0,120,212,.2) 0%,transparent 70%);"></div></div>
+      <div class="cs-card" data-category="api-documentation">
+        <div class="cs-card-banner" style="background:#0f172a;"><div style="text-align:center;position:relative;z-index:2;"><div style="font-size:30px;font-weight:800;color:#fff;letter-spacing:-.03em;">Tested</div><div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;">by real API consumers</div></div><div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(0,120,212,.25) 0%,transparent 70%);"></div></div>
         <div class="cs-card-content">
-          <div class="cs-card-tag">Training &amp; Enablement</div>
-          <h3>Employee onboarding programme for a global technology firm</h3>
-          <p>New hires were taking 90 days to reach full productivity. Onboarding documentation was scattered, outdated, and not role-specific.</p>
-          <div class="cs-card-result"><div class="cs-card-result-label">Key outcome</div><div class="cs-card-result-value">50% faster ramp-up time for new hires</div></div>
-          <div class="cs-card-meta"><span>Technology</span><span>6 weeks</span><a href="#" class="cs-card-link">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+          <div class="cs-card-tag">API &amp; Developer Documentation</div>
+          <h3>API, SDK and architecture documentation for a vehicle RFID pass platform</h3>
+          <p>The team behind a vehicle RFID pass platform was struggling with its technical, API and SDK documentation. We tested the product ourselves, wrote the documentation and diagrams, and checked it with real consumers.</p>
+          <div class="cs-card-result"><div class="cs-card-result-label">Key outcome</div><div class="cs-card-result-value">Developer documentation tested by real consumers, who responded positively</div></div>
+          <div class="cs-card-meta"><span>Payments &amp; Mobility</span><span>4 months</span><a href="/work/case-studies/vehicle-pass-platform-developer-docs" class="cs-card-link">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
         </div>
       </div>
 
-      <div class="cs-card" data-category="technical-documentation">
-        <div class="cs-card-banner" style="background:#021430;"><div style="text-align:center;position:relative;z-index:2;"><div style="font-size:32px;font-weight:800;color:#fff;letter-spacing:-.03em;">30<span style="color:#0078D4;">%</span></div><div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;">Reduction in implementation time</div></div><div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(0,120,212,.2) 0%,transparent 70%);"></div></div>
+      <div class="cs-card" data-category="ai-training">
+        <div class="cs-card-banner" style="background:#021430;"><div style="text-align:center;position:relative;z-index:2;"><div style="font-size:30px;font-weight:800;color:#fff;letter-spacing:-.03em;">Expert</div><div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;">review of AI output</div></div><div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(0,120,212,.25) 0%,transparent 70%);"></div></div>
         <div class="cs-card-content">
-          <div class="cs-card-tag">Technical Documentation</div>
-          <h3>Installation and configuration guide for an enterprise security platform</h3>
-          <p>Customers were spending weeks on implementations that should have taken days. The installation guide was incomplete and assumed too much prior knowledge.</p>
-          <div class="cs-card-result"><div class="cs-card-result-label">Key outcome</div><div class="cs-card-result-value">30% reduction in average implementation time</div></div>
-          <div class="cs-card-meta"><span>Cybersecurity</span><span>4 weeks</span><a href="#" class="cs-card-link">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+          <div class="cs-card-tag">AI Training</div>
+          <h3>Training and evaluating AI models on technical writing tasks</h3>
+          <p>An AI company needed experienced technical writers to improve how its models handle technical writing and documentation tasks. We reviewed, rated and corrected model output against clear quality guidelines.</p>
+          <div class="cs-card-result"><div class="cs-card-result-label">Key outcome</div><div class="cs-card-result-value">Expert, guideline-based evaluation of AI output on technical writing tasks</div></div>
+          <div class="cs-card-meta"><span>Artificial Intelligence</span><a href="/work/case-studies/ai-model-training-evaluation" class="cs-card-link">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
         </div>
       </div>
+
     </div>
   </div>
 </div>
@@ -197,7 +171,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <p class="cta-sub">Tell us what you are working on. We will scope it, plan it, and deliver documentation that moves the needle.</p>
       <div class="cta-btns">
         <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s;display:inline-flex;align-items:center;gap:8px;background-color:#0a0a0a;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/contact'">Get in touch <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
-        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s;display:inline-flex;align-items:center;gap:8px;background-color:#fff;color:#0a0a0a;border:1.5px solid #d0d0d0;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/work/success-stories'">View success stories <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s;display:inline-flex;align-items:center;gap:8px;background-color:#fff;color:#0a0a0a;border:1.5px solid #d0d0d0;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/process'">See how we work <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
       </div>
     </div>
   </div>
