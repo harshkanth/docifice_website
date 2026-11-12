@@ -8,12 +8,20 @@ interface Props {
   description?: string;
   image?: string;
   type?: string;
+  jsonLd?: object[];
 }
 
 const SITE = 'https://docifice.com';
-const { image = '/og-default.png', type = 'website', title, description = 'Docifice, Technical documentation, content, SEO, AEO, and product training for software teams.' } = Astro.props;
-const pageTitle = title === 'Words that make your product work' ? 'Docifice' : `${title} | Docifice`;
+const { image = '/og-default.png', type = 'website', title, jsonLd = [], description = 'Docifice is a technical writing agency for software teams: end-to-end documentation, embedded technical writers and technical recruitment.' } = Astro.props;
+const pageTitle = title.includes('Docifice') ? title : `${title} | Docifice`;
 const canonical = new URL(Astro.url.pathname, SITE).href;
+const baseLd = [
+  { '@context': 'https://schema.org', '@type': 'Organization', '@id': SITE + '/#organization', name: 'Docifice', url: SITE, logo: SITE + '/og-default.png',
+    description: 'Technical writing agency for software teams: end-to-end documentation, embedded technical writers and technical recruitment.',
+    sameAs: ['https://www.linkedin.com/company/docifice/'] },
+  { '@context': 'https://schema.org', '@type': 'WebSite', '@id': SITE + '/#website', url: SITE, name: 'Docifice', publisher: { '@id': SITE + '/#organization' } },
+];
+const ldAll = JSON.stringify([...baseLd, ...jsonLd]).replace(/</g, '\\u003c');
 const ogImage = image.startsWith('http') ? image : SITE + image;
 ---
 
@@ -31,6 +39,7 @@ const ogImage = image.startsWith('http') ? image : SITE + image;
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
   <meta property="og:image" content={ogImage} />
+  <script type="application/ld+json" set:html={ldAll}></script>
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="alternate" type="application/rss+xml" title="Docifice blog" href="/rss.xml" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

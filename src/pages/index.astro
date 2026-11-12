@@ -1,10 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { testimonials } from '../data/testimonials';
-const initials = (n) => n.split(' ').map((w) => w[0]).join('').slice(0, 2).toUpperCase();
 ---
 
-<BaseLayout title="Words that make your product work" description="Docifice: Technical documentation, content, SEO, AEO, and product training for software teams.">
+<BaseLayout title="Technical Writing Agency for Software Teams | Docifice" description="Docifice is a technical writing agency for software teams: end-to-end documentation, embedded technical writers and technical recruitment.">
 
 <div class="hero">
   <div class="hero-bg"></div><div class="hero-dots"></div>
@@ -16,7 +14,8 @@ const initials = (n) => n.split(' ').map((w) => w[0]).join('').slice(0, 2).toUpp
 
  <!-- LEFT -->
  <div class="hero-content">
- <h1>Words that make<br>your product <em>work.</em></h1>
+ <h1 class="hero-kicker">Technical writing and AI-ready documentation</h1>
+ <div class="hero-slogan">Docs that make<br>your product <em>work.</em></div>
  <p class="sub">We run your documentation, add a writer to your team, or help you hire one. Docifice is the technical writing partner for software teams.</p>
  <div class="btns">
  <button class="btn-lift" style="all:unset;box-sizing:border-box;transition:transform .22s cubic-bezier(.34,1.1,.64,1),box-shadow .22s cubic-bezier(.34,1.1,.64,1);display:inline-flex;align-items:center;gap:8px;background-color:#ffffff;color:#021430;padding:12px 26px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;" onclick="location.href='/contact'">Get in touch <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#021430" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
@@ -290,20 +289,6 @@ const initials = (n) => n.split(' ').map((w) => w[0]).join('').slice(0, 2).toUpp
   </div>
 </div></div>
 
-<div class="testi-outer"><div class="wrap">
-  <div class="eyebrow" style="text-transform:none;letter-spacing:0;font-size:13px;margin-bottom:8px;">Reviews</div>
-  <div style="font-size:32px;font-weight:800;letter-spacing:-.035em;margin-bottom:24px;line-height:1.12;color:#0a0a0a;">From the people we've worked with</div>
-  <div class="tmarquee" aria-label="Client testimonials">
-    <div class="ttrack">
-      <div class="tset">
- {testimonials.map((t) => (
- <div class="tcard"><p class="tq">"{t.quote}"</p><div style="display:flex;align-items:center;gap:8px;"><div class="tav">{initials(t.name)}</div><div><div style="font-size:13px;font-weight:700;">{t.name}</div><div style="font-size:11px;color:#aaa;">{t.role}</div></div></div></div>
- ))}
-      </div>
-    </div>
-  </div>
-</div></div>
-
 <div class="bottom">
   <div class="wrap">
  <div class="cta">
@@ -521,26 +506,5 @@ document.querySelectorAll('.sc').forEach(card => {
 
 </script>
 
-<script is:inline>
-(function(){
-  var box=document.querySelector('.tmarquee'); if(!box) return;
-  var track=box.querySelector('.ttrack'); var cards=[].slice.call(track.querySelectorAll('.tcard'));
-  var N=cards.length; if(N<2) return;
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var pv=2,idx=0,timer;
-  function perView(){return window.innerWidth<=768?1:2;}
-  cards.slice(0,Math.min(N,perView()*2+2)).forEach(function(c){var k=c.cloneNode(true);k.setAttribute('aria-hidden','true');track.appendChild(k);});
-  function step(){return cards[0].offsetWidth+parseFloat(getComputedStyle(cards[0]).marginRight);}
-  function go(animate){track.style.transition=animate?'transform 1.2s cubic-bezier(.4,0,.2,1)':'none';track.style.transform='translateX('+(-idx*step())+'px)';}
-  function next(){
-    pv=perView(); idx+=pv; go(true);
-    if(idx>=N){setTimeout(function(){idx-=N;go(false);},1300);}
-  }
-  function start(){clearInterval(timer);timer=setInterval(next,8000);}
-  window.addEventListener('resize',function(){pv=perView();idx=0;go(false);});
-  document.addEventListener('visibilitychange',function(){if(document.hidden)clearInterval(timer);else start();});
-  go(false);start();
-})();
-</script>
 
 </BaseLayout>
