@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+const svcLd = [{ '@context': 'https://schema.org', '@type': 'Service', name: 'AI search optimization', serviceType: 'AI search optimization', description: 'Professional AI search optimization services, AISO, AEO, GEO, RAG-ready documentation, semantic content structuring and more. Docifice makes your content visible where AI searches happen.', url: 'https://docifice.com/services/ai-search-optimization', provider: { '@id': 'https://docifice.com/#organization' }, areaServed: 'Worldwide' }];
 ---
 
-<BaseLayout title="AI Search Optimization Services (AEO and GEO) | Docifice" description="Professional AI search optimization services, AISO, AEO, GEO, RAG-ready documentation, semantic content structuring and more. Docifice makes your content visible where AI searches happen.">
+<BaseLayout jsonLd={svcLd} title="AI Search Optimization Services (AEO and GEO) | Docifice" description="Professional AI search optimization services, AISO, AEO, GEO, RAG-ready documentation, semantic content structuring and more. Docifice makes your content visible where AI searches happen.">
 
 <style>
 .td-hero{background:#021430;padding:72px 0 64px;position:relative;overflow:hidden;}

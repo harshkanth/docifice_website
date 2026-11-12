@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+const svcLd = [{ '@context': 'https://schema.org', '@type': 'Service', name: 'Documentation engineering', serviceType: 'Documentation engineering', description: 'Professional documentation engineering services, docs-as-code, CI/CD pipelines, documentation portals, static sites, automation and more. Docifice builds docs like software.', url: 'https://docifice.com/services/documentation-engineering', provider: { '@id': 'https://docifice.com/#organization' }, areaServed: 'Worldwide' }];
 ---
 
-<BaseLayout title="Docs-as-Code and Documentation Engineering | Docifice" description="Professional documentation engineering services, docs-as-code, CI/CD pipelines, documentation portals, static sites, automation and more. Docifice builds docs like software.">
+<BaseLayout jsonLd={svcLd} title="Docs-as-Code and Documentation Engineering | Docifice" description="Professional documentation engineering services, docs-as-code, CI/CD pipelines, documentation portals, static sites, automation and more. Docifice builds docs like software.">
 
 <style>
 .td-hero{background:#021430;padding:72px 0 64px;position:relative;overflow:hidden;}

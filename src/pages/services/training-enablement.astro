@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+const svcLd = [{ '@context': 'https://schema.org', '@type': 'Service', name: 'Training and enablement', serviceType: 'Training and enablement', description: 'Professional training and enablement documentation services, LMS courses, product training, onboarding programs, certification guides and more. Docifice builds knowledge that sticks.', url: 'https://docifice.com/services/training-enablement', provider: { '@id': 'https://docifice.com/#organization' }, areaServed: 'Worldwide' }];
 ---
 
-<BaseLayout title="Product Training and Enablement Content Services | Docifice" description="Professional training and enablement documentation services, LMS courses, product training, onboarding programs, certification guides and more. Docifice builds knowledge that sticks.">
+<BaseLayout jsonLd={svcLd} title="Product Training and Enablement Content Services | Docifice" description="Professional training and enablement documentation services, LMS courses, product training, onboarding programs, certification guides and more. Docifice builds knowledge that sticks.">
 
 <style>
 .td-hero{background:#021430;padding:72px 0 64px;position:relative;overflow:hidden;}

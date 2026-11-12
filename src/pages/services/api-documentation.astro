@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+const svcLd = [{ '@context': 'https://schema.org', '@type': 'Service', name: 'API and developer documentation', serviceType: 'API and developer documentation', description: 'Professional API and developer documentation services, REST, GraphQL, OpenAPI specs, SDK docs, developer portals and more. Docifice delivers docs developers actually use.', url: 'https://docifice.com/services/api-documentation', provider: { '@id': 'https://docifice.com/#organization' }, areaServed: 'Worldwide' }];
 ---
 
-<BaseLayout title="API Documentation Services | Docifice" description="Professional API and developer documentation services, REST, GraphQL, OpenAPI specs, SDK docs, developer portals and more. Docifice delivers docs developers actually use.">
+<BaseLayout jsonLd={svcLd} title="API Documentation Services | Docifice" description="Professional API and developer documentation services, REST, GraphQL, OpenAPI specs, SDK docs, developer portals and more. Docifice delivers docs developers actually use.">
 
 <style>
 /* ── Page-level styles ── */

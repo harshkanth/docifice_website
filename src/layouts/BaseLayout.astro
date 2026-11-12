@@ -12,11 +12,12 @@ interface Props {
 }
 
 const SITE = 'https://docifice.com';
+const GA_ID = import.meta.env.PUBLIC_GA_ID || 'G-JHM8Y7MYK7';
 const { image = '/og-default.png', type = 'website', title, jsonLd = [], description = 'Docifice is a technical writing agency offering end-to-end documentation, embedded technical writers and technical recruitment.' } = Astro.props;
 const pageTitle = title.includes('Docifice') ? title : `${title} | Docifice`;
 const canonical = new URL(Astro.url.pathname, SITE).href;
 const baseLd = [
-  { '@context': 'https://schema.org', '@type': 'Organization', '@id': SITE + '/#organization', name: 'Docifice', url: SITE, logo: SITE + '/og-default.png',
+  { '@context': 'https://schema.org', '@type': 'Organization', '@id': SITE + '/#organization', name: 'Docifice', url: SITE, logo: SITE + '/logo-512.png',
     description: 'Technical writing agency offering end-to-end documentation, embedded technical writers and technical recruitment.',
     sameAs: ['https://www.linkedin.com/company/docifice/'] },
   { '@context': 'https://schema.org', '@type': 'WebSite', '@id': SITE + '/#website', url: SITE, name: 'Docifice', publisher: { '@id': SITE + '/#organization' } },
@@ -39,6 +40,8 @@ const ogImage = image.startsWith('http') ? image : SITE + image;
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
   <meta property="og:image" content={ogImage} />
+  {GA_ID && (<script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>)}
+  {GA_ID && (<script is:inline define:vars={{ GA_ID }}>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config',GA_ID);</script>)}
   <script type="application/ld+json" set:html={ldAll}></script>
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="alternate" type="application/rss+xml" title="Docifice blog" href="/rss.xml" />
