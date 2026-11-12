@@ -1,0 +1,129 @@
+---
+// Diagram component. Pass one entry from src/data/diagrams.ts as the "d" prop.
+// Four types: flow (numbered steps), hub (inputs, centre, outputs), compare (two columns), map (centre with parts).
+const { d } = Astro.props;
+---
+
+<figure class="dg">
+  {d.title && (<div class="dg-title">{d.title}</div>)}
+
+  {d.type === 'flow' && (
+    <ol class="dg-flow" data-n={d.steps.length}>
+      {d.steps.map((s, i) => (
+        <li class="dg-step">
+          <span class="dg-num">{i + 1}</span>
+          <div class="dg-step-t">{s.t}</div>
+          <div class="dg-step-d">{s.d}</div>
+        </li>
+      ))}
+    </ol>
+  )}
+
+  {d.type === 'hub' && (
+    <div class="dg-hub">
+      <div class="dg-col">
+        <div class="dg-col-l">{d.left.label}</div>
+        {d.left.items.map((x) => (<div class="dg-chip">{x}</div>))}
+      </div>
+      <div class="dg-arrow" aria-hidden="true">&rarr;</div>
+      <div class="dg-centre">
+        <div class="dg-centre-t">{d.centre.t}</div>
+        <div class="dg-centre-d">{d.centre.d}</div>
+      </div>
+      <div class="dg-arrow" aria-hidden="true">&rarr;</div>
+      <div class="dg-col">
+        <div class="dg-col-l">{d.right.label}</div>
+        {d.right.items.map((x) => (<div class="dg-chip">{x}</div>))}
+      </div>
+    </div>
+  )}
+
+  {d.type === 'compare' && (
+    <div class="dg-cmp">
+      <div class="dg-cmp-row dg-cmp-head">
+        <div></div>
+        <div>{d.cols[0]}</div>
+        <div>{d.cols[1]}</div>
+      </div>
+      {d.rows.map((r) => (
+        <div class="dg-cmp-row">
+          <div class="dg-cmp-l">{r[0]}</div>
+          <div data-l={d.cols[0]}>{r[1]}</div>
+          <div data-l={d.cols[1]}>{r[2]}</div>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {d.type === 'map' && (
+    <div class="dg-map">
+      <div class="dg-map-centre">
+        <div class="dg-centre-t">{d.centre.t}</div>
+        <div class="dg-centre-d">{d.centre.d}</div>
+      </div>
+      <div class="dg-map-grid">
+        {d.items.map((x) => (
+          <div class="dg-map-item">
+            <div class="dg-step-t">{x.t}</div>
+            <div class="dg-step-d">{x.d}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+
+  {d.caption && (<figcaption class="dg-cap">{d.caption}</figcaption>)}
+</figure>
+
+<style>
+.dg{container-type:inline-size;container-name:dg;margin:0 0 8px;background:#fff;border:1.5px solid #d8e2f0;border-radius:14px;padding:26px 26px 20px;}
+.dg-title{font-size:11px;font-weight:700;letter-spacing:.04em;color:#0078D4;margin-bottom:16px;}
+.dg-cap{font-size:12.5px;color:#777;line-height:1.6;margin-top:16px;padding-top:14px;border-top:1px solid #eef2f8;}
+
+.dg-flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;}
+.dg-flow[data-n="5"]{grid-template-columns:repeat(6,1fr);}
+.dg-flow[data-n="5"] .dg-step{grid-column:span 2;}
+.dg-flow[data-n="5"] .dg-step:nth-child(4){grid-column:2 / span 2;}
+.dg-flow[data-n="5"] .dg-step:nth-child(5){grid-column:4 / span 2;}
+@container dg (min-width:700px){
+  .dg-flow[data-n="5"]{grid-template-columns:repeat(5,1fr);}
+  .dg-flow[data-n="5"] .dg-step,.dg-flow[data-n="5"] .dg-step:nth-child(4),.dg-flow[data-n="5"] .dg-step:nth-child(5){grid-column:auto;}
+}
+.dg-step{background:#f0f5ff;border:1px solid #d8e2f0;border-radius:10px;padding:16px 16px 18px;}
+.dg-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#0078D4;color:#fff;font-size:12px;font-weight:800;margin-bottom:10px;}
+.dg-step-t{font-size:14px;font-weight:800;color:#0a0a0a;letter-spacing:-.01em;margin-bottom:5px;}
+.dg-step-d{font-size:12.5px;color:#555;line-height:1.55;}
+
+.dg-hub{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:14px;align-items:center;}
+.dg-col{display:flex;flex-direction:column;gap:8px;}
+.dg-col-l{font-size:10.5px;font-weight:700;letter-spacing:.02em;color:#777;margin-bottom:2px;}
+.dg-chip{background:#f0f5ff;border:1px solid #d8e2f0;border-radius:8px;padding:10px 12px;font-size:12.5px;font-weight:600;color:#0a0a0a;line-height:1.45;}
+.dg-arrow{font-size:20px;font-weight:700;color:#0078D4;text-align:center;}
+.dg-centre,.dg-map-centre{background:#021430;border-radius:12px;padding:20px 18px;}
+.dg-centre-t{font-size:15px;font-weight:800;color:#fff;letter-spacing:-.01em;margin-bottom:6px;}
+.dg-centre-d{font-size:12.5px;color:rgba(255,255,255,.68);line-height:1.55;}
+
+.dg-cmp{display:flex;flex-direction:column;gap:0;border:1px solid #d8e2f0;border-radius:10px;overflow:hidden;}
+.dg-cmp-row{display:grid;grid-template-columns:.8fr 1fr 1fr;border-top:1px solid #e6edf7;}
+.dg-cmp-row:first-child{border-top:0;}
+.dg-cmp-row>div{padding:12px 14px;font-size:13px;color:#333;line-height:1.5;}
+.dg-cmp-head{background:#021430;}
+.dg-cmp-head>div{color:#fff;font-weight:800;font-size:13px;}
+.dg-cmp-l{font-weight:700;color:#0a0a0a;background:#f7f9fd;}
+
+.dg-map{display:flex;flex-direction:column;gap:12px;}
+.dg-map-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;}
+.dg-map-item{background:#f0f5ff;border:1px solid #d8e2f0;border-radius:10px;padding:14px 16px;}
+
+@media(max-width:760px){
+  .dg{padding:20px 16px 16px;}
+  .dg-hub{grid-template-columns:1fr;gap:10px;}
+  .dg-flow[data-n="5"]{grid-template-columns:1fr;}
+  .dg-flow[data-n="5"] .dg-step,.dg-flow[data-n="5"] .dg-step:nth-child(4),.dg-flow[data-n="5"] .dg-step:nth-child(5){grid-column:auto;}
+  .dg-arrow{transform:rotate(90deg);}
+  .dg-cmp-row{grid-template-columns:1fr;}
+  .dg-cmp-head{display:none;}
+  .dg-cmp-l{border-top:0;}
+  .dg-cmp-row>div[data-l]::before{content:attr(data-l) ": ";font-weight:700;color:#0078D4;}
+}
+</style>

@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { caseStudies } from '../../../data/case-studies';
+import { diagrams } from '../../../data/diagrams';
+import Diagram from '../../../components/Diagram.astro';
 
 export function getStaticPaths() {
   return caseStudies.map((cs) => ({
@@ -10,6 +12,7 @@ export function getStaticPaths() {
 }
 
 const { cs } = Astro.props;
+const diagram = cs.diagram ? diagrams[cs.diagram] : null;
 const others = caseStudies.filter((c) => c.slug !== cs.slug).slice(0, 3);
 ---
 
@@ -43,6 +46,8 @@ const others = caseStudies.filter((c) => c.slug !== cs.slug).slice(0, 3);
 .csd-tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px;}
 .csd-tool{font-size:12px;font-weight:600;padding:7px 14px;border-radius:8px;background:#f0f5ff;color:#0a0a0a;border:1px solid #d8e2f0;}
 .csd-quote{font-size:20px;font-weight:600;color:#0a0a0a;line-height:1.55;letter-spacing:-.01em;border-left:3px solid #0078D4;padding-left:22px;}
+.csd-photo{margin:0 0 48px;}
+.csd-photo img{display:block;width:100%;height:auto;max-height:420px;object-fit:cover;border-radius:14px;border:1px solid #d8e2f0;}
 .csd-more{background:#f8f9fa;padding:72px 0;}
 .csd-more-inner{max-width:1400px;margin:0 auto;padding:0 32px;}
 .csd-more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px;}
@@ -78,30 +83,38 @@ const others = caseStudies.filter((c) => c.slug !== cs.slug).slice(0, 3);
 </div>
 
 <div class="csd-body">
+  {cs.photo && (<figure class="csd-photo"><img src={cs.photo} alt={cs.photoAlt || ''} loading="lazy" /></figure>)}
   <div class="csd-sec">
-    <div class="csd-ey">Key Outcome</div>
+    <div class="csd-ey">Key outcome</div>
     <div class="csd-outcome"><div class="csd-outcome-v">{cs.outcome}</div></div>
   </div>
 
   {cs.challenge && (
     <div class="csd-sec">
-      <div class="csd-ey">The Challenge</div>
+      <div class="csd-ey">The challenge</div>
       <div class="csd-text">{cs.challenge}</div>
     </div>
   )}
 
   {cs.approach.length > 0 && (
     <div class="csd-sec">
-      <div class="csd-ey">Our Approach</div>
+      <div class="csd-ey">Our approach</div>
       <ul class="csd-list">
         {cs.approach.map((a) => (<li>{a}</li>))}
       </ul>
     </div>
   )}
 
+  {diagram && (
+    <div class="csd-sec">
+      <div class="csd-ey">How it worked</div>
+      <Diagram d={diagram} />
+    </div>
+  )}
+
   {cs.deliverables.length > 0 && (
     <div class="csd-sec">
-      <div class="csd-ey">What We Delivered</div>
+      <div class="csd-ey">What we delivered</div>
       <ul class="csd-list">
         {cs.deliverables.map((d) => (<li>{d}</li>))}
       </ul>
@@ -135,7 +148,7 @@ const others = caseStudies.filter((c) => c.slug !== cs.slug).slice(0, 3);
 
 <div class="csd-more">
   <div class="csd-more-inner">
-    <div class="csd-ey">More Case Studies</div>
+    <div class="csd-ey">More case studies</div>
     <div class="csd-h2">See how else we have helped.</div>
     <div class="csd-more-grid">
       {others.map((o) => (

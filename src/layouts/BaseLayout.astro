@@ -6,9 +6,15 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  image?: string;
+  type?: string;
 }
 
-const { title, description = 'Docifice — Technical documentation, content, SEO, AEO, and product training for teams that know clarity is a competitive advantage.' } = Astro.props;
+const SITE = 'https://docifice.com';
+const { image = '/og-default.png', type = 'website', title, description = 'Docifice, Technical documentation, content, SEO, AEO, and product training for software teams.' } = Astro.props;
+const pageTitle = title === 'Words that make your product work' ? 'Docifice' : `${title} | Docifice`;
+const canonical = new URL(Astro.url.pathname, SITE).href;
+const ogImage = image.startsWith('http') ? image : SITE + image;
 ---
 
 <!DOCTYPE html>
@@ -17,7 +23,16 @@ const { title, description = 'Docifice — Technical documentation, content, SEO
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
-  <title>{title === 'Words that make your product work' ? 'Docifice' : `${title} | Docifice`}</title>
+  <title>{pageTitle}</title>
+  <link rel="canonical" href={canonical} />
+  <meta property="og:site_name" content="Docifice" />
+  <meta property="og:type" content={type} />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImage} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" type="application/rss+xml" title="Docifice blog" href="/rss.xml" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
