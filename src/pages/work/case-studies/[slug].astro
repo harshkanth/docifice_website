@@ -62,7 +62,7 @@ const others = caseStudies.filter((c) => c.slug !== cs.slug).slice(0, 3);
 <div class="csd-hero">
   <div class="csd-hero-inner">
     <div>
-      <a href="/work/case-studies" class="csd-back">&larr; All case studies</a>
+      <a href="/work/case-studies/" class="csd-back">&larr; All case studies</a>
       <div class="csd-eyebrow">{cs.tag}</div>
       <h1>{cs.title}</h1>
       <p>{cs.summary}</p>
@@ -152,7 +152,7 @@ const others = caseStudies.filter((c) => c.slug !== cs.slug).slice(0, 3);
     <div class="csd-h2">See how else we have helped.</div>
     <div class="csd-more-grid">
       {others.map((o) => (
-        <a href={`/work/case-studies/${o.slug}`} class="csd-mc">
+        <a href={`/work/case-studies/${o.slug}/`} class="csd-mc">
           <span class="csd-mc-tag">{o.tag}</span>
           <div class="csd-mc-title">{o.title}</div>
           <div class="csd-mc-out">{o.outcome}</div>
@@ -170,8 +170,8 @@ const others = caseStudies.filter((c) => c.slug !== cs.slug).slice(0, 3);
       <h2 class="cta-h2">Want results like <em>these?</em></h2>
       <p class="cta-sub">Tell us what you are working on. We will tell you how we would approach it.</p>
       <div class="cta-btns">
-        <a href="/contact" style="box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background-color:#0a0a0a;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;text-decoration:none;">Get in touch</a>
-        <a href="/work/case-studies" style="box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background-color:#fff;color:#0a0a0a;border:1.5px solid #d0d0d0;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;text-decoration:none;">All case studies</a>
+        <a href="/contact/" style="box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background-color:#0a0a0a;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;text-decoration:none;">Get in touch</a>
+        <a href="/work/case-studies/" style="box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background-color:#fff;color:#0a0a0a;border:1.5px solid #d0d0d0;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;text-decoration:none;">All case studies</a>
       </div>
     </div>
   </div>

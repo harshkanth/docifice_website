@@ -15,7 +15,7 @@ const SITE = 'https://docifice.com';
 const GA_ID = import.meta.env.PUBLIC_GA_ID || 'G-JHM8Y7MYK7';
 const { image = '/og-default.png', type = 'website', title, jsonLd = [], description = 'Docifice is a technical writing agency offering end-to-end documentation, embedded technical writers and technical recruitment.' } = Astro.props;
 const pageTitle = title.includes('Docifice') ? title : `${title} | Docifice`;
-const canonical = new URL(Astro.url.pathname, SITE).href;
+const canonical = new URL(Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/', SITE).href;
 const baseLd = [
   { '@context': 'https://schema.org', '@type': 'Organization', '@id': SITE + '/#organization', name: 'Docifice', url: SITE, logo: SITE + '/logo-512.png',
     description: 'Technical writing agency offering end-to-end documentation, embedded technical writers and technical recruitment.',

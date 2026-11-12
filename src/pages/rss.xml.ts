@@ -10,8 +10,8 @@ export function GET() {
   const items = posts.map((p) => `
     <item>
       <title>${esc(p.title)}</title>
-      <link>${SITE}/blog/${p.slug}</link>
-      <guid isPermaLink="true">${SITE}/blog/${p.slug}</guid>
+      <link>${SITE}/blog/${p.slug}/</link>
+      <guid isPermaLink="true">${SITE}/blog/${p.slug}/</guid>
       <pubDate>${toDate(p.date)}</pubDate>
       <category>${esc(p.categoryLabel)}</category>
       <description>${esc(p.summary)}</description>
@@ -20,7 +20,7 @@ export function GET() {
 <rss version="2.0">
   <channel>
     <title>Docifice blog</title>
-    <link>${SITE}/blog</link>
+    <link>${SITE}/blog/</link>
     <description>Guides and advice on technical documentation, from the people who write it.</description>
     <language>en</language>${items}
   </channel>
