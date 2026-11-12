@@ -1,7 +1,7 @@
 // RSS feed of the blog at /rss.xml. Tools such as Zapier, Make or Buffer can watch it and post new articles to LinkedIn.
 import { posts } from '../data/posts';
 import { isoDate } from '../data/dates';
-const toDate = (d: string) => new Date(isoDate(d) + 'T09:00:00Z').toUTCString();
+const toDate = (d: string) => new Date((isoDate(d) + '-01').slice(0, 10) + 'T09:00:00Z').toUTCString();
 
 const SITE = 'https://docifice.com';
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
