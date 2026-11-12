@@ -3,23 +3,23 @@
 > Docifice is a technical writing agency with more than 11 years of experience documenting software products. We offer end-to-end documentation, embedded technical writers and technical recruitment.
 
 ## Ways to engage
-- [End-to-end documentation](https://docifice.com/ways-to-engage/managed-documentation): a team that plans, writes, reviews and maintains your documentation
-- [Embedded technical writers](https://docifice.com/ways-to-engage/embedded-writers): writers who join your team and work in your tools and sprints
-- [Technical recruitment](https://docifice.com/ways-to-engage/technical-recruitment): sourcing and assessing technical writers and documentation engineers
+- [End-to-end documentation](https://docifice.com/ways-to-engage/managed-documentation/): a team that plans, writes, reviews and maintains your documentation
+- [Embedded technical writers](https://docifice.com/ways-to-engage/embedded-writers/): writers who join your team and work in your tools and sprints
+- [Technical recruitment](https://docifice.com/ways-to-engage/technical-recruitment/): sourcing and assessing technical writers and documentation engineers
 
 ## Services
-- [Technical documentation](https://docifice.com/services/technical-documentation)
-- [API and developer documentation](https://docifice.com/services/api-documentation)
-- [Documentation engineering (docs-as-code)](https://docifice.com/services/documentation-engineering)
-- [Content strategy and design](https://docifice.com/services/content-strategy)
-- [Knowledge management](https://docifice.com/services/knowledge-management)
-- [Training and enablement](https://docifice.com/services/training-enablement)
-- [AI-ready documentation](https://docifice.com/services/ai-ready-documentation)
-- [AI search optimization](https://docifice.com/services/ai-search-optimization)
+- [Technical documentation](https://docifice.com/services/technical-documentation/)
+- [API and developer documentation](https://docifice.com/services/api-documentation/)
+- [Documentation engineering (docs-as-code)](https://docifice.com/services/documentation-engineering/)
+- [Content strategy and design](https://docifice.com/services/content-strategy/)
+- [Knowledge management](https://docifice.com/services/knowledge-management/)
+- [Training and enablement](https://docifice.com/services/training-enablement/)
+- [AI-ready documentation](https://docifice.com/services/ai-ready-documentation/)
+- [AI search optimization](https://docifice.com/services/ai-search-optimization/)
 
 ## More
-- [Our process](https://docifice.com/process)
-- [Case studies](https://docifice.com/work/case-studies)
-- [Blog](https://docifice.com/blog)
-- [About](https://docifice.com/about)
-- [Contact](https://docifice.com/contact)
+- [Our process](https://docifice.com/process/)
+- [Case studies](https://docifice.com/work/case-studies/)
+- [Blog](https://docifice.com/blog/)
+- [About](https://docifice.com/about/)
+- [Contact](https://docifice.com/contact/)

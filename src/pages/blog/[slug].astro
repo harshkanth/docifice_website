@@ -18,7 +18,7 @@ const rest = posts.filter((p) => p.slug !== post.slug && p.category !== post.cat
 const more = [...same, ...rest].slice(0, 3);
 const slugify = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const SITE = 'https://docifice.com';
-const url = `${SITE}/blog/${post.slug}`;
+const url = `${SITE}/blog/${post.slug}/`;
 const iso = isoDate(post.date);
 const strip = (t) => t.replace(/<[^>]+>/g, '');
 const faqs = post.body.filter((b) => b.type === 'faq').flatMap((b) => b.items);
@@ -28,7 +28,7 @@ const ld = [
     author: { '@id': SITE + '/#organization' }, publisher: { '@id': SITE + '/#organization' } },
   { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: SITE + '/' },
-    { '@type': 'ListItem', position: 2, name: 'Blog', item: SITE + '/blog' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: SITE + '/blog/' },
     { '@type': 'ListItem', position: 3, name: post.title, item: url } ] },
   ...(faqs.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((q) => ({ '@type': 'Question', name: q.q, acceptedAnswer: { '@type': 'Answer', text: strip(q.a) } })) }] : []),
 ];
@@ -104,7 +104,7 @@ const headings = post.body.filter((b) => b.type === 'h2');
 
 <div class="bp-hero">
   <div class="bp-hero-inner">
-    <a href="/blog" class="bp-back">&larr; All articles</a>
+    <a href="/blog/" class="bp-back">&larr; All articles</a>
     <div class="bp-cat">{post.categoryLabel}</div>
     <h1>{post.title}</h1>
     <p>{post.summary}</p>
@@ -140,7 +140,7 @@ const headings = post.body.filter((b) => b.type === 'h2');
     <div class="bp-h2">Keep reading.</div>
     <div class="bp-more-grid">
       {more.map((m) => (
-        <a href={`/blog/${m.slug}`} class="bp-mc">
+        <a href={`/blog/${m.slug}/`} class="bp-mc">
           <span class="bp-mc-tag">{m.categoryLabel}</span>
           <div class="bp-mc-title">{m.title}</div>
         </a>
@@ -157,8 +157,8 @@ const headings = post.body.filter((b) => b.type === 'h2');
       <h2 class="cta-h2">Need help with <em>documentation?</em></h2>
       <p class="cta-sub">Tell us what you are working on. We will tell you how we would approach it.</p>
       <div class="cta-btns">
-        <a href="/contact" style="box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background-color:#0a0a0a;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;text-decoration:none;">Get in touch</a>
-        <a href="/blog" style="box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background-color:#fff;color:#0a0a0a;border:1.5px solid #d0d0d0;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;text-decoration:none;">All articles</a>
+        <a href="/contact/" style="box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background-color:#0a0a0a;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;text-decoration:none;">Get in touch</a>
+        <a href="/blog/" style="box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background-color:#fff;color:#0a0a0a;border:1.5px solid #d0d0d0;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;font-family:'Plus Jakarta Sans',sans-serif;line-height:1;text-decoration:none;">All articles</a>
       </div>
     </div>
   </div>
