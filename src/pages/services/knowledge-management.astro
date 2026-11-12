@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+const svcLd = [{ '@context': 'https://schema.org', '@type': 'Service', name: 'Knowledge management', serviceType: 'Knowledge management', description: 'Professional knowledge management services: knowledge bases, help centers, internal wikis, SOPs and more. Docifice builds one source of truth.', url: 'https://docifice.com/services/knowledge-management', provider: { '@id': 'https://docifice.com/#organization' }, areaServed: 'Worldwide' }];
 ---
 
-<BaseLayout title="Knowledge Base and Help Center Services | Docifice" description="Professional knowledge management services: knowledge bases, help centers, internal wikis, SOPs and more. Docifice builds one source of truth.">
+<BaseLayout jsonLd={svcLd} title="Knowledge Base and Help Center Services | Docifice" description="Professional knowledge management services: knowledge bases, help centers, internal wikis, SOPs and more. Docifice builds one source of truth.">
 
 <style>
 .td-hero{background:#021430;padding:72px 0 64px;position:relative;overflow:hidden;}
