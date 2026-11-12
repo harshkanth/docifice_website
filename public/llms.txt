@@ -1,6 +1,6 @@
 # Docifice
 
-> Docifice is a technical writing agency for software teams, with more than 11 years of experience documenting software products. We offer end-to-end documentation, embedded technical writers and technical recruitment.
+> Docifice is a technical writing agency with more than 11 years of experience documenting software products. We offer end-to-end documentation, embedded technical writers and technical recruitment.
 
 ## Ways to engage
 - [End-to-end documentation](https://docifice.com/ways-to-engage/managed-documentation): a team that plans, writes, reviews and maintains your documentation
