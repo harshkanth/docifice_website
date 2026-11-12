@@ -3,5 +3,6 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://docifice.com',
-  integrations: [sitemap()],
+  trailingSlash: 'always',
+  integrations: [sitemap({ filter: (page) => !page.includes('/contact-success') })],
 });

@@ -17,10 +17,10 @@ const { image = '/og-default.png', type = 'website', title, jsonLd = [], descrip
 const pageTitle = title.includes('Docifice') ? title : `${title} | Docifice`;
 const canonical = new URL(Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/', SITE).href;
 const baseLd = [
-  { '@context': 'https://schema.org', '@type': 'Organization', '@id': SITE + '/#organization', name: 'Docifice', url: SITE, logo: SITE + '/logo-512.png',
+  { '@context': 'https://schema.org', '@type': 'Organization', '@id': SITE + '/#organization', name: 'Docifice', url: SITE + '/', logo: SITE + '/logo-512.png',
     description: 'Technical writing agency offering end-to-end documentation, embedded technical writers and technical recruitment.',
     sameAs: ['https://www.linkedin.com/company/docifice/'] },
-  { '@context': 'https://schema.org', '@type': 'WebSite', '@id': SITE + '/#website', url: SITE, name: 'Docifice', publisher: { '@id': SITE + '/#organization' } },
+  { '@context': 'https://schema.org', '@type': 'WebSite', '@id': SITE + '/#website', url: SITE + '/', name: 'Docifice', publisher: { '@id': SITE + '/#organization' } },
 ];
 const ldAll = JSON.stringify([...baseLd, ...jsonLd]).replace(/</g, '\\u003c');
 const ogImage = image.startsWith('http') ? image : SITE + image;
