@@ -1,13 +1,10 @@
 // RSS feed of the blog at /rss.xml. Tools such as Zapier, Make or Buffer can watch it and post new articles to LinkedIn.
 import { posts } from '../data/posts';
+import { isoDate } from '../data/dates';
+const toDate = (d: string) => new Date(isoDate(d) + 'T09:00:00Z').toUTCString();
 
 const SITE = 'https://docifice.com';
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-const toDate = (d: string) => {
-  const [m, y] = d.split(' ');
-  return new Date(Date.UTC(Number(y), months.indexOf(m), 1)).toUTCString();
-};
 
 export function GET() {
   const items = posts.map((p) => `
